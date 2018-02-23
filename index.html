@@ -1,99 +1,89 @@
 <!DOCTYPE html>
+
 <html>
 
-
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
-  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-  <script src="jquery-3.3.1.min.js"></script>
-  <style>
-    #map {   height: 500px;  width: 700px;}
-  </style>
-  <script src="hta_ca.js"></script>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="hta_ca.js"></script>
+
+    <style>
+      #map {   height: 500px;  width: 700px;}
+    </style>
+
 </head>
 
-
 <body>
-  <div id="map"></div>
-<script>
-console.log(calidata);
-var map = L.map('map').setView([36, -120], 6);
 
-var grayScale = L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+    <div id="map"></div>
+
+    <script>
+      var map = L.map('map').setView([47,-100], 3);
+      var grayScale = L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 attribution: 'Map data copywright <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 'Imagery copywright <a href="http://mapbox.com">Mapbox</a',
 id: 'examples.map-20v6611k'
 });
-
-grayScale.addTo(map);
-//L.geoJson(calidata).addTo(map);
-
-
-
-function getColor(d) {
-
-return d > 84  ? '#BD0026' :
-
-       d > 70  ? '#E31A1C' :
-
-       d > 56  ? '#FC4E2A' :
-
-       d > 42   ? '#FD8D3C' :
-
-       d > 28  ? '#FEB24C' :
-
-       d > 14   ? '#FED976' :
-
-                  '#FFEDA0';
-
-};
-
-
-function style(feature) {
-
-return {
-
-    fillColor: getColor(feature.properties.ht_ami),
-
-    weight: 2,
-
-    opacity: 1,
-
-    color: 'white',
-
-    dashArray: '3',
-
-    fillOpacity: 0.7
-
-};
-
-};
-
-L.geoJson(calidata, {
-
-    style: style,
-
-    onEachFeature: function (feature, layer) {
-
-    layer.bindPopup(feature.properties.GEOID);
-
-    }
-
- }).addTo(map);
-   $(document).ready(function () {
-     $('#submitbox').click(function() {
-       var currprop = $('#textbox').val();
-       map.removeLayer(geojson);
-     });
-
-   });
-</script>
-<input id="textbox" type="text" value="">
-<input id="submitbox" type="submit" value="Submit">
+      grayScale.addTo(map);
+      //adding color to the map chloropleth
+      function getColor(d) {
+          return d > 20 ? '#800026' :
+                 d > 16  ? '#BD0026' :
+                 d > 13  ? '#E31A1C' :
+                 d > 9  ? '#FC4E2A' :
+                 d > 7   ? '#FD8D3C' :
+                 d > 5   ? '#FEB24C' :
+                 d > 2   ? '#FED976' :
+                            '#FFEDA0';
+      }
+      function style(feature) {
+          return {
+              fillColor: getColor(feature.properties.co2_per_acre_local),
+              weight: 2,
+              opacity: 1,
+              color: 'white',
+              dashArray: '3',
+              fillOpacity: 0.7
+          };
+      }
+      //adds chloropleth to map
+      L.geoJson(hta_ca, {style: style}).addTo(map);
+      var geojson;
+      //highlight/remove highlight/zoom features
+      function highlightFeature(e) {
+          var layer = e.target;
+          layer.setStyle({
+              weight: 5,
+              color: '#666',
+              dashArray: '',
+              fillOpacity: 0.7
+          });
+          if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+              layer.bringToFront();
+          }
+      }
+      function resetHighlight(e) {
+          geojson.resetStyle(e.target);
+      }
+      function zoomToFeature(e) {
+          map.fitBounds(e.target.getBounds());
+      }
+      //implements cool features
+      function onEachFeature(feature, layer) {
+        layer.on({
+          mouseover: highlightFeature,
+          mouseout: resetHighlight,
+          click: zoomToFeature
+        });
+      }
+      geojson = L.geoJson(hta_ca, {
+        style: style,
+        onEachFeature: onEachFeature
+      }).addTo(map);
+    </script>
 
 </body>
-
 
 </html>
