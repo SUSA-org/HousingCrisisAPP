@@ -49,7 +49,8 @@ id: 'examples.map-20v6611k'
           };
       }
       //adds chloropleth to map
-      L.geoJson(hta_ca, {style: style}).addTo(map);
+
+      L.geoJson(calidata, {style: style}).addTo(map);
       var geojson;
       //highlight/remove highlight/zoom features
       function highlightFeature(e) {
@@ -78,7 +79,7 @@ id: 'examples.map-20v6611k'
           click: zoomToFeature
         });
       }
-      geojson = L.geoJson(hta_ca, {
+      geojson = L.geoJson(calidata, {
         style: style,
         onEachFeature: onEachFeature
       }).addTo(map);
