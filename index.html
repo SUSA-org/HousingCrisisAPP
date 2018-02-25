@@ -20,20 +20,14 @@
 
     <script>
       var map = L.map('map').setView([47,-100], 3);
-
       var grayScale = L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 attribution: 'Map data copywright <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 'Imagery copywright <a href="http://mapbox.com">Mapbox</a',
 id: 'examples.map-20v6611k'
 });
-
-
-
       grayScale.addTo(map);
-
       //adding color to the map chloropleth
-
       function getColor(d) {
           return d > 20 ? '#800026' :
                  d > 16  ? '#BD0026' :
@@ -55,33 +49,28 @@ id: 'examples.map-20v6611k'
           };
       }
       //adds chloropleth to map
-      L.geoJson(hta_ca, {style: style}).addTo(map);
-      var geojson;
 
+      L.geoJson(calidata, {style: style}).addTo(map);
+      var geojson;
       //highlight/remove highlight/zoom features
       function highlightFeature(e) {
           var layer = e.target;
-
           layer.setStyle({
               weight: 5,
               color: '#666',
               dashArray: '',
               fillOpacity: 0.7
           });
-
           if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
               layer.bringToFront();
           }
       }
-
       function resetHighlight(e) {
           geojson.resetStyle(e.target);
       }
-
       function zoomToFeature(e) {
           map.fitBounds(e.target.getBounds());
       }
-
       //implements cool features
       function onEachFeature(feature, layer) {
         layer.on({
@@ -90,8 +79,7 @@ id: 'examples.map-20v6611k'
           click: zoomToFeature
         });
       }
-
-      geojson = L.geoJson(hta_ca, {
+      geojson = L.geoJson(calidata, {
         style: style,
         onEachFeature: onEachFeature
       }).addTo(map);
