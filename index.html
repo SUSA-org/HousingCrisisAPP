@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script src="hta_ca.js"></script>
+    <script src="ca_tract_school_district.js"></script>
 
     <style>
       #map {   height: 500px;  width: 700px;}
@@ -19,14 +20,32 @@
     <div id="map"></div>
 
     <script>
-      var map = L.map('map').setView([47,-100], 3);
-      var grayScale = L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-attribution: 'Map data copywright <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-'Imagery copywright <a href="http://mapbox.com">Mapbox</a',
-id: 'examples.map-20v6611k'
-});
-      grayScale.addTo(map);
+
+      var school   = L.tileLayer(
+        //mapboxUrl, {id: 'MapID', attribution: mapboxAttribution
+        'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+                      attribution: 'Map data copywright <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+                      '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                      'Imagery copywright <a href="http://mapbox.com">Mapbox</a',
+                      id: 'examples.map-20v6611k'});
+      var District = L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+                    attribution: 'Map data copywright <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+                    '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                    'Imagery copywright <a href="http://mapbox.com">Mapbox</a',
+                    id: 'examples.map-20v6611k'
+                  });
+      var map = L.map('map',{
+          layers:[school, District]}).setView([47,-100], 3);
+      var baseMaps = {
+          "District": District,
+          "school": school
+          };
+      var overlayMaps = {
+
+          };
+
+     L.control.layers(baseMaps, overlayMaps).addTo(map);
+      //District.addTo(map);
       //adding color to the map chloropleth
       function getColor(d) {
           return d > 20 ? '#800026' :
@@ -50,6 +69,9 @@ id: 'examples.map-20v6611k'
       }
       //adds chloropleth to map
 
+//TO IMPLEMENT (notes):
+      //if somelayer is selected, set dataset to whatever the array is called, e.g.
+      // if education is selected on map, use dataset = secondary_school_district
       L.geoJson(calidata, {style: style}).addTo(map);
       var geojson;
       //highlight/remove highlight/zoom features
