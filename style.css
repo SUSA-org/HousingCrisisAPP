@@ -1,0 +1,13 @@
+#details{
+  display: inline;
+
+  text-align: left;
+}
+#map{
+  float: left;
+  padding: 50px;
+  margin-left: auto;
+  margin-right: 20px;
+    height: 500px;
+    width: 700px;
+}
