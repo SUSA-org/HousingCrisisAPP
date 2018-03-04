@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="hta_ca.js"></script>
     <script src="ca_tract_school_district.js"></script>
 
@@ -37,8 +38,8 @@
       var map = L.map('map',{
           layers:[school, District]}).setView([47,-100], 3);
       var baseMaps = {
-          "District": District,
-          "school": school
+        "District":District,
+        "School":school
           };
       var overlayMaps = {
 
@@ -72,6 +73,12 @@
 //TO IMPLEMENT (notes):
       //if somelayer is selected, set dataset to whatever the array is called, e.g.
       // if education is selected on map, use dataset = secondary_school_district
+
+console.log($('.leaflet-control-layers-selector:checked')== District);
+console.log($('.leaflet-control-layers-selector:checked'));
+if ( (eventLayer.name === 'District')) {
+
+
       L.geoJson(calidata, {style: style}).addTo(map);
       var geojson;
       //highlight/remove highlight/zoom features
@@ -92,6 +99,7 @@
       }
       function zoomToFeature(e) {
           map.fitBounds(e.target.getBounds());
+          console.log($('.leaflet-control-layers-selector:checked'));
       }
       //implements cool features
       function onEachFeature(feature, layer) {
@@ -99,12 +107,14 @@
           mouseover: highlightFeature,
           mouseout: resetHighlight,
           click: zoomToFeature
+
         });
       }
       geojson = L.geoJson(calidata, {
         style: style,
         onEachFeature: onEachFeature
       }).addTo(map);
+    }
     </script>
 
 </body>
