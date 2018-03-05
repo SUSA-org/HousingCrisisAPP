@@ -4,15 +4,13 @@
 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script src="hta_ca.js"></script>
     <script src="school_districts.js"></script>
 
-    <style>
-      #map {   height: 500px;  width: 700px;}
-    </style>
-
+    
 </head>
 
 <body>
@@ -23,23 +21,23 @@
 	<div id="details">
 		Temporary Placeholder Cell
 	</div>
-	
+
     <script>
 		// Choropleth Scripts
 
 		var school   = L.tileLayer(
 			'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-			attribution: 'Map data copywright <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + 
-				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 
+			attribution: 'Map data copywright <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 				'Imagery copywright <a href="http://mapbox.com">Mapbox</a>',
 			id: 'examples.map-20v6611k'});
 		var District = L.tileLayer(
 			'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-			attribution: 'Map data copywright <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + 
-				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 
+			attribution: 'Map data copywright <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 				'Imagery copywright <a href="http://mapbox.com">Mapbox</a>',
 			id: 'examples.map-20v6611k'});
-		
+
 		var map = L.map('map',{layers:[school, District]}).setView([36.778,-119.418], 5.5);
 		var baseMaps = {
 			"District": District,
@@ -48,12 +46,12 @@
 
 		// TODO: What is this?
 		var overlayMaps = {
-		
+
 			};
 
 		L.control.layers(baseMaps, overlayMaps).addTo(map);
 		// District.addTo(map);
-		
+
 		// adding color to the map chloropleth
 		function getColor(d) {
 			// TODO: See style(feature) to understand what levels of color to hardcode
@@ -78,7 +76,7 @@
 				fillOpacity: 0.7
 			};
 		}
-		
+
 		//adds chloropleth to map - NOTE: What comment is this for lol
 
 		// TODO: TO IMPLEMENT (notes):
@@ -87,7 +85,7 @@
 		
     L.geoJson(school_data, {style: style}).addTo(map);
 		var geojson;
-		
+
 		// highlight/remove highlight/zoom features
 		function highlightFeature(e) {
 			var layer = e.target;
@@ -101,22 +99,26 @@
 				layer.bringToFront();
 			}
 		}
-		
+
 		function resetHighlight(e) {
 			geojson.resetStyle(e.target);
 		}
-		
+
 		// TODO: Fix the naming n shit cuz i'm just coattailing off this function rn
 		function zoomToFeature(e) {
 			map.fitBounds(e.target.getBounds());
-			info.update(e.target.feature.properties);
+
 		}
-      
+
+    function showinfo(e) {
+      info.update(e.target.feature.properties);
+    }
+
 		var info = L.control();
-		
+
 		// kk: I wanted to delete this function but leaflet errors without it...
 		// kk: I literally have no idea what this does.
-		info.onAdd = function (map) {			
+		info.onAdd = function (map) {
 			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
 			this.update();
 			return this._div;
@@ -135,23 +137,24 @@
 				deets.innerHTML = temp_str + 'Click on a track'
 			}
 		};
-	  
+
 		info.addTo(map);
-		
+
 		// implements cool features
 		function onEachFeature(feature, layer) {
 			layer.on({
 			mouseover: highlightFeature,
 			mouseout: resetHighlight,
-			click: zoomToFeature // kk: see comments above zoomToFeature
+			dblclick: zoomToFeature, // kk: see comments above zoomToFeature
+      click: showinfo
 			});
 		}
-		
-		geojson = L.geoJson(school_data, {
+
+		geojson = L.geoJson(calidata, {
 			style: style,
 			onEachFeature: onEachFeature
 		}).addTo(map);
-    
+
 	</script>
 
 </body>
