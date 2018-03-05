@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script src="hta_ca.js"></script>
-    <script src="ca_tract_school_district.js"></script>
+    <script src="school_districts.js"></script>
 
     <style>
       #map {   height: 500px;  width: 700px;}
@@ -84,7 +84,8 @@
 		// TODO: TO IMPLEMENT (notes):
 		// if some layer is selected, set dataset to whatever the array is called, e.g.
 		// if education is selected on map, use dataset = secondary_school_district
-		L.geoJson(calidata, {style: style}).addTo(map);
+		
+    L.geoJson(school_data, {style: style}).addTo(map);
 		var geojson;
 		
 		// highlight/remove highlight/zoom features
@@ -146,7 +147,7 @@
 			});
 		}
 		
-		geojson = L.geoJson(calidata, {
+		geojson = L.geoJson(school_data, {
 			style: style,
 			onEachFeature: onEachFeature
 		}).addTo(map);
