@@ -59,20 +59,21 @@
     // adding color to the map chloropleth
     function getColor(d) {
       // TODO: See style(feature) to understand what levels of color to hardcode
-      return  d > 20  ? '#800026':
-          d > 16  ? '#BD0026':
-          d > 13  ? '#E31A1C':
-          d > 9   ? '#FC4E2A':
-          d > 7   ? '#FD8D3C':
-          d > 5   ? '#FEB24C':
-          d > 2   ? '#FED976':
-                '#FFEDA0';
+      return  d > 1000001  ? '#7a7a7a':
+          d > 1000 ? '#dbdab8':
+          d > 500 ? '#fcfba1':
+          d > 250  ? '#f5f970':
+          d > 100  ? '#ccf280':
+          d > 50   ? '#95cc74':
+          d > 10   ? '#49a311':
+          d > 0    ? '#2d6808':
+                '#ef8383';
     }
 
     function style(feature) {
       return {
         // TODO: Fill by a more relevant attribute
-        fillColor: getColor(feature.properties.co2_per_acre_local),
+        fillColor: getColor(feature.properties.rank),
         weight: 2,
         opacity: 1,
         color: 'white',
