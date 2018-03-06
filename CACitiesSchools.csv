@@ -1,0 +1,860 @@
+Rank (of 859),City,# Elementary Schools,# Middle Schools,# High Schools,# Alt. Schools,# Private Schools*,Rank score (2017),Rank (2016)
+1st,Del Mar,2,0,0,0,3,0.991,20
+2nd,San Marino,2,1,1,0,2,0.989,4
+3rd,Orinda,4,1,1,0,2,0.987,3
+4th,Los Altos Hills,1,0,0,0,2,0.985,9
+5th,La Canada,3,0,1,0,0,0.983,1
+6th,Stevenson Ranch,2,1,0,0,0,0.983,14
+7th,Ross,1,0,0,0,1,0.981,8
+8th,Kensington,1,0,0,0,1,0.979,17
+9th,Cupertino,8,3,3,0,3,0.978,7
+10th,Los Altos,7,2,1,0,6,0.978,11
+11th,Portola Valley,1,1,0,0,3,0.977,10
+12th,Moraga,3,1,1,0,1,0.977,6
+13th,Rancho Santa Fe,2,1,0,0,3,0.977,12
+14th,Lafayette,4,1,1,0,5,0.976,13
+15th,Hillsborough,3,1,0,0,4,0.971,2
+16th,Manhattan Beach,6,1,1,0,5,0.968,18
+17th,Saratoga,6,1,2,0,3,0.965,15
+18th,Tiburon,2,1,0,0,1,0.965,5
+19th,South Pasadena,3,1,1,0,2,0.962,22
+20th,Alamo,2,1,0,1,0,0.959,19
+21st,Los Alamitos,5,2,2,0,1,0.958,27
+22nd,Carmel,1,1,2,0,3,0.956,16
+23rd,Granite Bay,2,2,1,0,1,0.954,50
+24th,Laguna Beach,2,1,1,0,2,0.954,28
+25th,Palo Alto,11,3,2,1,17,0.951,21
+26th,Mill Valley,5,1,1,0,3,0.951,24
+27th,Piedmont,3,1,2,0,1,0.95,55
+28th,Rolling Hills Estates,2,0,1,0,1,0.947,23
+29th,Solana Beach,2,1,0,0,2,0.946,44
+30th,Foster City,3,1,0,0,3,0.946,26
+31st,Belmont,4,1,1,0,5,0.945,47
+32nd,Albany,3,1,2,0,2,0.944,40
+33rd,Olympic Valley,1,0,1,0,1,0.943,45
+34th,Studio City,1,0,0,0,4,0.941,30
+35th,Burlingame,5,1,1,0,5,0.94,34
+36th,Corona Del Mar,2,0,0,0,1,0.94,52
+37th,Kentfield,1,1,0,0,1,0.939,25
+38th,Ladera Ranch,3,1,0,0,2,0.938,36
+39th,San Ramon,11,4,2,1,1,0.934,33
+40th,La Jolla,3,1,1,1,8,0.934,43
+41st,Corte Madera,2,0,0,0,3,0.933,49
+42nd,San Carlos,5,2,0,0,4,0.933,42
+43rd,Coto De Caza,1,0,0,0,0,0.932,54
+44th,San Anselmo,3,0,1,0,4,0.926,37
+45th,Los Gatos,7,3,1,0,5,0.925,31
+46th,Seal Beach,1,0,0,0,0,0.918,41
+47th,Hermosa Beach,2,0,0,0,1,0.916,35
+48th,Woodside,1,0,1,0,0,0.916,71
+49th,Cardiff by the Sea,2,0,0,0,0,0.914,60
+50th,Pacific Palisades,2,0,1,0,5,0.913,39
+51st,Irvine,27,6,7,1,18,0.912,51
+52nd,Bermuda Dunes,1,0,0,0,1,0.908,85
+53rd,Yorba Linda,8,2,1,0,7,0.907,63
+54th,Pleasanton,9,3,3,0,5,0.907,53
+55th,Carmel Valley,1,0,0,0,0,0.907,48
+56th,Malibu,3,0,2,1,1,0.903,58
+57th,Beverly Hills,4,0,2,0,4,0.903,59
+58th,Palos Verdes Estates,2,1,1,1,0,0.902,46
+59th,Topanga,1,0,0,0,0,0.901,56
+60th,Stanford,2,0,0,0,0,0.9,32
+61st,Scotts Valley,1,1,1,0,2,0.897,82
+62nd,Danville,8,3,3,0,2,0.897,62
+63rd,Coronado,2,1,2,1,2,0.896,64
+64th,Bayside,1,0,0,0,2,0.891,66
+65th,Millbrae,3,1,2,0,0,0.891,69
+66th,Newport Beach,6,1,2,0,4,0.89,68
+67th,Summerland,1,0,0,0,0,0.888,29
+68th,Cypress,5,1,2,0,5,0.887,73
+69th,Fairfax,1,1,0,0,1,0.884,74
+70th,El Dorado Hills,7,2,1,0,4,0.884,38
+71st,Arcadia,7,3,1,1,11,0.882,83
+72nd,Rancho Palos Verdes,7,3,0,0,4,0.881,72
+73rd,Carlsbad,15,3,4,0,9,0.88,75
+74th,Trabuco Canyon,3,0,0,0,0,0.878,86
+75th,Valencia,8,1,2,0,1,0.876,70
+76th,La Crescenta,6,1,3,1,6,0.876,77
+77th,Foothill Ranch,1,0,0,0,0,0.873,93
+78th,Loomis,5,0,1,0,1,0.873,78
+79th,McArthur,0,0,3,0,0,0.872,141
+80th,Agoura Hills,1,0,0,0,1,0.872,90
+81st,Encinitas,5,2,4,0,7,0.871,89
+82nd,Walnut Creek,9,2,3,0,11,0.87,95
+83rd,Douglas City,1,0,0,0,0,0.869,67
+84th,Walnut,7,2,2,0,5,0.869,105
+85th,Buellton,1,1,0,0,0,0.867,76
+86th,Millville,1,0,0,0,0,0.865,100
+87th,Rancho Santa Margarita,6,3,1,0,6,0.864,65
+88th,Sloughhouse,1,0,0,0,0,0.863,80
+89th,Agoura,3,1,2,0,2,0.861,91
+90th,Shingle Springs,3,1,1,0,0,0.86,88
+91st,Etiwanda,5,4,1,0,0,0.858,103
+92nd,Solvang,2,0,0,0,0,0.856,144
+93rd,Clayton,1,1,0,0,0,0.856,92
+94th,Redondo Beach,8,2,3,0,8,0.85,96
+95th,Mountain House,4,0,1,0,0,0.843,130
+96th,Encino,5,0,0,0,9,0.838,94
+97th,Dublin,6,2,2,0,7,0.834,79
+98th,Folsom,11,2,3,0,6,0.834,99
+99th,Aliso Viejo,6,2,1,0,5,0.834,134
+100th,Wilton,1,0,0,0,0,0.833,107
+101st,Los Olivos,1,0,0,1,2,0.833,98
+102nd,Kenwood,1,0,0,0,0,0.829,57
+103rd,Pacific Grove,3,1,2,0,0,0.826,87
+104th,San Clemente,7,3,1,0,4,0.824,111
+105th,Davis,9,3,3,1,5,0.823,114
+106th,Diamond Bar,8,2,1,0,6,0.822,117
+107th,Oak Park,3,1,2,1,0,0.821,104
+108th,Rocklin,15,2,3,4,1,0.821,109
+109th,Gold River,1,0,0,0,0,0.821,81
+110th,La Palma,3,1,1,0,2,0.819,122
+111th,Sierra Madre,1,1,0,0,4,0.818,106
+112th,Pine Mountain Club,1,0,0,0,0,0.818,
+113th,Browns Valley,1,0,0,0,0,0.817,127
+114th,Laguna Niguel,7,1,0,0,10,0.816,120
+115th,Huntington Beach,20,7,5,0,14,0.815,118
+116th,Fountain Valley,8,3,3,0,5,0.815,126
+117th,El Segundo,2,1,2,0,0,0.813,123
+118th,Avery,0,1,0,0,0,0.812,97
+119th,Saint Helena,2,1,1,0,3,0.812,116
+120th,Mather,1,0,1,3,0,0.809,605
+121st,Westlake Village,3,0,1,3,3,0.809,131
+122nd,Bonsall,2,2,1,0,1,0.809,108
+123rd,Santa Monica,9,2,2,0,11,0.808,112
+124th,Los Osos,2,1,0,0,1,0.808,158
+125th,Idyllwild,1,0,0,0,2,0.803,183
+126th,Morro Bay,1,0,1,0,0,0.801,214
+127th,Rescue,2,1,0,0,0,0.8,129
+128th,Oregon House,1,0,0,0,0,0.8,804
+129th,Brisbane,1,1,0,0,0,0.799,110
+130th,Pacifica,6,1,2,0,4,0.798,137
+131st,Travis Afb,2,0,0,0,0,0.796,156
+132nd,Fremont,29,5,9,3,15,0.791,138
+133rd,Indian Wells,1,0,0,0,0,0.787,139
+134th,Loma Linda,1,0,0,0,1,0.786,163
+135th,Alta Loma,10,2,1,0,2,0.784,154
+136th,Penryn,1,0,0,0,1,0.783,128
+137th,Hydesville,1,0,0,0,0,0.783,371
+138th,Cerritos,9,3,5,0,2,0.78,135
+139th,Mountain View,10,2,2,0,5,0.78,148
+140th,Poway,7,2,2,0,7,0.779,119
+141st,Playa Vista,1,0,0,0,0,0.778,184
+142nd,Milpitas,9,2,2,0,7,0.774,168
+143rd,Newbury Park,6,1,2,0,2,0.773,143
+144th,Newcastle,3,0,0,3,0,0.773,113
+145th,Murphys,1,0,0,0,0,0.772,175
+146th,Torrance,20,8,7,0,15,0.769,151
+147th,Etna,1,0,2,0,0,0.768,157
+148th,Brea,6,1,2,0,4,0.767,159
+149th,West Hollywood,1,0,1,1,4,0.766,406
+150th,Forest Falls,1,0,0,0,0,0.764,
+151st,Soquel,3,0,1,0,2,0.763,165
+152nd,Villa Park,2,1,1,0,0,0.763,133
+153rd,Spreckels,1,0,0,0,0,0.762,164
+154th,Hickman,2,1,0,0,0,0.759,145
+155th,Isleton,1,0,0,0,0,0.758,218
+156th,Alameda,10,4,5,2,10,0.757,179
+157th,Calabasas,3,2,2,0,3,0.757,84
+158th,Saugus,7,0,3,0,0,0.756,150
+159th,Temple City,3,2,2,1,2,0.755,160
+160th,Woodland Hills,9,2,4,0,12,0.754,224
+161st,Goleta,6,1,2,0,4,0.753,191
+162nd,Placentia,9,3,3,2,4,0.752,161
+163rd,Larkspur,0,1,3,0,2,0.751,203
+164th,Davenport,1,0,0,0,0,0.751,142
+165th,Descanso,1,0,0,0,0,0.751,101
+166th,Atherton,4,0,1,0,0,0.751,177
+167th,Chino Hills,10,3,4,0,6,0.75,121
+168th,Mission Viejo,13,4,5,1,9,0.75,171
+169th,Clovis,19,4,6,2,5,0.75,240
+170th,Capitola,1,1,0,0,0,0.745,180
+171st,Alta,1,0,0,0,0,0.744,246
+172nd,Midway City,3,0,0,0,0,0.743,196
+173rd,Thousand Oaks,11,3,1,1,9,0.743,140
+174th,Castro Valley,11,2,3,0,2,0.742,155
+175th,Elk Grove,21,6,8,1,6,0.742,193
+176th,Sunnyvale,13,4,3,1,10,0.741,169
+177th,Newhall,5,1,1,0,1,0.739,167
+178th,Cameron Park,2,1,0,0,0,0.738,185
+179th,Truckee,5,1,2,1,1,0.737,181
+180th,Winchester,4,0,0,1,0,0.737,166
+181st,Rosemead,10,3,1,0,2,0.736,205
+182nd,Sherman Oaks,3,2,0,0,7,0.734,146
+183rd,Gaviota,1,0,0,0,0,0.732,153
+184th,Temecula,14,5,4,2,7,0.732,189
+185th,Murrieta,13,5,4,1,6,0.731,194
+186th,Palm Desert,4,1,1,0,9,0.73,152
+187th,Roseville,19,8,5,1,11,0.728,162
+188th,Yountville,1,0,0,0,0,0.728,348
+189th,Mendocino,1,0,2,1,0,0.727,188
+190th,Templeton,3,1,3,0,2,0.726,149
+191st,Monterey Park,8,1,1,0,4,0.722,222
+192nd,Santee,10,0,2,0,0,0.72,178
+193rd,Berkeley,11,4,4,0,13,0.72,221
+194th,Santa Clarita,4,2,7,1,2,0.718,176
+195th,Forest Ranch,1,0,0,0,0,0.717,311
+196th,Tahoe City,1,1,1,0,0,0.716,219
+197th,Bonita,3,0,0,0,2,0.714,173
+198th,Weimar,0,2,0,0,0,0.713,124
+199th,Pismo Beach,1,1,0,0,1,0.711,172
+200th,Coleville,1,0,2,0,0,0.707,136
+201st,Claremont,8,1,3,0,5,0.705,255
+202nd,Alpine,6,2,0,0,0,0.705,324
+203rd,Boulevard,1,0,0,0,0,0.705,190
+204th,Benicia,4,1,3,0,1,0.704,241
+205th,Venice,3,0,1,0,3,0.702,276
+206th,San Luis Obispo,7,2,3,4,8,0.702,225
+207th,Penngrove,1,0,0,0,1,0.699,199
+208th,Moorpark,6,2,4,0,0,0.699,195
+209th,Catheys Valley,1,0,0,0,0,0.698,343
+210th,South El Monte,1,1,1,0,1,0.698,234
+211th,San Dimas,4,2,3,2,6,0.697,321
+212th,Laguna Hills,3,0,1,0,1,0.696,187
+213th,Westminster,12,3,2,0,3,0.696,220
+214th,Ripon,5,0,2,1,1,0.696,216
+215th,Durham,1,1,1,0,0,0.694,230
+216th,Sebastopol,10,2,3,2,3,0.693,198
+217th,La Verne,4,0,2,0,4,0.693,235
+218th,West Hills,8,0,0,0,8,0.692,245
+219th,Rowland Heights,6,1,1,1,4,0.692,286
+220th,Santa Ynez,3,0,2,0,1,0.691,229
+221st,Pleasant Grove,1,0,0,0,0,0.69,125
+222nd,Santa Margarita,2,0,0,0,0,0.689,147
+223rd,Northridge,12,4,1,0,8,0.689,210
+224th,Artesia,4,1,0,0,2,0.689,233
+225th,Canyon Country,9,1,1,0,2,0.688,242
+226th,Knights Ferry,1,0,0,0,0,0.686,226
+227th,Aptos,3,1,2,0,5,0.685,208
+228th,Signal Hill,3,1,0,0,0,0.684,409
+229th,El Cerrito,3,1,2,0,5,0.682,291
+230th,Live Oak,3,1,2,1,0,0.682,340
+231st,Leona Valley,1,0,0,0,0,0.681,307
+232nd,Brentwood,8,3,5,1,2,0.68,238
+233rd,Burbank,11,3,4,3,19,0.678,231
+234th,Alhambra,9,0,4,0,15,0.677,272
+235th,Norco,5,1,3,1,3,0.676,244
+236th,Cayucos,1,0,0,0,0,0.674,186
+237th,Palo Cedro,3,0,2,0,0,0.674,197
+238th,Santa Clara,15,2,4,2,13,0.674,237
+239th,Cambria,1,1,3,0,0,0.672,174
+240th,Livermore,11,3,5,1,2,0.671,227
+241st,Jamul,1,2,0,1,0,0.671,206
+242nd,La Mirada,6,3,1,0,3,0.671,217
+243rd,Pleasant Hill,6,3,3,1,2,0.671,257
+244th,San Mateo,13,3,5,1,12,0.67,265
+245th,Redlands,10,3,7,2,10,0.669,239
+246th,Garden Grove,36,8,8,1,8,0.669,283
+247th,Culver City,8,1,2,1,3,0.668,252
+248th,Lakeside,8,2,2,0,2,0.668,318
+249th,Mission Hills,1,0,0,0,2,0.667,232
+250th,Heber,1,0,0,0,0,0.667,261
+251st,Somis,2,0,0,0,0,0.667,313
+252nd,Felton,1,1,1,1,1,0.665,170
+253rd,Nicolaus,0,0,2,0,0,0.663,293
+254th,Carpinteria,3,1,3,0,2,0.662,294
+255th,Crows Landing,1,0,0,0,0,0.662,215
+256th,Arcata,7,1,4,1,3,0.662,296
+257th,El Dorado,1,0,3,0,0,0.66,207
+258th,Novato,9,2,3,2,4,0.66,202
+259th,Lake Forest,6,1,1,0,7,0.66,201
+260th,Rancho Mirage,1,0,1,0,1,0.656,267
+261st,Chula Vista,40,7,13,4,13,0.654,275
+262nd,Corona,27,7,8,1,11,0.654,264
+263rd,Occidental,2,0,0,0,0,0.654,212
+264th,Ventura,18,4,5,1,14,0.653,256
+265th,Nevada City,6,1,0,3,4,0.652,422
+266th,Gridley,3,1,3,0,0,0.65,372
+267th,Arroyo Grande,3,2,3,0,3,0.65,288
+268th,Burnt Ranch,1,0,0,0,0,0.649,593
+269th,Glendale,14,3,4,1,13,0.648,236
+270th,Ahwahnee,2,0,0,0,0,0.647,253
+271st,Bolinas,1,0,0,0,0,0.644,115
+272nd,Oak View,1,0,0,0,0,0.644,204
+273rd,Edwards,1,0,1,0,0,0.644,251
+274th,Orangevale,7,2,1,0,4,0.643,249
+275th,Edgewood,1,0,0,0,0,0.642,263
+276th,San Gabriel,7,1,4,0,9,0.642,287
+277th,Discovery Bay,2,0,0,0,1,0.64,182
+278th,American Canyon,3,1,2,0,1,0.639,290
+279th,Petaluma,27,5,7,0,5,0.639,277
+280th,Monterey,4,1,1,0,3,0.639,268
+281st,Lemon Cove,1,0,0,0,0,0.638,395
+282nd,Plumas Lake,2,1,0,0,0,0.638,213
+283rd,Santa Cruz,14,3,10,2,10,0.638,279
+284th,Cottonwood,4,3,1,1,0,0.638,308
+285th,Beale Afb,2,0,0,0,0,0.637,260
+286th,Robbins,1,0,0,0,0,0.637,370
+287th,Keyes,1,0,0,1,0,0.637,367
+288th,Pioneer,1,0,0,0,0,0.636,282
+289th,Knights Landing,1,0,0,0,0,0.635,326
+290th,Campbell,4,1,1,0,10,0.634,280
+291st,Fort Irwin,2,1,0,0,0,0.632,250
+292nd,Fullerton,18,3,6,0,6,0.631,266
+293rd,Boulder Creek,1,0,0,1,0,0.63,254
+294th,Gilroy,10,3,5,0,4,0.63,315
+295th,San Juan Capistrano,5,1,5,1,6,0.63,271
+296th,Glendora,7,2,5,1,5,0.63,243
+297th,Fort Jones,1,1,0,1,1,0.629,356
+298th,Fellows,1,0,0,0,0,0.628,192
+299th,Aromas,1,0,0,0,0,0.628,258
+300th,La Mesa,9,3,3,2,5,0.625,301
+301st,Tuolumne,1,0,7,0,0,0.625,200
+302nd,Castaic,3,1,0,1,1,0.624,332
+303rd,Morgan Hill,7,1,3,1,6,0.623,248
+304th,Santa Fe Springs,3,1,1,0,2,0.622,328
+305th,Hacienda Heights,10,2,6,0,3,0.622,289
+306th,West Covina,15,5,5,1,9,0.62,310
+307th,Wrightwood,1,0,0,0,0,0.62,274
+308th,Grass Valley,11,3,10,0,3,0.619,284
+309th,Calimesa,0,1,0,0,1,0.619,285
+310th,Monrovia,5,2,3,1,4,0.617,344
+311th,Hercules,3,1,1,0,0,0.617,306
+312th,Holtville,2,1,2,1,0,0.617,472
+313th,San Bruno,8,1,3,0,2,0.614,353
+314th,San Marcos,9,4,5,4,3,0.612,316
+315th,Raymond,2,0,1,0,0,0.612,500
+316th,Sunland,2,1,0,0,1,0.612,298
+317th,Hollister,10,4,2,1,5,0.61,437
+318th,Capistrano Beach,1,0,0,0,1,0.608,209
+319th,Morongo Valley,1,0,0,0,0,0.606,320
+320th,Rancho Cucamonga,8,3,3,0,9,0.602,323
+321st,Tarzana,3,1,0,0,4,0.601,259
+322nd,Miranda,0,1,2,1,1,0.6,541
+323rd,Camino,2,0,0,0,0,0.6,337
+324th,Angels Camp,1,0,2,1,1,0.599,329
+325th,San Jose,144,47,50,6,52,0.596,361
+326th,Forestville,2,0,1,0,0,0.595,262
+327th,San Diego,181,42,47,23,60,0.595,335
+328th,Buena Park,11,1,1,1,2,0.595,299
+329th,Sunol,2,0,0,0,0,0.595,369
+330th,Camarillo,10,3,5,3,3,0.595,281
+331st,Oak Hills,0,0,1,0,0,0.594,432
+332nd,San Francisco,75,15,27,5,91,0.594,364
+333rd,Middletown,5,1,3,1,2,0.593,359
+334th,Twain Harte,1,0,0,0,0,0.592,424
+335th,Prather,1,0,0,0,0,0.591,447
+336th,Rohnert Park,6,2,4,2,1,0.589,474
+337th,Three Rivers,1,0,0,0,0,0.589,394
+338th,Granada Hills,7,3,4,1,4,0.588,387
+339th,Vacaville,13,2,4,0,4,0.587,382
+340th,Half Moon Bay,3,1,2,0,1,0.585,389
+341st,Kingsburg,6,3,3,0,0,0.585,358
+342nd,Chico,17,3,8,5,5,0.583,351
+343rd,San Rafael,12,2,6,2,14,0.583,333
+344th,Placerville,5,4,4,4,3,0.581,304
+345th,Marina Del Rey,1,0,0,0,0,0.581,376
+346th,Healdsburg,4,1,2,0,3,0.58,336
+347th,Sutter,1,0,2,0,0,0.58,462
+348th,Union City,6,2,1,1,2,0.578,373
+349th,Ramona,6,1,3,1,2,0.578,404
+350th,Menifee,7,4,1,1,3,0.575,339
+351st,O Neals,1,0,2,1,0,0.574,427
+352nd,Ballico,2,0,0,0,0,0.574,405
+353rd,Lakewood,14,1,4,1,5,0.574,391
+354th,Trinidad,2,0,0,0,0,0.573,223
+355th,Tomales,1,0,1,0,0,0.573,365
+356th,Hayfork,1,0,3,0,0,0.57,292
+357th,Lomita,2,1,0,0,3,0.57,327
+358th,Atascadero,4,2,2,1,1,0.569,295
+359th,Sun City,1,0,0,0,0,0.569,433
+360th,Foresthill,1,0,1,0,0,0.567,338
+361st,Nipomo,3,0,2,0,0,0.567,461
+362nd,Quartz Hill,1,0,2,0,0,0.566,309
+363rd,Santa Barbara,21,4,9,1,14,0.564,388
+364th,Chester,1,0,2,0,1,0.563,269
+365th,La Habra,10,2,2,0,4,0.561,399
+366th,Gorman,1,0,0,0,0,0.56,483
+367th,Portola,1,0,2,0,0,0.56,300
+368th,Fallbrook,6,2,3,1,4,0.559,400
+369th,Boonville,1,0,2,0,0,0.559,514
+370th,Wheatland,1,1,2,0,0,0.558,362
+371st,Susanville,4,1,6,1,0,0.557,325
+372nd,Phelan,3,2,3,1,0,0.556,410
+373rd,Antelope,7,0,4,1,1,0.554,378
+374th,Hawthorne,16,5,7,2,4,0.554,475
+375th,Lincoln,6,2,2,2,1,0.554,392
+376th,Long Beach,47,14,13,1,27,0.553,471
+377th,Pinedale,2,0,0,0,0,0.553,319
+378th,Yermo,1,0,2,0,0,0.553,303
+379th,Redwood City,15,2,7,1,11,0.551,421
+380th,Vandenberg Afb,1,0,0,0,0,0.551,393
+381st,Chatsworth,4,1,4,0,9,0.55,473
+382nd,Guerneville,1,1,0,0,0,0.549,401
+383rd,Scotia,1,0,0,0,0,0.549,380
+384th,Imperial,2,1,2,0,2,0.548,354
+385th,Covina,10,3,5,0,5,0.548,412
+386th,Aguanga,1,0,0,0,0,0.547,305
+387th,Palm Springs,4,1,1,1,6,0.547,426
+388th,Herald,1,0,0,0,0,0.546,383
+389th,Clarksburg,1,1,1,0,0,0.545,416
+390th,Point Reyes Station,2,0,0,0,0,0.544,346
+391st,Daly City,14,3,4,0,2,0.543,384
+392nd,McKinleyville,3,1,3,0,0,0.542,352
+393rd,Galt,5,1,3,0,2,0.541,548
+394th,Paso Robles,8,2,3,0,2,0.541,407
+395th,Bella Vista,1,0,0,0,0,0.539,419
+396th,Penn Valley,4,2,0,2,0,0.539,390
+397th,Garden Valley,0,0,1,0,0,0.539,445
+398th,Sanger,9,1,4,2,0,0.539,466
+399th,Yucaipa,8,1,3,1,3,0.537,444
+400th,Stanton,2,0,0,0,1,0.537,397
+401st,Monte Rio,1,0,0,0,0,0.536,
+402nd,Oakhurst,2,1,5,0,1,0.536,360
+403rd,Mentone,1,0,0,0,1,0.535,314
+404th,Pinon Hills,1,0,0,0,0,0.535,330
+405th,Fall River Mills,1,0,0,0,0,0.535,278
+406th,Tres Pinos,1,0,0,0,0,0.534,624
+407th,Los Molinos,3,0,1,1,0,0.534,349
+408th,East Nicolaus,1,0,0,1,0,0.533,396
+409th,Copperopolis,1,0,0,0,0,0.533,322
+410th,Nuevo,2,1,1,1,1,0.532,490
+411th,Maxwell,1,0,1,0,0,0.532,486
+412th,La Grange,1,0,1,0,0,0.532,581
+413th,Pescadero,1,0,2,0,0,0.531,414
+414th,Whittier,29,9,8,0,18,0.531,450
+415th,Linden,1,0,1,0,0,0.53,428
+416th,Lemoore,8,3,3,0,1,0.529,375
+417th,Geyserville,1,0,1,1,0,0.529,
+418th,Loyalton,1,1,2,1,0,0.529,636
+419th,Reedley,7,2,2,1,2,0.525,488
+420th,Knightsen,1,0,0,0,0,0.525,403
+421st,Tustin,11,4,3,0,2,0.525,451
+422nd,Rio Oso,1,0,0,0,0,0.523,493
+423rd,Julian,1,1,2,2,0,0.522,273
+424th,Princeton,1,0,1,0,0,0.521,567
+425th,Lebec,1,1,1,0,0,0.52,449
+426th,Redding,24,5,16,4,8,0.519,418
+427th,Lake View Terrace,2,1,1,1,1,0.519,619
+428th,Upland,10,2,2,0,4,0.518,357
+429th,San Pedro,11,1,5,1,4,0.518,525
+430th,Somerset,2,1,0,0,0,0.518,520
+431st,Shasta,1,0,0,0,0,0.518,411
+432nd,Ferndale,1,0,1,0,0,0.517,528
+433rd,Caruthers,2,0,2,0,0,0.517,621
+434th,Chino,11,2,3,0,6,0.516,430
+435th,Downey,11,6,4,3,8,0.516,503
+436th,Orland,5,1,3,1,1,0.514,398
+437th,Romoland,3,0,1,0,0,0.514,582
+438th,Columbia,2,0,0,0,0,0.513,297
+439th,Fair Oaks,4,1,3,1,6,0.509,379
+440th,Oceanside,25,6,5,2,9,0.509,436
+441st,South San Francisco,6,3,3,1,4,0.508,377
+442nd,Colusa,1,1,2,1,1,0.508,487
+443rd,Sheridan,1,0,0,0,0,0.508,676
+444th,Mariposa,3,0,3,3,2,0.507,402
+445th,Costa Mesa,14,1,7,4,12,0.507,458
+446th,Calistoga,1,0,2,0,0,0.506,566
+447th,Ojai,5,1,2,1,8,0.506,302
+448th,Paradise,4,4,4,1,1,0.505,431
+449th,Chualar,1,0,0,0,0,0.504,470
+450th,Winton,3,2,0,0,1,0.504,454
+451st,Newark,8,1,2,2,2,0.504,408
+452nd,Yreka,2,1,4,2,1,0.503,448
+453rd,Lennox,5,1,1,0,0,0.503,570
+454th,Alviso,1,0,0,0,0,0.501,417
+455th,Lathrop,4,0,1,0,0,0.5,495
+456th,Sutter Creek,1,0,2,2,1,0.5,452
+457th,Hughson,1,3,3,0,1,0.499,499
+458th,Coarsegold,2,1,1,1,0,0.499,345
+459th,Arnold,1,0,0,0,0,0.498,228
+460th,Escondido,21,6,9,2,6,0.497,465
+461st,South Lake Tahoe,4,1,3,1,0,0.496,502
+462nd,Inyokern,1,0,0,0,0,0.495,497
+463rd,Calipatria,1,1,1,0,0,0.495,601
+464th,Altadena,6,2,0,1,5,0.494,521
+465th,Mammoth Lakes,1,1,2,1,0,0.492,247
+466th,Mokelumne Hill,1,0,0,0,0,0.491,381
+467th,Montara,1,0,0,0,0,0.49,334
+468th,Playa Del Rey,1,0,0,0,1,0.489,368
+469th,Eureka,10,4,6,4,4,0.488,508
+470th,Pine Valley,0,1,2,0,0,0.488,435
+471st,El Cajon,23,8,8,3,10,0.487,438
+472nd,Snelling,2,0,0,0,0,0.487,312
+473rd,Beaumont,7,2,2,1,1,0.484,425
+474th,Napa,18,4,7,1,11,0.482,542
+475th,Marysville,7,2,4,5,0,0.481,515
+476th,Waterford,3,2,2,2,0,0.48,476
+477th,Acton,1,1,1,1,0,0.48,420
+478th,Escalon,3,1,2,0,0,0.48,513
+479th,Dunlap,1,0,1,0,0,0.479,557
+480th,Pollock Pines,1,1,0,0,0,0.479,511
+481st,Grover Beach,3,0,0,0,1,0.479,501
+482nd,Ridgecrest,6,2,2,0,4,0.478,385
+483rd,Atwater,7,3,2,1,1,0.476,509
+484th,Martinez,5,1,3,2,0,0.476,453
+485th,Denair,5,2,2,1,0,0.476,517
+486th,Cool,1,0,0,0,0,0.476,363
+487th,Colfax,1,0,1,2,0,0.474,342
+488th,Plymouth,1,1,0,0,1,0.474,577
+489th,Lawndale,6,2,7,0,0,0.474,526
+490th,Menlo Park,4,2,0,0,8,0.472,549
+491st,Brawley,6,1,3,0,2,0.472,611
+492nd,Wildomar,5,1,1,0,3,0.471,535
+493rd,Soulsbyville,1,0,0,0,0,0.471,347
+494th,Santa Rosa,45,8,14,5,16,0.466,496
+495th,Montclair,8,2,1,1,2,0.465,634
+496th,Winters,1,1,2,0,0,0.465,489
+497th,Lemon Grove,5,0,0,0,4,0.465,550
+498th,Arleta,3,1,1,0,0,0.465,478
+499th,Simi Valley,23,3,6,11,9,0.464,482
+500th,National City,12,2,1,0,3,0.464,564
+501st,San Miguel,4,0,0,0,0,0.463,529
+502nd,City Of Industry,0,1,1,0,1,0.463,598
+503rd,Twentynine Palms,4,1,1,0,0,0.463,443
+504th,Los Nietos,0,1,0,0,0,0.463,537
+505th,Hanford,16,3,8,3,3,0.461,563
+506th,Willits,4,1,2,3,2,0.46,
+507th,Auburn,5,1,4,4,4,0.457,441
+508th,Reseda,9,0,4,6,4,0.457,434
+509th,Dana Point,2,0,1,1,3,0.455,355
+510th,Springville,1,0,0,0,0,0.453,374
+511th,Bellflower,7,0,2,1,7,0.452,558
+512th,Orange,16,3,3,2,15,0.452,546
+513th,Vista,14,3,5,7,5,0.451,551
+514th,El Sobrante,2,1,0,0,4,0.451,530
+515th,Weott,1,0,0,0,0,0.451,317
+516th,Rio Vista,1,1,1,1,0,0.451,545
+517th,Salida,3,1,0,0,0,0.45,554
+518th,Carlotta,1,0,0,0,0,0.449,640
+519th,Lee Vining,1,0,2,0,0,0.449,
+520th,Grenada,2,0,0,0,0,0.448,506
+521st,Orange Cove,3,1,1,0,0,0.447,668
+522nd,La Quinta,3,2,2,1,1,0.447,481
+523rd,Crockett,0,1,1,1,0,0.446,560
+524th,Jackson,2,2,2,1,0,0.446,683
+525th,Firebaugh,2,1,2,1,0,0.445,671
+526th,Tracy,19,4,7,2,5,0.445,544
+527th,Tehachapi,3,1,3,0,2,0.445,455
+528th,Oakley,7,2,1,0,1,0.444,568
+529th,San Lorenzo,5,3,3,0,2,0.444,507
+530th,Shingletown,1,1,0,0,0,0.444,415
+531st,Anaheim,47,7,13,1,27,0.444,505
+532nd,Kerman,4,1,2,0,1,0.443,595
+533rd,Sonora,5,0,3,4,2,0.443,522
+534th,Red Bluff,10,3,4,3,2,0.443,585
+535th,Grand Terrace,2,1,1,0,0,0.442,464
+536th,Fairfield,16,3,11,6,5,0.439,559
+537th,Oakdale,5,1,4,0,1,0.438,524
+538th,Seaside,7,2,3,0,3,0.436,578
+539th,San Geronimo,2,0,0,0,0,0.436,457
+540th,Sausalito,2,0,0,0,3,0.436,459
+541st,El Centro,14,2,4,4,1,0.436,599
+542nd,Winnetka,2,1,0,1,2,0.435,658
+543rd,Lompoc,10,2,3,0,3,0.435,527
+544th,Hawaiian Gardens,2,1,0,0,0,0.435,600
+545th,La Puente,23,2,6,1,11,0.434,533
+546th,Spring Valley,9,3,3,0,4,0.434,589
+547th,El Monte,23,2,5,0,3,0.434,572
+548th,Dixon,5,1,3,0,1,0.433,590
+549th,Orosi,2,1,1,1,0,0.432,606
+550th,Acampo,2,0,0,0,0,0.431,552
+551st,South Gate,16,2,6,1,3,0.431,584
+552nd,Norwalk,16,4,3,0,8,0.431,555
+553rd,Carson,14,3,5,1,2,0.431,569
+554th,Hollywood,0,1,2,0,0,0.431,516
+555th,West Sacramento,9,1,2,2,2,0.429,597
+556th,Manteca,15,0,6,0,5,0.429,591
+557th,Tujunga,3,0,2,0,1,0.427,439
+558th,North Hollywood,19,3,3,2,14,0.426,532
+559th,Tollhouse,1,2,2,0,0,0.425,413
+560th,Yuba City,14,1,5,3,3,0.425,531
+561st,Windsor,2,2,2,1,1,0.424,498
+562nd,Delano,10,3,4,1,1,0.424,565
+563rd,Duarte,5,1,3,0,3,0.424,491
+564th,Rancho Cordova,10,2,2,1,3,0.424,693
+565th,Colma,1,1,0,0,1,0.423,463
+566th,Huntington Park,15,5,6,2,0,0.423,603
+567th,Van Nuys,18,2,10,3,8,0.422,562
+568th,Georgetown,2,0,0,1,0,0.42,485
+569th,Ukiah,8,1,5,4,3,0.417,540
+570th,Ontario,24,6,6,0,8,0.417,644
+571st,Visalia,28,4,12,6,4,0.416,539
+572nd,Bakersfield,90,29,20,4,16,0.416,607
+573rd,San Fernando,5,4,7,1,3,0.416,571
+574th,Lodi,15,3,4,2,7,0.411,615
+575th,Bell,4,3,1,0,0,0.411,699
+576th,Carmichael,12,2,1,2,7,0.409,510
+577th,Shandon,1,0,2,0,0,0.409,468
+578th,Rio Linda,4,2,1,1,0,0.409,594
+579th,Thousand Palms,1,0,0,0,1,0.409,586
+580th,Anderson,6,3,4,2,1,0.407,574
+581st,Modesto,52,9,11,4,8,0.407,620
+582nd,Concord,14,3,9,1,22,0.405,614
+583rd,Tulelake,2,0,2,0,1,0.404,477
+584th,Creston,1,0,0,0,0,0.403,
+585th,Arbuckle,1,1,2,0,0,0.402,553
+586th,Cloverdale,1,1,2,1,0,0.4,460
+587th,Exeter,2,2,2,2,1,0.4,523
+588th,Paramount,9,4,2,0,0,0.4,592
+589th,Seeley,1,0,0,0,0,0.399,627
+590th,Empire,1,0,0,2,0,0.399,580
+591st,Anza,1,0,1,0,0,0.398,512
+592nd,Cathedral City,5,2,2,0,0,0.397,637
+593rd,Cotati,1,0,0,0,0,0.397,604
+594th,Pasadena,14,2,6,4,30,0.397,631
+595th,Fortuna,3,2,3,0,2,0.396,576
+596th,Del Rey,1,0,0,0,0,0.395,743
+597th,Riverside,60,14,25,7,18,0.393,612
+598th,Livingston,3,1,1,1,1,0.393,654
+599th,Happy Camp,1,0,1,0,0,0.393,771
+600th,Lone Pine,2,0,2,0,0,0.392,456
+601st,Dunsmuir,2,0,2,0,0,0.391,573
+602nd,Helendale,1,1,0,3,0,0.39,440
+603rd,Woodland,11,2,6,1,4,0.386,596
+604th,Highland,11,2,1,1,2,0.384,629
+605th,Yucca Valley,3,1,2,0,3,0.384,613
+606th,Litchfield,1,0,0,0,0,0.384,492
+607th,Pinole,4,1,1,0,2,0.384,556
+608th,Santa Paula,9,2,2,0,1,0.383,672
+609th,Wilmington,7,1,4,0,3,0.383,625
+610th,Weed,2,0,1,0,1,0.383,704
+611th,Victor,1,0,0,0,1,0.382,716
+612th,Los Angeles,325,85,139,29,161,0.382,628
+613th,Helm,1,0,0,0,0,0.379,429
+614th,Pico Rivera,9,3,2,0,3,0.379,638
+615th,Santa Maria,21,6,4,3,6,0.378,630
+616th,Santa Ana,50,12,15,1,16,0.376,626
+617th,Indio,12,4,3,0,2,0.376,655
+618th,Stratford,1,0,0,0,0,0.375,745
+619th,Riverbank,3,1,2,0,0,0.373,666
+620th,Greenville,1,0,1,0,0,0.373,534
+621st,Hamilton City,1,0,2,1,0,0.372,669
+622nd,Apple Valley,10,0,2,3,2,0.372,588
+623rd,North Hills,11,2,2,0,6,0.372,657
+624th,Newman,3,1,3,1,0,0.372,674
+625th,Borrego Springs,1,1,2,2,0,0.372,484
+626th,Gardena,9,2,4,0,5,0.372,648
+627th,Janesville,1,0,0,0,0,0.371,480
+628th,Tulare,18,5,6,0,1,0.371,633
+629th,Pearblossom,1,0,0,0,0,0.37,653
+630th,Redway,1,0,0,0,0,0.369,733
+631st,Agua Dulce,2,0,0,1,0,0.369,
+632nd,Baldwin Park,13,4,3,0,1,0.369,623
+633rd,Big Bear Lake,3,1,2,0,1,0.368,609
+634th,Lockeford,1,0,0,0,0,0.368,610
+635th,Imperial Beach,5,1,1,0,2,0.367,641
+636th,Chowchilla,4,3,2,0,1,0.366,561
+637th,Laytonville,3,0,2,1,0,0.365,723
+638th,Sonoma,6,2,2,0,5,0.364,518
+639th,Lake Hughes,1,0,2,0,0,0.364,386
+640th,Lake Elsinore,10,3,4,1,1,0.363,587
+641st,Lake Arrowhead,2,1,2,0,2,0.362,608
+642nd,Sacramento,120,25,41,11,34,0.361,642
+643rd,Bloomington,5,2,1,0,1,0.361,670
+644th,Fresno,110,21,31,13,14,0.361,691
+645th,Joshua Tree,2,0,0,0,0,0.36,547
+646th,Azusa,11,3,1,0,1,0.36,709
+647th,Jacumba,0,1,0,0,0,0.36,519
+648th,San Jacinto,7,3,2,2,3,0.359,622
+649th,Valley Home,1,0,0,0,0,0.359,690
+650th,Pomona,23,3,12,2,4,0.358,649
+651st,Walnut Grove,1,0,0,0,0,0.357,442
+652nd,San Andreas,1,1,2,4,1,0.357,
+653rd,Alturas,2,1,3,3,1,0.355,494
+654th,Ivanhoe,1,0,0,0,0,0.353,737
+655th,Westwood,1,0,1,1,0,0.353,616
+656th,Canoga Park,9,3,2,0,4,0.351,667
+657th,Corning,6,2,3,0,0,0.349,675
+658th,Oakland,74,19,25,11,34,0.348,695
+659th,San Juan Bautista,1,0,1,0,0,0.345,664
+660th,Maywood,5,0,1,0,2,0.345,677
+661st,Turlock,10,3,4,2,2,0.345,602
+662nd,Selma,8,1,3,0,0,0.341,689
+663rd,Marina,3,1,2,0,1,0.341,710
+664th,Woodlake,2,1,3,0,0,0.341,697
+665th,Patterson,4,1,2,0,2,0.338,685
+666th,Merced,18,5,7,4,6,0.337,679
+667th,Parlier,5,1,2,0,0,0.336,729
+668th,El Nido,1,0,0,0,0,0.336,724
+669th,Suisun City,3,1,0,0,0,0.335,646
+670th,Riverdale,2,1,2,0,0,0.334,717
+671st,Tipton,1,0,0,0,0,0.333,632
+672nd,Ceres,11,3,4,3,0,0.333,579
+673rd,Shasta Lake,2,1,2,0,0,0.333,659
+674th,Dinuba,7,1,3,1,1,0.332,711
+675th,Sun Valley,6,1,4,1,2,0.33,639
+676th,Fontana,37,8,7,0,7,0.328,663
+677th,Madera,21,4,11,6,2,0.327,726
+678th,Compton,20,8,7,2,5,0.326,698
+679th,Perris,16,3,5,1,4,0.325,688
+680th,Mendota,3,1,3,0,0,0.322,755
+681st,Los Banos,9,1,3,2,2,0.32,732
+682nd,Strathmore,3,0,2,0,0,0.319,730
+683rd,San Leandro,10,3,2,1,7,0.319,681
+684th,Crescent City,6,1,4,3,2,0.318,645
+685th,Valley Center,4,1,2,2,0,0.317,660
+686th,Jamestown,1,0,0,0,1,0.316,673
+687th,Kelseyville,2,1,3,0,0,0.315,757
+688th,Hayward,23,5,12,2,10,0.314,700
+689th,Le Grand,1,0,1,0,0,0.314,727
+690th,Sylmar,9,2,3,1,4,0.312,650
+691st,Boron,1,0,1,0,0,0.31,680
+692nd,Gustine,1,1,2,0,0,0.309,694
+693rd,Trona,1,0,2,0,1,0.309,720
+694th,Hemet,11,4,6,1,3,0.307,665
+695th,Lake Isabella,1,2,1,0,0,0.306,643
+696th,Grimes,1,0,0,0,0,0.306,827
+697th,New Cuyama,1,0,2,0,0,0.305,813
+698th,Delhi,3,0,3,0,0,0.304,661
+699th,Stockton,78,7,24,15,12,0.303,715
+700th,Oro Grande,1,0,0,1,0,0.302,687
+701st,Bieber,1,0,1,0,0,0.301,802
+702nd,Willows,2,1,5,1,0,0.3,652
+703rd,Inglewood,17,8,6,0,12,0.298,705
+704th,Hilmar,1,1,3,0,0,0.296,703
+705th,Arvin,5,1,1,0,0,0.295,758
+706th,Victorville,22,3,7,3,6,0.294,712
+707th,Valley Springs,2,1,0,0,0,0.294,617
+708th,Walnut Park,1,2,0,0,0,0.293,769
+709th,Ione,1,0,0,0,0,0.292,741
+710th,Richmond,20,3,5,1,11,0.291,738
+711th,Antioch,16,5,5,1,6,0.291,686
+712th,McClellan,0,0,1,2,0,0.291,696
+713th,Oroville,16,6,4,3,3,0.288,750
+714th,Rodeo,1,0,0,0,1,0.287,618
+715th,Point Arena,1,0,2,1,0,0.286,536
+716th,Harbor City,3,0,3,0,3,0.286,701
+717th,Salinas,35,9,11,4,9,0.286,751
+718th,Lynwood,12,3,5,0,1,0.286,747
+719th,Citrus Heights,10,1,2,0,5,0.284,651
+720th,Running Springs,1,0,0,0,0,0.284,543
+721st,Potter Valley,1,1,3,0,0,0.282,692
+722nd,North Highlands,8,0,4,1,0,0.28,702
+723rd,Warner Springs,1,0,3,0,0,0.279,684
+724th,Pittsburg,9,3,2,1,1,0.279,682
+725th,Soledad,6,1,2,1,0,0.278,713
+726th,Hesperia,16,3,8,2,3,0.273,744
+727th,Weldon,1,1,0,0,0,0.272,828
+728th,Montebello,5,3,5,0,6,0.271,736
+729th,Moreno Valley,27,8,10,5,6,0.271,749
+730th,Lockwood,1,0,0,0,0,0.27,469
+731st,San Bernardino,49,11,13,9,6,0.268,753
+732nd,Porterville,21,6,7,3,1,0.267,752
+733rd,Barstow,7,2,3,0,1,0.266,770
+734th,Shafter,4,1,2,0,2,0.264,808
+735th,San Pablo,7,1,3,0,2,0.262,731
+736th,Palmdale,29,6,6,3,3,0.261,714
+737th,Laton,1,1,1,0,0,0.261,721
+738th,Needles,1,1,2,0,2,0.26,707
+739th,Auberry,1,0,0,0,0,0.259,211
+740th,Colton,10,2,2,1,0,0.258,722
+741st,Los Alamos,1,0,0,0,0,0.256,635
+742nd,Blue Lake,2,0,0,0,0,0.255,538
+743rd,Kernville,1,0,0,0,0,0.253,366
+744th,Corcoran,2,2,2,2,0,0.253,777
+745th,Piru,1,0,0,0,0,0.253,811
+746th,Vallejo,16,4,5,1,6,0.253,748
+747th,Lindsay,6,0,3,1,1,0.251,759
+748th,Smith River,1,0,0,0,0,0.248,793
+749th,King City,4,2,2,0,0,0.244,764
+750th,Littlerock,3,1,1,0,0,0.244,740
+751st,Rialto,16,4,6,0,2,0.244,725
+752nd,Lucerne Valley,1,1,2,1,0,0.241,719
+753rd,Castroville,2,1,1,0,0,0.24,735
+754th,Watsonville,15,5,4,2,4,0.238,754
+755th,Armona,1,1,0,0,0,0.236,841
+756th,Coalinga,3,2,3,0,1,0.234,798
+757th,Williams,1,1,2,1,0,0.233,
+758th,Diamond Springs,0,0,2,0,0,0.232,823
+759th,Panorama City,8,1,3,0,1,0.23,728
+760th,Olivehurst,5,1,2,0,1,0.229,762
+761st,Challenge,1,0,0,0,0,0.228,706
+762nd,Tupman,1,0,0,0,0,0.228,832
+763rd,Lancaster,26,9,12,0,10,0.227,742
+764th,Groveland,1,0,2,0,0,0.226,760
+765th,Esparto,1,1,1,0,0,0.224,718
+766th,Pacoima,9,4,1,0,2,0.224,756
+767th,Ducor,1,0,0,0,0,0.223,807
+768th,Wasco,6,1,3,0,2,0.223,739
+769th,Dos Palos,2,1,3,0,0,0.223,765
+770th,Westmorland,1,0,0,0,1,0.216,834
+771st,Upper Lake,1,1,3,0,0,0.215,797
+772nd,Pala,2,0,0,0,0,0.214,662
+773rd,Magalia,2,0,1,0,2,0.214,780
+774th,Bell Gardens,4,2,1,0,3,0.213,774
+775th,Mc Farland,2,1,3,0,0,0.213,786
+776th,Blythe,3,0,3,1,2,0.211,805
+777th,Macdoel,0,1,0,0,0,0.208,479
+778th,Fillmore,3,1,2,1,1,0.208,779
+779th,Thornton,1,0,0,0,0,0.207,746
+780th,Biggs,2,0,2,0,0,0.205,768
+781st,Cantua Creek,1,0,0,0,0,0.203,792
+782nd,Gonzales,1,1,2,0,0,0.202,781
+783rd,Lower Lake,1,0,2,0,0,0.202,790
+784th,Kettleman City,1,0,1,0,0,0.201,734
+785th,Elverta,1,1,0,1,0,0.198,772
+786th,Landers,1,0,0,0,0,0.198,467
+787th,San Ysidro,4,2,0,0,1,0.197,761
+788th,Port Hueneme,4,0,0,0,1,0.197,763
+789th,Rosamond,2,1,2,1,0,0.195,778
+790th,Commerce,2,0,1,1,0,0.195,775
+791st,Desert Hot Springs,5,2,1,0,0,0.193,810
+792nd,Coachella,7,2,1,0,0,0.192,796
+793rd,Mecca,2,0,0,0,0,0.192,830
+794th,Banning,3,2,2,1,1,0.192,784
+795th,Yerington,0,0,1,0,0,0.19,844
+796th,Lamont,2,1,1,0,0,0.189,822
+797th,Oxnard,31,8,7,1,11,0.188,782
+798th,Rolling Hills,0,0,1,0,0,0.185,647
+799th,California City,1,2,1,0,1,0.184,785
+800th,Calexico,7,2,2,0,3,0.179,814
+801st,Cudahy,4,0,0,1,0,0.179,776
+802nd,Greenfield,3,1,1,0,0,0.177,795
+803rd,Oceano,1,0,0,0,0,0.175,656
+804th,Glen Ellen,1,0,0,0,0,0.175,791
+805th,Redwood Valley,0,1,0,0,0,0.169,708
+806th,Tranquillity,1,0,2,0,0,0.164,826
+807th,French Camp,1,0,0,0,0,0.164,806
+808th,Earlimart,3,2,0,0,0,0.161,838
+809th,Winterhaven,1,1,3,0,0,0.157,831
+810th,Cutler,1,0,1,0,0,0.153,842
+811th,Salton City,1,0,1,1,0,0.152,809
+812th,Emeryville,1,0,0,0,0,0.151,773
+813th,San Martin,1,0,0,0,0,0.149,678
+814th,Adelanto,9,1,1,1,0,0.149,821
+815th,Traver,1,0,0,0,0,0.148,799
+816th,Westley,1,0,0,0,0,0.146,848
+817th,Newberry Springs,1,0,0,0,1,0.142,270
+818th,Thermal,4,1,3,0,0,0.141,812
+819th,East Palo Alto,4,2,1,1,1,0.139,800
+820th,Farmington,1,0,0,0,0,0.133,852
+821st,Planada,1,1,1,0,0,0.132,819
+822nd,Pauma Valley,1,0,0,0,0,0.127,803
+823rd,Farmersville,2,2,2,0,0,0.125,824
+824th,West Point,1,0,0,0,0,0.125,787
+825th,Freedom,1,0,0,0,0,0.121,783
+826th,Lucerne,1,0,0,0,0,0.116,836
+827th,Gerber,1,1,0,0,0,0.113,788
+828th,Campo,1,0,2,0,0,0.11,816
+829th,Markleeville,1,0,1,1,0,0.103,
+830th,Santa Nella,1,0,0,0,0,0.101,825
+831st,Buttonwillow,1,0,0,0,0,0.1,850
+832nd,Mojave,1,0,2,1,0,0.099,840
+833rd,Rio Dell,1,1,0,0,0,0.098,794
+834th,Big Pine,1,0,3,0,0,0.098,820
+835th,Cabazon,1,0,0,0,0,0.097,846
+836th,Avenal,3,1,3,0,0,0.097,835
+837th,Raisin City,1,0,0,0,0,0.092,849
+838th,Klamath,1,0,0,0,0,0.086,864
+839th,La Selva Beach,0,0,1,0,0,0.084,854
+840th,Clearlake,3,0,0,3,1,0.083,861
+841st,Alpaugh,1,0,2,0,0,0.077,818
+842nd,San Joaquin,1,0,0,0,0,0.077,863
+843rd,Terra Bella,2,1,0,0,1,0.076,789
+844th,Pixley,1,1,0,0,0,0.071,858
+845th,Five Points,1,0,0,0,0,0.069,833
+846th,Potrero,1,0,0,0,0,0.068,853
+847th,Yolo,0,0,1,0,0,0.064,854
+848th,Bay Point,3,1,1,0,0,0.064,843
+849th,Maricopa,1,1,1,0,0,0.062,829
+850th,Willow Creek,1,0,0,0,0,0.06,801
+851st,Vina,1,0,0,0,0,0.052,
+852nd,Lost Hills,1,1,0,0,0,0.049,857
+853rd,Huron,1,1,1,0,0,0.04,856
+854th,Guadalupe,1,1,0,0,0,0.032,851
+855th,Richgrove,1,0,0,0,0,0.028,862
+856th,Baker,1,1,1,1,0,0.015,766
+857th,Loleta,1,0,0,0,0,0.012,865
+858th,Stevinson,1,0,0,0,0,0.008,860
+859th,Clearlake Oaks,1,0,0,0,0,0.005,859
