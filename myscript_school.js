@@ -30,7 +30,7 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 // adding color to the map chloropleth
 function getColor(d) {
       // TODO: See style(feature) to understand what levels of color to hardcode
-      return  d > 1000001  ? '#7a7a7a':
+      return  d > 100001  ? '#7a7a7a':
           d > 1000 ? '#dbdab8': //#dbdab8
           d > 500 ? '#fcfba1':
           d > 250  ? '#f5f970':
