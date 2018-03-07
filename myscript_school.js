@@ -118,7 +118,7 @@ info.update = function (props) {
 
 info.update_loc = function (props) {
       this._div.innerHTML = '<h4>School District</h4>' +  (props ?
-        '<b>' + props.name : 'Hover over a state');
+        '<b>' + props.name : '');
     };    
 
 info.addTo(map);
