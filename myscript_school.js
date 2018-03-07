@@ -73,12 +73,12 @@ function highlightFeature(e) {
   if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
     layer.bringToFront();
   }
-  info.update(layer.feature.properties);
+  info.update_loc(layer.feature.properties);
 }
 
 function resetHighlight(e) {
   geojson.resetStyle(e.target);
-  info.update();
+  info.update_loc();
 }
 
 function zoomToFeature(e) {
@@ -115,6 +115,11 @@ info.update = function (props) {
         deets.innerHTML = temp_str + 'Click on a district to begin.'
       }
     };
+
+info.update_loc = function (props) {
+      this._div.innerHTML = '<h4>School District</h4>' +  (props ?
+        '<b>' + props.name : 'Hover over a state');
+    };    
 
 info.addTo(map);
 
