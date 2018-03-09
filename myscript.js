@@ -1,28 +1,28 @@
 // Choropleth Scripts
 
 var school   = L.tileLayer(
-  'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-  attribution: 'Map data copywright <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-    '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-    'Imagery copywright <a href="http://mapbox.com">Mapbox</a>',
-  id: 'examples.map-20v6611k'});
+  'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + 'pk.eyJ1Ijoic2hlZXBpbmF2IiwiYSI6ImNqZHA2bnFrMjBjYnoycm80M3BiaW1lc3EifQ.3MflXoZep5Hlr1ryAomj9A', {
+    id: 'mapbox.light',
+  });
 var District = L.tileLayer(
-  'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-  attribution: 'Map data copywright <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-    '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-    'Imagery copywright <a href="http://mapbox.com">Mapbox</a>',
-  id: 'examples.map-20v6611k'});
+  'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + 'pk.eyJ1Ijoic2hlZXBpbmF2IiwiYSI6ImNqZHA2bnFrMjBjYnoycm80M3BiaW1lc3EifQ.3MflXoZep5Hlr1ryAomj9A', {
+    id: 'mapbox.light',
+  });
 
 var map = L.map('map',{layers:[school, District]}).setView([36.778,-119.418], 5.5);
+
+
+
 var baseMaps = {
   "District": District,
   "school": school
   };
 
-// TODO: What is this?
 var overlayMaps = {
 
   };
+
+
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 // District.addTo(map);
@@ -47,7 +47,6 @@ function style(feature) {
     weight: 2,
     opacity: 1,
     color: 'white',
-    dashArray: '3',
     fillOpacity: 0.7
   };
 }
@@ -66,7 +65,6 @@ function highlightFeature(e) {
   layer.setStyle({
     weight: 5,
     color: '#666',
-    dashArray: '',
     fillOpacity: 0.7
   });
   if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
