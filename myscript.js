@@ -11,12 +11,12 @@ var map = L.map('map',{layers:[ District]}).setView([36.778,-119.418], 5.5);
 
 
 var baseMaps = {
-  "District": District,
+
 
   };
 
 var overlayMaps = {
-
+"District": District
   };
 
   /**TESTING
@@ -64,7 +64,7 @@ function style(feature) {
 // TODO: TO IMPLEMENT (notes):
 // if some layer is selected, set dataset to whatever the array is called, e.g.
 // if education is selected on map, use dataset = secondary_school_district
-var cali = L.geoJson(calidata, {style: style});
+var cali = L.geoJson(calidata, {style: style}).addTo(map);
 var clusters = L.markerClusterGroup();
     clusters.addLayer(cali);
     map.addLayer(clusters);
@@ -89,7 +89,6 @@ function resetHighlight(e) {
 
 function zoomToFeature(e) {
   map.fitBounds(e.target.getBounds({padding: [20, 20]}));
-
 }
 
 function showinfo(e) {
