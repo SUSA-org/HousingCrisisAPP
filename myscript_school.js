@@ -69,7 +69,8 @@ function style(feature) {
 // TODO: TO IMPLEMENT (notes):
 // if some layer is selected, set dataset to whatever the array is called, e.g.
 // if education is selected on map, use dataset = secondary_school_district
-L.geoJson(school_data, {style: style}).addTo(map);
+L.geoJson(school_data3, {style: style}).addTo(map);
+// L.geoJson(crime_data, {style: style}).addTo(map);
 var geojson;
 
 // highlight/remove highlight/zoom features
@@ -121,7 +122,9 @@ info.update = function (props) {
         rank_line = '<b> Rank:&emsp;&emsp; </b> ' + props.rank;
         type_line = '<b> Type of District:&emsp;&emsp; </b> ' + props.kind;
         name_line = '<b> Name:&emsp;&emsp; </b> ' + props.name;
-        deets.innerHTML = temp_str + name_line + '<br />' + rank_line + '<br />' + type_line + '<br />';
+        city_line = '<b> City:&emsp;&emsp; </b> ' + props.City;
+        county_line = '<b> County:&emsp;&emsp; </b> ' + props.County;
+        deets.innerHTML = temp_str + name_line + '<br />' + rank_line + '<br />' + city_line + '<br />' + county_line + '<br />' + type_line + '<br />';
       } else {
         deets.innerHTML = temp_str + 'Click on a district to begin.'
       }
@@ -164,7 +167,8 @@ function onEachFeature(feature, layer) {
   });
 }
 
-geojson = L.geoJson(school_data, {
+geojson = L.geoJson(school_data3, {
+// geojson = L.geoJson(crime_data, {
   style: style,
   onEachFeature: onEachFeature
 }).addTo(map);
