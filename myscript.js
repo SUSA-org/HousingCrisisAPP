@@ -39,13 +39,13 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 function getColor(d) {
   // TODO: See style(feature) to understand what levels of color to hardcode
   return 	d > 20  ? '#800026':
-      d > 16  ? '#BD0026':
-      d > 13  ? '#E31A1C':
-      d > 9   ? '#FC4E2A':
-      d > 7   ? '#FD8D3C':
-      d > 5   ? '#FEB24C':
-      d > 2   ? '#FED976':
-            '#FFEDA0';
+          d > 16  ? '#BD0026':
+          d > 13  ? '#E31A1C':
+          d > 9   ? '#FC4E2A':
+          d > 7   ? '#FD8D3C':
+          d > 5   ? '#FEB24C':
+          d > 2   ? '#FED976':
+                    '#FFEDA0';
 }
 
 function style(feature) {
@@ -136,3 +136,36 @@ geojson = L.geoJson(calidata, {
   style: style,
   onEachFeature: onEachFeature
 }).addTo(map);
+
+
+function initMap() {
+  var map2 = new google.maps.Map(document.getElementById('map2'), {
+    zoom: 8,
+    center: {lat: 36, lng: -119}
+});
+
+var geocoder = new google.maps.Geocoder();
+
+document.getElementById('submit').addEventListener('click', function() {
+    geocodeAddress(geocoder, map);
+  });
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  var addr = document.getElementById('address').value;
+  geocoder.geocode({address: addr,
+                    componentRestrictions: {
+                      country: 'USA',
+                      // postalCode: '90000',
+                      // postalCode: ['90', '91', '92', '93', '94', '95', '960', '961']
+                    }
+                   }, function(results, status) {
+    if (status === 'OK') {
+      map.setView([results[0].geometry.location.lat(), results[0].geometry.location.lng()], 12);
+      temp = results;
+      console.log(results);
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
