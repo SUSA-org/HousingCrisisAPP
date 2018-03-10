@@ -1,29 +1,37 @@
 // Choropleth Scripts
 
-var school   = L.tileLayer(
-  'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + 'pk.eyJ1Ijoic2hlZXBpbmF2IiwiYSI6ImNqZHA2bnFrMjBjYnoycm80M3BiaW1lc3EifQ.3MflXoZep5Hlr1ryAomj9A', {
-    id: 'mapbox.light',
-  });
+
 var District = L.tileLayer(
   'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + 'pk.eyJ1Ijoic2hlZXBpbmF2IiwiYSI6ImNqZHA2bnFrMjBjYnoycm80M3BiaW1lc3EifQ.3MflXoZep5Hlr1ryAomj9A', {
     id: 'mapbox.light',
   });
 
-var map = L.map('map',{layers:[school, District]}).setView([37.5,-120.418], 5.5);
+var map = L.map('map',{layers:[ District]}).setView([36.778,-119.418], 5.5);
 
 
 
 var baseMaps = {
-  "District": District,
-  "school": school
+
+
   };
 
 var overlayMaps = {
-
+  "District": District
   };
 
+  /**TESTING
+  var markerClusters = L.markerClusterGroup();
+    for ( var i = 0; i < calidata.length; ++i )
+    {
 
+      var m = L.marker( [calidata[i].style:style]);
+      markerClusters.addLayer( m );
+      console.log(m);
+    }
 
+    map.addLayer( markerClusters );
+  //END TESTING
+**/
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 // District.addTo(map);
 
@@ -56,7 +64,10 @@ function style(feature) {
 // TODO: TO IMPLEMENT (notes):
 // if some layer is selected, set dataset to whatever the array is called, e.g.
 // if education is selected on map, use dataset = secondary_school_district
-L.geoJson(calidata, {style: style}).addTo(map);
+var cali = L.geoJson(calidata, {style: style}).addTo(map);
+var clusters = L.markerClusterGroup();
+    clusters.addLayer(cali);
+    map.addLayer(clusters);
 var geojson;
 
 // highlight/remove highlight/zoom features
@@ -77,7 +88,11 @@ function resetHighlight(e) {
 }
 
 function zoomToFeature(e) {
+  //map.setView(e.target.getCenter());
   map.fitBounds(e.target.getBounds());
+  sleep();
+  map.fitBounds(e.target.getBounds());
+  //console.log(e.target.getCenter())
 
 }
 
@@ -145,7 +160,7 @@ document.getElementById('submit').addEventListener('click', function() {
 
 function geocodeAddress(geocoder, resultsMap) {
   var addr = document.getElementById('address').value;
-  geocoder.geocode({address: addr, 
+  geocoder.geocode({address: addr,
                     componentRestrictions: {
                       country: 'USA',
                       // postalCode: '90000',
