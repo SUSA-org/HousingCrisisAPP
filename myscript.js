@@ -16,7 +16,7 @@ var baseMaps = {
   };
 
 var overlayMaps = {
-"District": District
+  "District": District
   };
 
   /**TESTING
@@ -88,7 +88,12 @@ function resetHighlight(e) {
 }
 
 function zoomToFeature(e) {
-  map.fitBounds(e.target.getBounds({padding: [20, 20]}));
+  //map.setView(e.target.getCenter());
+  map.fitBounds(e.target.getBounds());
+  sleep();
+  map.fitBounds(e.target.getBounds());
+  //console.log(e.target.getCenter())
+
 }
 
 function showinfo(e) {
