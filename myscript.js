@@ -40,20 +40,20 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 // adding color to the map chloropleth
 function getColor(d) {
   // TODO: See style(feature) to understand what levels of color to hardcode
-  return 	d > 20  ? '#800026':
-          d > 16  ? '#BD0026':
-          d > 13  ? '#E31A1C':
-          d > 9   ? '#FC4E2A':
-          d > 7   ? '#FD8D3C':
-          d > 5   ? '#FEB24C':
-          d > 2   ? '#FED976':
+  return 	d > 5000  ? '#800026':
+          d > 3500  ? '#BD0026':
+          d > 2000  ? '#E31A1C':
+          d > 1000   ? '#FC4E2A':
+          d > 500   ? '#FD8D3C':
+          d > 100   ? '#FEB24C':
+          d > 0   ? '#FED976':
                     '#FFEDA0';
 }
 
 function style(feature) {
   return {
     // TODO: Fill by a more relevant attribute
-    fillColor: getColor(feature.properties.co2_per_acre_local),
+    fillColor: getColor(feature.properties.median_gross_rent),
     weight: 2,
     opacity: 1,
     color: 'white',
@@ -121,9 +121,11 @@ info.update = function (props) {
   if (props) {
     pop_line = '<b> Population:&emsp;&emsp; </b> ' + props.population;
     hh_line = '<b> # Households:&emsp; </b> ' + props.households;
-    deets.innerHTML = temp_str + pop_line + '<br />' + hh_line + '<br />'
+    rent_line = '<b> Median Gross Rent:&emsp; </b> ' + props.median_gross_rent;
+    cost_line = '<b> Average Monthly Housing Cost:&emsp; </b> ' + props.h_cost;
+    deets.innerHTML = temp_str + pop_line + '<br />' + hh_line + '<br />' + rent_line + '<br />' + cost_line + '<br />';
   } else {
-    deets.innerHTML = temp_str + 'Click on a track'
+    deets.innerHTML = temp_str + 'Click on a track';
   }
 };
 
