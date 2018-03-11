@@ -89,9 +89,9 @@ function resetHighlight(e) {
 
 function zoomToFeature(e) {
   //map.setView(e.target.getCenter());
-  map.fitBounds(e.target.getBounds());
-  sleep();
-  map.fitBounds(e.target.getBounds());
+  map.fitBounds(e.target.getBounds(),{padding:[100,100]});
+  sleep(2000);
+
   //console.log(e.target.getCenter())
 
 }
