@@ -6,7 +6,9 @@ var District = L.tileLayer(
     id: 'mapbox.light',
   });
 
-var map = L.map('map',{layers:[ District]}).setView([36.778,-119.418], 5.5);
+var map = L.map('map',
+  {renderer: L.canvas()},
+  {layers:[ District]}).setView([36.778,-119.418], 5.5);
 
 
 
@@ -89,9 +91,9 @@ function resetHighlight(e) {
 
 function zoomToFeature(e) {
   //map.setView(e.target.getCenter());
-  map.fitBounds(e.target.getBounds());
-  sleep();
-  map.fitBounds(e.target.getBounds());
+  map.fitBounds(e.target.getBounds(),{padding:[100,100]});
+  sleep(10);
+
   //console.log(e.target.getCenter())
 
 }
