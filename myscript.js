@@ -14,7 +14,6 @@ var map = L.map('map',
 
 var baseMaps = {
 
-
   };
 
 var overlayMaps = {
@@ -67,9 +66,7 @@ function style(feature) {
 // if some layer is selected, set dataset to whatever the array is called, e.g.
 // if education is selected on map, use dataset = secondary_school_district
 var cali = L.geoJson(calidata, {style: style}).addTo(map);
-var clusters = L.markerClusterGroup();
-    clusters.addLayer(cali);
-    map.addLayer(clusters);
+map.addLayer(cali);
 var geojson;
 
 // highlight/remove highlight/zoom features
@@ -92,10 +89,8 @@ function resetHighlight(e) {
 function zoomToFeature(e) {
   //map.setView(e.target.getCenter());
   map.fitBounds(e.target.getBounds(),{padding:[100,100]});
-  sleep(10);
-
+  error();
   //console.log(e.target.getCenter())
-
 }
 
 function showinfo(e) {
