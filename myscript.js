@@ -156,7 +156,7 @@ document.getElementById('submit').addEventListener('click', function() {
 }
 
 function geocodeAddress(geocoder, resultsMap) {
-  var addr = document.getElementById('address').value;
+  var addr = document.getElementById('address').value + " california";
   geocoder.geocode({address: addr,
                     componentRestrictions: {
                       country: 'USA',
