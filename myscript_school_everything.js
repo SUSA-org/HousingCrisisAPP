@@ -186,9 +186,11 @@ document.getElementById('submit').addEventListener('click', function() {
 
 function geocodeAddress(geocoder, resultsMap) {
   var addr = document.getElementById('address').value;
+  addr = addr.concat(", CA");
   geocoder.geocode({address: addr,
                     componentRestrictions: {
                       country: 'USA',
+                      // state: 'CA',
                       // postalCode: '90000',
                       // postalCode: ['90', '91', '92', '93', '94', '95', '960', '961']
                     }

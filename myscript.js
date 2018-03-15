@@ -1,16 +1,12 @@
 // Choropleth Scripts
 
-
 var District = L.tileLayer(
-  'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + 'pk.eyJ1Ijoic2hlZXBpbmF2IiwiYSI6ImNqZHA2bnFrMjBjYnoycm80M3BiaW1lc3EifQ.3MflXoZep5Hlr1ryAomj9A', {
-    id: 'mapbox.light',
-  });
+	'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + 'pk.eyJ1Ijoic2hlZXBpbmF2IiwiYSI6ImNqZHA2bnFrMjBjYnoycm80M3BiaW1lc3EifQ.3MflXoZep5Hlr1ryAomj9A', {
+		id: 'mapbox.light',
+	});
 
-var map = L.map('map',
-  {renderer: L.canvas()},
-  {layers:[ District]}).setView([36.778,-119.418], 5.5);
-
-
+var map = L.map('map', {renderer: L.canvas()}, 
+				{layers:[ District]}).setView([37.278,-119.418], 5.5);
 
 var baseMaps = {
 
@@ -20,19 +16,6 @@ var overlayMaps = {
   "District": District
   };
 
-  /**TESTING
-  var markerClusters = L.markerClusterGroup();
-    for ( var i = 0; i < calidata.length; ++i )
-    {
-
-      var m = L.marker( [calidata[i].style:style]);
-      markerClusters.addLayer( m );
-      console.log(m);
-    }
-
-    map.addLayer( markerClusters );
-  //END TESTING
-**/
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 // District.addTo(map);
 
@@ -87,10 +70,8 @@ function resetHighlight(e) {
 }
 
 function zoomToFeature(e) {
-  //map.setView(e.target.getCenter());
   map.fitBounds(e.target.getBounds(),{padding:[100,100]});
-  error();
-  //console.log(e.target.getCenter())
+  error(); // Jank but necessary workaround
 }
 
 function showinfo(e) {
@@ -111,17 +92,13 @@ info.onAdd = function (map) {
 // method that we will use to update the control based on feature properties passed
 // TODO: Fill this in with relevant info, make it look nice.
 info.update = function (props) {
-  deets = document.getElementById("details");
-  var temp_str = '<h4>Stuff about the CA census track</h4>'
-  if (props) {
-    pop_line = '<b> Population:&emsp;&emsp; </b> ' + props.population;
-    hh_line = '<b> # Households:&emsp; </b> ' + props.households;
-    rent_line = '<b> Median Gross Rent:&emsp; </b> ' + props.median_gross_rent;
-    cost_line = '<b> Average Monthly Housing Cost:&emsp; </b> ' + props.h_cost;
-    deets.innerHTML = temp_str + pop_line + '<br />' + hh_line + '<br />' + rent_line + '<br />' + cost_line + '<br />';
-  } else {
-    deets.innerHTML = temp_str + 'Click on a track';
-  }
+	if (props) {
+		document.getElementById("population").innerHTML = props.population;
+		document.getElementById("households").innerHTML = props.households;
+		document.getElementById("medgrossrent").innerHTML = props.median_gross_rent;
+		document.getElementById("avgmonthlyhouse").innerHTML = props.h_cost;
+	} else {
+	}
 };
 
 info.addTo(map);
@@ -129,10 +106,10 @@ info.addTo(map);
 // implements cool features
 function onEachFeature(feature, layer) {
   layer.on({
-  mouseover: highlightFeature,
-  mouseout: resetHighlight,
-  dblclick: zoomToFeature,
-  click: showinfo
+	  mouseover: highlightFeature,
+	  mouseout: resetHighlight,
+	  dblclick: zoomToFeature,
+	  click: showinfo
   });
 }
 
@@ -143,33 +120,36 @@ geojson = L.geoJson(calidata, {
 
 
 function initMap() {
-  var map2 = new google.maps.Map(document.getElementById('map2'), {
-    zoom: 8,
-    center: {lat: 36, lng: -119}
-});
+	//var map2 = new google.maps.Map(document.getElementById('map2'), {
+	//	zoom: 8, center: {lat: 36, lng: -119}});
+	
+	var geocoder = new google.maps.Geocoder();
 
-var geocoder = new google.maps.Geocoder();
-
-document.getElementById('submit').addEventListener('click', function() {
-    geocodeAddress(geocoder, map);
-  });
+	document.getElementById('submit').addEventListener('click', function() {
+		geocodeAddress(geocoder, map);
+	});
 }
 
 function geocodeAddress(geocoder, resultsMap) {
-  var addr = document.getElementById('address').value + " california";
-  geocoder.geocode({address: addr,
-                    componentRestrictions: {
-                      country: 'USA',
-                      // postalCode: '90000',
-                      // postalCode: ['90', '91', '92', '93', '94', '95', '960', '961']
-                    }
-                   }, function(results, status) {
-    if (status === 'OK') {
-      map.setView([results[0].geometry.location.lat(), results[0].geometry.location.lng()], 12);
-      temp = results;
-      console.log(results);
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
+	var addr = document.getElementById('address').value + " california";
+	geocoder.geocode({address: addr,
+					  componentRestrictions: {
+						country: 'USA',
+					  }
+					 },
+					 function(results, status) {
+						if (status === 'OK') {
+						  map.flyTo([results[0].geometry.location.lat(), 
+									 results[0].geometry.location.lng()], 12);
+						  // temp = results;
+						  // console.log(results);
+						} else {
+						  alert('Geocode was not successful for the following reason: ' + status);
+						}
+					 });
+}
+
+
+function pat() {
+	document.getElementById("pat").style = "display:visible";
 }
