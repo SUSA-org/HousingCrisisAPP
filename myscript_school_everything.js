@@ -34,21 +34,24 @@ var overlayMaps = {
   //END TESTING
 **/
 L.control.layers(baseMaps, overlayMaps).addTo(map);
-// District.addTo(map);
+District.addTo(map);
 
 // adding color to the map chloropleth
 function getColor(d) {
   // TODO: See style(feature) to understand what levels of color to hardcode
-  return  d > 100001  ? '#7a7a7a':
-          d > 10 ? '#dbdab8': //#dbdab8
-          d > 7 ? '#fcfba1':
-          d > 5  ? '#f5f970':
-          d > 3  ? '#ccf280':
-          d > 2   ? '#95cc74':
-          d > 1   ? '#49a311':
-          d > 0    ? '#2d6808':
+  return  d > 10 ? '#F8AB3F': //#dbdab8
+          d > 9 ? '#E7B536':
+          d > 8 ? '#D7BD2F':
+          d > 7 ? '#C7C228':
+          d > 6 ? '#A7B621':
+          d > 5  ? '#86A61C':
+          d > 4 ? '#689616':
+          d > 3  ? '#4D8511':
+          d > 2   ? '#35750D':
+          d > 1   ? '#21650A':
+          d > 0    ? '#105407':
                 '#ef8383';
-  // return 	d > 10  ? '#800026':
+  // return   d > 10  ? '#800026':
   //         d > 9  ? '#BD0026':
   //         d > 7  ? '#E31A1C':
   //         d > 5   ? '#FC4E2A':
@@ -125,7 +128,8 @@ info.update = function (props) {
   deets = document.getElementById("details");
   var temp_str = '<h4>District Information</h4>'
   if (props) {
-    rank_line = '<b> Rank:&emsp;&emsp; </b> ' + props.rank;
+    custom_index = '<b> Our Custom Index:&emsp;&emsp; </b> ' + props.new_rank.toFixed(4);
+    rank_line = '<b> School District Rank:&emsp;&emsp; </b> ' + props.rank;
     type_line = '<b> Type of District:&emsp;&emsp; </b> ' + props.kind;
     name_line = '<b> Name:&emsp;&emsp; </b> ' + props.name;
     city_line = '<b> City:&emsp;&emsp; </b> ' + props.City;
@@ -139,10 +143,10 @@ info.update = function (props) {
     vio_line = '<b> Number of Violent Crimes:&emsp;&emsp; </b> ' + props.Violent_sum;
     prop_line = '<b> Number of Property Crimes:&emsp;&emsp; </b> ' + props.Property_sum;
 
-    t_cost_line = '<b> Annual Transportation Cost for the Regional Moderate Household:&emsp;&emsp; </b> ' + props.t_cost_80ami;
-    transit_cost_line = '<b> Annual Transit Cost for the Regional Moderate Household:&emsp;&emsp; </b> ' + props.transit_cost_80ami;
+    t_cost_line = '<b> Annual Transportation Cost:&emsp;&emsp; </b> ' + props.t_cost_80ami; // for the Regional Moderate Household
+    transit_cost_line = '<b> Annual Transit Cost:&emsp;&emsp; </b> ' + props.transit_cost_80ami; // for the Regional Moderate Household
 
-    deets.innerHTML = temp_str + name_line + '<br />' + rank_line + '<br />' + city_line + '<br />' + county_line + '<br />' + type_line + '<br />' + pop_line + '<br />' + hh_line + '<br />' + rent_line + '<br />' + cost_line + '<br />' + vio_line + '<br />' + prop_line + '<br />' + t_cost_line + '<br />' + transit_cost_line + '<br />';
+    deets.innerHTML = temp_str + name_line + '<br />' + custom_index + '<br />' + rank_line + '<br />' + city_line + '<br />' + county_line + '<br />' + type_line + '<br />' + pop_line + '<br />' + hh_line + '<br />' + rent_line + '<br />' + cost_line + '<br />' + vio_line + '<br />' + prop_line + '<br />' + t_cost_line + '<br />' + transit_cost_line + '<br />';
   } else {
     deets.innerHTML = temp_str + 'Click on a district to begin';
   }
@@ -172,15 +176,15 @@ geojson = L.geoJson(everything_schools, {
 
 
 function initMap() {
-  var map2 = new google.maps.Map(document.getElementById('map2'), {
+  /*var map2 = new google.maps.Map(document.getElementById('map2'), {
     zoom: 8,
     center: {lat: 36, lng: -119}
-});
+});*/
 
 var geocoder = new google.maps.Geocoder();
 
-document.getElementById('address').addEventListener('keydown', function() {
-  if (event.keyCode == 13) { 
+document.getElementById('address').addEventListener('keydown', function(event) {
+  if (event.which == 13) {
     geocodeAddress(geocoder, map);
   }
   });
@@ -191,7 +195,7 @@ document.getElementById('submit').addEventListener('click', function() {
 }
 
 function geocodeAddress(geocoder, resultsMap) {
-  var addr = document.getElementById('address').value;
+  var addr = document.getElementById('address').value + " california";
   addr = addr.concat(", CA");
   geocoder.geocode({address: addr,
                     componentRestrictions: {
@@ -202,11 +206,23 @@ function geocodeAddress(geocoder, resultsMap) {
                     }
                    }, function(results, status) {
     if (status === 'OK') {
-      map.setView([results[0].geometry.location.lat(), results[0].geometry.location.lng()], 12);
+      map.flyTo([results[0].geometry.location.lat(), results[0].geometry.location.lng()], 12);
       temp = results;
       console.log(results);
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
+}
+function reset() {
+  map.setView([37.278,-119.418], 5.5);
+}
+icounter=1;
+function pat() {
+  if(icounter%2==1){
+    document.getElementById("pat").style = "display:visible";
+  } else{
+    document.getElementById("pat").style = "display:none";
+  }
+  icounter=icounter+1;
 }
