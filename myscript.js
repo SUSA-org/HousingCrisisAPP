@@ -125,8 +125,8 @@ function initMap() {
 
 	var geocoder = new google.maps.Geocoder();
 
-  document.getElementById('address').addEventListener('keydown', function() {
-  if (event.keyCode == 13) { 
+  document.getElementById('address').addEventListener('keydown', function(event) {
+  if (event.which === 13) {
     geocodeAddress(geocoder, map);
   }
   });
@@ -155,6 +155,9 @@ function geocodeAddress(geocoder, resultsMap) {
 					 });
 }
 
+function reset() {
+	map.setView([37.278,-119.418], 5.5);
+}
 
 function pat() {
 	document.getElementById("pat").style = "display:visible";
