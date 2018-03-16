@@ -139,8 +139,8 @@ info.update = function (props) {
     vio_line = '<b> Number of Violent Crimes:&emsp;&emsp; </b> ' + props.Violent_sum;
     prop_line = '<b> Number of Property Crimes:&emsp;&emsp; </b> ' + props.Property_sum;
 
-    t_cost_line = '<b> Annual Transportation Cost for the Regional Moderate Household:&emsp;&emsp; </b> ' + props.t_cost_80ami;
-    transit_cost_line = '<b> Annual Transit Cost for the Regional Moderate Household:&emsp;&emsp; </b> ' + props.transit_cost_80ami;
+    t_cost_line = '<b> Annual Transportation Cost:&emsp;&emsp; </b> ' + props.t_cost_80ami; // for the Regional Moderate Household
+    transit_cost_line = '<b> Annual Transit Cost:&emsp;&emsp; </b> ' + props.transit_cost_80ami; // for the Regional Moderate Household
 
     deets.innerHTML = temp_str + name_line + '<br />' + rank_line + '<br />' + city_line + '<br />' + county_line + '<br />' + type_line + '<br />' + pop_line + '<br />' + hh_line + '<br />' + rent_line + '<br />' + cost_line + '<br />' + vio_line + '<br />' + prop_line + '<br />' + t_cost_line + '<br />' + transit_cost_line + '<br />';
   } else {
