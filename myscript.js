@@ -155,6 +155,9 @@ function geocodeAddress(geocoder, resultsMap) {
 					 });
 }
 
+function reset() {
+	map.setView([37.278,-119.418], 5.5);
+}
 
 function pat() {
 	document.getElementById("pat").style = "display:visible";
