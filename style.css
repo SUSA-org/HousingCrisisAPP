@@ -11,6 +11,13 @@
     height: 600px;
     width: 500px;
 }
+h1{
+  text-align: center;
+  padding: 30px;
+}
+p{
+  text-align: center;
+}
 .info {
     padding: 6px 8px;
     font: 14px/16px Arial, Helvetica, sans-serif;
