@@ -179,6 +179,12 @@ function initMap() {
 
 var geocoder = new google.maps.Geocoder();
 
+document.getElementById('address').addEventListener('keydown', function() {
+  if (event.keyCode == 13) { 
+    geocodeAddress(geocoder, map);
+  }
+  });
+
 document.getElementById('submit').addEventListener('click', function() {
     geocodeAddress(geocoder, map);
   });
