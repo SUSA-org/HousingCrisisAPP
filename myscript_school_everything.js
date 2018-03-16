@@ -34,7 +34,7 @@ var overlayMaps = {
   //END TESTING
 **/
 L.control.layers(baseMaps, overlayMaps).addTo(map);
-// District.addTo(map);
+District.addTo(map);
 
 // adding color to the map chloropleth
 function getColor(d) {
