@@ -5,7 +5,7 @@ var District = L.tileLayer(
 		id: 'mapbox.light',
 	});
 
-var map = L.map('map', {renderer: L.canvas()}, 
+var map = L.map('map', {renderer: L.canvas()},
 				{layers:[ District]}).setView([37.278,-119.418], 5.5);
 
 var baseMaps = {
@@ -37,7 +37,7 @@ function style(feature) {
     // TODO: Fill by a more relevant attribute
     fillColor: getColor(feature.properties.median_gross_rent),
     weight: 2,
-    opacity: 1,
+    opacity: 2,
     color: 'white',
     fillOpacity: 0.7
   };
@@ -122,7 +122,7 @@ geojson = L.geoJson(calidata, {
 function initMap() {
 	//var map2 = new google.maps.Map(document.getElementById('map2'), {
 	//	zoom: 8, center: {lat: 36, lng: -119}});
-	
+
 	var geocoder = new google.maps.Geocoder();
 
   document.getElementById('address').addEventListener('keydown', function() {
@@ -145,7 +145,7 @@ function geocodeAddress(geocoder, resultsMap) {
 					 },
 					 function(results, status) {
 						if (status === 'OK') {
-						  map.flyTo([results[0].geometry.location.lat(), 
+						  map.flyTo([results[0].geometry.location.lat(),
 									 results[0].geometry.location.lng()], 12);
 						  // temp = results;
 						  // console.log(results);
