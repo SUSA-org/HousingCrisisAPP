@@ -125,8 +125,8 @@ function initMap() {
 
 	var geocoder = new google.maps.Geocoder();
 
-  document.getElementById('address').addEventListener('keydown', function() {
-  if (event.keyCode == 13) { 
+  document.getElementById('address').addEventListener('keydown', function(event) {
+  if (event.which === 13) {
     geocodeAddress(geocoder, map);
   }
   });
