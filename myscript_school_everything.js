@@ -172,15 +172,15 @@ geojson = L.geoJson(everything_schools, {
 
 
 function initMap() {
-  var map2 = new google.maps.Map(document.getElementById('map2'), {
+  /*var map2 = new google.maps.Map(document.getElementById('map2'), {
     zoom: 8,
     center: {lat: 36, lng: -119}
-});
+});*/
 
 var geocoder = new google.maps.Geocoder();
 
-document.getElementById('address').addEventListener('keydown', function() {
-  if (event.keyCode == 13) { 
+document.getElementById('address').addEventListener('keydown', function(event) {
+  if (event.which == 13) {
     geocodeAddress(geocoder, map);
   }
   });
@@ -191,7 +191,7 @@ document.getElementById('submit').addEventListener('click', function() {
 }
 
 function geocodeAddress(geocoder, resultsMap) {
-  var addr = document.getElementById('address').value;
+  var addr = document.getElementById('address').value + " california";
   addr = addr.concat(", CA");
   geocoder.geocode({address: addr,
                     componentRestrictions: {
@@ -202,11 +202,23 @@ function geocodeAddress(geocoder, resultsMap) {
                     }
                    }, function(results, status) {
     if (status === 'OK') {
-      map.setView([results[0].geometry.location.lat(), results[0].geometry.location.lng()], 12);
+      map.flyTo([results[0].geometry.location.lat(), results[0].geometry.location.lng()], 12);
       temp = results;
       console.log(results);
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
+}
+function reset() {
+	map.setView([37.278,-119.418], 5.5);
+}
+icounter=1;
+function pat() {
+	if(icounter%2==1){
+    document.getElementById("pat").style = "display:visible";
+  } else{
+    document.getElementById("pat").style = "display:none";
+  }
+  icounter=icounter+1;
 }
