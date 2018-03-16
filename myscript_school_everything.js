@@ -106,7 +106,7 @@ info.onAdd = function (map) {
 info.update = function (props) {
   if (props) {
     document.getElementById("name").innerHTML = props.name;
-    document.getElementById("custom_index").innerHTML = props.new_rank;
+    document.getElementById("custom_index").innerHTML = props.new_rank.toFixed(4);
     document.getElementById("rank").innerHTML = props.rank;
     document.getElementById("kind").innerHTML = props.kind;
     document.getElementById("city").innerHTML = props.City;
