@@ -37,9 +37,9 @@ function style(feature) {
     // TODO: Fill by a more relevant attribute
     fillColor: getColor(feature.properties.median_gross_rent),
     weight: 2,
-    opacity: 2,
+    opacity: 1,
     color: 'white',
-    fillOpacity: 0.7
+    fillOpacity: 0.45
   };
 }
 
