@@ -158,7 +158,12 @@ function geocodeAddress(geocoder, resultsMap) {
 function reset() {
 	map.setView([37.278,-119.418], 5.5);
 }
-
+icounter=1;
 function pat() {
-	document.getElementById("pat").style = "display:visible";
+	if(icounter%2==1){
+    document.getElementById("pat").style = "display:visible";
+  } else{
+    document.getElementById("pat").style = "display:none";
+  }
+  icounter=icounter+1;
 }
