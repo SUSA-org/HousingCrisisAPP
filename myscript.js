@@ -48,7 +48,7 @@ function style(feature) {
 // TODO: TO IMPLEMENT (notes):
 // if some layer is selected, set dataset to whatever the array is called, e.g.
 // if education is selected on map, use dataset = secondary_school_district
-var cali = L.geoJson(calidata, {style: style}).addTo(map);
+var cali = L.geoJson(everything_schools, {style: style}).addTo(map);
 map.addLayer(cali);
 var geojson;
 
@@ -127,7 +127,7 @@ function onEachFeature(feature, layer) {
   });
 }
 
-geojson = L.geoJson(calidata, {
+geojson = L.geoJson(everything_schools, {
   style: style,
   onEachFeature: onEachFeature
 }).addTo(map);
