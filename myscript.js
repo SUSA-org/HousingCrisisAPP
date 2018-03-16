@@ -105,10 +105,20 @@ info.onAdd = function (map) {
 // TODO: Fill this in with relevant info, make it look nice.
 info.update = function (props) {
   if (props) {
+    document.getElementById("name").innerHTML = props.name;
+    document.getElementById("custom_index").innerHTML = props.new_rank;
+    document.getElementById("rank").innerHTML = props.rank;
+    document.getElementById("kind").innerHTML = props.kind;
+    document.getElementById("city").innerHTML = props.City;
+    document.getElementById("county").innerHTML = props.County;
     document.getElementById("population").innerHTML = props.population;
     document.getElementById("households").innerHTML = props.households;
     document.getElementById("medgrossrent").innerHTML = props.median_gross_rent;
     document.getElementById("avgmonthlyhouse").innerHTML = props.h_cost;
+    document.getElementById("violent").innerHTML = props.Violent_sum;
+    document.getElementById("property").innerHTML = props.Property_sum;
+    document.getElementById("transportation").innerHTML = props.t_cost_80ami;
+    document.getElementById("transit").innerHTML = props.transit_cost_80ami;
   } else {
   }
 };
