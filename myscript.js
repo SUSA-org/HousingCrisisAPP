@@ -17,38 +17,48 @@ var overlayMaps = {
   };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
-// District.addTo(map);
+District.addTo(map);
 
 // adding color to the map chloropleth
 function getColor(d) {
   // TODO: See style(feature) to understand what levels of color to hardcode
-  return  d > 5000  ? '#800026':
-          d > 3500  ? '#BD0026':
-          d > 2000  ? '#E31A1C':
-          d > 1000   ? '#FC4E2A':
-          d > 500   ? '#FD8D3C':
-          d > 100   ? '#FEB24C':
-          d > 0   ? '#FED976':
-                    '#FFEDA0';
+  return  d > 10 ? '#F8AB3F': //#dbdab8
+          d > 9 ? '#E7B536':
+          d > 8 ? '#D7BD2F':
+          d > 7 ? '#C7C228':
+          d > 6 ? '#A7B621':
+          d > 5  ? '#86A61C':
+          d > 4 ? '#689616':
+          d > 3  ? '#4D8511':
+          d > 2   ? '#35750D':
+          d > 1   ? '#21650A':
+          d > 0    ? '#105407':
+                '#ef8383';
+  // return  d > 5000  ? '#800026':
+  //         d > 3500  ? '#BD0026':
+  //         d > 2000  ? '#E31A1C':
+  //         d > 1000   ? '#FC4E2A':
+  //         d > 500   ? '#FD8D3C':
+  //         d > 100   ? '#FEB24C':
+  //         d > 0   ? '#FED976':
+  //                   '#FFEDA0';
 }
 
 function style(feature) {
   return {
     // TODO: Fill by a more relevant attribute
-    fillColor: getColor(feature.properties.median_gross_rent),
+    fillColor: getColor(feature.properties.new_rank),
     weight: 2,
-    opacity: 2,
+    opacity: 0.1,
     color: 'white',
     fillOpacity: 0.7
   };
 }
 
-//adds chloropleth to map - NOTE: What comment is this for lol
-
 // TODO: TO IMPLEMENT (notes):
 // if some layer is selected, set dataset to whatever the array is called, e.g.
 // if education is selected on map, use dataset = secondary_school_district
-var cali = L.geoJson(calidata, {style: style}).addTo(map);
+var cali = L.geoJson(everything_schools, {style: style}).addTo(map);
 map.addLayer(cali);
 var geojson;
 
@@ -63,10 +73,12 @@ function highlightFeature(e) {
   if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
     layer.bringToFront();
   }
+  info.update_loc(layer.feature.properties);
 }
 
 function resetHighlight(e) {
   geojson.resetStyle(e.target);
+  info.update_loc();
 }
 
 function zoomToFeature(e) {
@@ -101,6 +113,10 @@ info.update = function (props) {
   }
 };
 
+info.update_loc = function (props) {
+  this._div.innerHTML = '<h4>School District</h4>' +  (props ? '<b>' + props.name : '');   
+};
+
 info.addTo(map);
 
 // implements cool features
@@ -113,7 +129,7 @@ function onEachFeature(feature, layer) {
   });
 }
 
-geojson = L.geoJson(calidata, {
+geojson = L.geoJson(everything_schools, {
   style: style,
   onEachFeature: onEachFeature
 }).addTo(map);
@@ -126,7 +142,7 @@ function initMap() {
   var geocoder = new google.maps.Geocoder();
 
   document.getElementById('address').addEventListener('keydown', function(event) {
-  if (event.which === 13) {
+  if (event.which == 13) {
     geocodeAddress(geocoder, map);
   }
   });
@@ -137,7 +153,8 @@ function initMap() {
 }
 
 function geocodeAddress(geocoder, resultsMap) {
-  var addr = document.getElementById('address').value + " california";
+  var addr = document.getElementById('address').value;
+  addr = addr.concat(", CA");
   geocoder.geocode({address: addr,
             componentRestrictions: {
             country: 'USA',
