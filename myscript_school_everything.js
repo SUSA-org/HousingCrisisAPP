@@ -1,16 +1,12 @@
 // Choropleth Scripts
 
-
 var District = L.tileLayer(
   'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + 'pk.eyJ1Ijoic2hlZXBpbmF2IiwiYSI6ImNqZHA2bnFrMjBjYnoycm80M3BiaW1lc3EifQ.3MflXoZep5Hlr1ryAomj9A', {
     id: 'mapbox.light',
   });
 
-var map = L.map('map',
-  {renderer: L.canvas()},
-  {layers:[ District]}).setView([36.778,-119.418], 5.5);
-
-
+var map = L.map('map', {renderer: L.canvas()},
+        {layers:[ District]}).setView([37.278,-119.418], 5.5);
 
 var baseMaps = {
 
@@ -20,19 +16,6 @@ var overlayMaps = {
   "District": District
   };
 
-  /**TESTING
-  var markerClusters = L.markerClusterGroup();
-    for ( var i = 0; i < everything_schools.length; ++i )
-    {
-
-      var m = L.marker( [everything_schools[i].style:style]);
-      markerClusters.addLayer( m );
-      console.log(m);
-    }
-
-    map.addLayer( markerClusters );
-  //END TESTING
-**/
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 District.addTo(map);
 
@@ -51,12 +34,12 @@ function getColor(d) {
           d > 1   ? '#21650A':
           d > 0    ? '#105407':
                 '#ef8383';
-  // return   d > 10  ? '#800026':
-  //         d > 9  ? '#BD0026':
-  //         d > 7  ? '#E31A1C':
-  //         d > 5   ? '#FC4E2A':
-  //         d > 2   ? '#FD8D3C':
-  //         d > 1   ? '#FEB24C':
+  // return  d > 5000  ? '#800026':
+  //         d > 3500  ? '#BD0026':
+  //         d > 2000  ? '#E31A1C':
+  //         d > 1000   ? '#FC4E2A':
+  //         d > 500   ? '#FD8D3C':
+  //         d > 100   ? '#FEB24C':
   //         d > 0   ? '#FED976':
   //                   '#FFEDA0';
 }
@@ -66,13 +49,11 @@ function style(feature) {
     // TODO: Fill by a more relevant attribute
     fillColor: getColor(feature.properties.new_rank),
     weight: 2,
-    opacity: 1,
+    opacity: 0.1,
     color: 'white',
     fillOpacity: 0.7
   };
 }
-
-//adds chloropleth to map - NOTE: What comment is this for lol
 
 // TODO: TO IMPLEMENT (notes):
 // if some layer is selected, set dataset to whatever the array is called, e.g.
@@ -101,10 +82,8 @@ function resetHighlight(e) {
 }
 
 function zoomToFeature(e) {
-  //map.setView(e.target.getCenter());
   map.fitBounds(e.target.getBounds(),{padding:[100,100]});
-  error();
-  //console.log(e.target.getCenter())
+  error(); // Jank but necessary workaround
 }
 
 function showinfo(e) {
@@ -125,47 +104,38 @@ info.onAdd = function (map) {
 // method that we will use to update the control based on feature properties passed
 // TODO: Fill this in with relevant info, make it look nice.
 info.update = function (props) {
-  deets = document.getElementById("details");
-  var temp_str = '<h4>District Information</h4>'
   if (props) {
-    custom_index = '<b> Our Custom Index:&emsp;&emsp; </b> ' + props.new_rank.toFixed(4);
-    rank_line = '<b> School District Rank:&emsp;&emsp; </b> ' + props.rank;
-    type_line = '<b> Type of District:&emsp;&emsp; </b> ' + props.kind;
-    name_line = '<b> Name:&emsp;&emsp; </b> ' + props.name;
-    city_line = '<b> City:&emsp;&emsp; </b> ' + props.City;
-    county_line = '<b> County:&emsp;&emsp; </b> ' + props.County;
-
-    pop_line = '<b> Population:&emsp;&emsp; </b> ' + props.population;
-    hh_line = '<b> # Households:&emsp; </b> ' + props.households;
-    rent_line = '<b> Median Gross Rent:&emsp; </b> ' + props.median_gross_rent;
-    cost_line = '<b> Average Monthly Housing Cost:&emsp; </b> ' + props.h_cost;
-
-    vio_line = '<b> Number of Violent Crimes:&emsp;&emsp; </b> ' + props.Violent_sum;
-    prop_line = '<b> Number of Property Crimes:&emsp;&emsp; </b> ' + props.Property_sum;
-
-    t_cost_line = '<b> Annual Transportation Cost:&emsp;&emsp; </b> ' + props.t_cost_80ami; // for the Regional Moderate Household
-    transit_cost_line = '<b> Annual Transit Cost:&emsp;&emsp; </b> ' + props.transit_cost_80ami; // for the Regional Moderate Household
-
-    deets.innerHTML = temp_str + name_line + '<br />' + custom_index + '<br />' + rank_line + '<br />' + city_line + '<br />' + county_line + '<br />' + type_line + '<br />' + pop_line + '<br />' + hh_line + '<br />' + rent_line + '<br />' + cost_line + '<br />' + vio_line + '<br />' + prop_line + '<br />' + t_cost_line + '<br />' + transit_cost_line + '<br />';
+    document.getElementById("name").innerHTML = props.name;
+    document.getElementById("custom_index").innerHTML = props.new_rank;
+    document.getElementById("rank").innerHTML = props.rank;
+    document.getElementById("kind").innerHTML = props.kind;
+    document.getElementById("city").innerHTML = props.City;
+    document.getElementById("county").innerHTML = props.County;
+    document.getElementById("population").innerHTML = props.population;
+    document.getElementById("households").innerHTML = props.households;
+    document.getElementById("medgrossrent").innerHTML = props.median_gross_rent;
+    document.getElementById("avgmonthlyhouse").innerHTML = props.h_cost;
+    document.getElementById("violent").innerHTML = props.Violent_sum;
+    document.getElementById("property").innerHTML = props.Property_sum;
+    document.getElementById("transportation").innerHTML = props.t_cost_80ami;
+    document.getElementById("transit").innerHTML = props.transit_cost_80ami;
   } else {
-    deets.innerHTML = temp_str + 'Click on a district to begin';
   }
 };
 
 info.update_loc = function (props) {
-      this._div.innerHTML = '<h4>School District</h4>' +  (props ?
-        '<b>' + props.name : '');
-    };
+  this._div.innerHTML = '<h4>School District</h4>' +  (props ? '<b>' + props.name : '');   
+};
 
 info.addTo(map);
 
 // implements cool features
 function onEachFeature(feature, layer) {
   layer.on({
-  mouseover: highlightFeature,
-  mouseout: resetHighlight,
-  dblclick: zoomToFeature,
-  click: showinfo
+    mouseover: highlightFeature,
+    mouseout: resetHighlight,
+    dblclick: zoomToFeature,
+    click: showinfo
   });
 }
 
@@ -176,44 +146,42 @@ geojson = L.geoJson(everything_schools, {
 
 
 function initMap() {
-  /*var map2 = new google.maps.Map(document.getElementById('map2'), {
-    zoom: 8,
-    center: {lat: 36, lng: -119}
-});*/
+  //var map2 = new google.maps.Map(document.getElementById('map2'), {
+  //  zoom: 8, center: {lat: 36, lng: -119}});
 
-var geocoder = new google.maps.Geocoder();
+  var geocoder = new google.maps.Geocoder();
 
-document.getElementById('address').addEventListener('keydown', function(event) {
+  document.getElementById('address').addEventListener('keydown', function(event) {
   if (event.which == 13) {
     geocodeAddress(geocoder, map);
   }
   });
 
-document.getElementById('submit').addEventListener('click', function() {
+  document.getElementById('submit').addEventListener('click', function() {
     geocodeAddress(geocoder, map);
   });
 }
 
 function geocodeAddress(geocoder, resultsMap) {
-  var addr = document.getElementById('address').value + " california";
+  var addr = document.getElementById('address').value;
   addr = addr.concat(", CA");
   geocoder.geocode({address: addr,
-                    componentRestrictions: {
-                      country: 'USA',
-                      // state: 'CA',
-                      // postalCode: '90000',
-                      // postalCode: ['90', '91', '92', '93', '94', '95', '960', '961']
-                    }
-                   }, function(results, status) {
-    if (status === 'OK') {
-      map.flyTo([results[0].geometry.location.lat(), results[0].geometry.location.lng()], 12);
-      temp = results;
-      console.log(results);
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
+            componentRestrictions: {
+            country: 'USA',
+            }
+           },
+           function(results, status) {
+            if (status === 'OK') {
+              map.flyTo([results[0].geometry.location.lat(),
+                   results[0].geometry.location.lng()], 12);
+              // temp = results;
+              // console.log(results);
+            } else {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+           });
 }
+
 function reset() {
   map.setView([37.278,-119.418], 5.5);
 }
