@@ -54,9 +54,10 @@ function getColor(d) {
 function style(feature) {
   return {
     // TODO: Fill by a more relevant attribute
+    //start at default values
     fillColor: getColor(feature.properties.Violent_sum*0.5 + feature.properties.Property_sum*0.5),
     weight: 2,
-    opacity: 1,
+    opacity: 0.1,
     color: 'white',
     dashArray: '3',
     fillOpacity: 0.7
@@ -78,9 +79,9 @@ function highlightFeature(e) {
   var layer = e.target;
   layer.setStyle({
     weight: 5,
-    color: '#666',
+    color: '#303030',
     // dashArray: '',
-    fillOpacity: 0.7
+    fillOpacity: 0.1
   });
   if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
     layer.bringToFront();
@@ -92,20 +93,24 @@ function resetHighlight(e) {
   geojson.resetStyle(e.target);
   info.update_loc();
 }
+
 function reset() {
   map.setView([37.278,-119.418], 5.5);
 }
+
 function recalculate() {
   console.log($('#slideIncome').val(),$('#slideRent').val())
   function newstyle(feature){
+    //TO DO: normalize weights !!
+    // come up with new formula
     var weightedColor = feature.properties.Violent_sum*$('#slideIncome').val()
     + feature.properties.Property_sum*$('#slideRent').val();
     return {
     fillColor: getColor(weightedColor),
     weight: 2,
-    opacity: 1,
+    opacity: 0.1,
     color: 'white',
-    dashArray: '3',
+    // dashArray: '3',
     fillOpacity: 0.7
     };
   }
@@ -144,7 +149,7 @@ info.update = function (props) {
 };
 
 info.update_loc = function (props) {
-  this._div.innerHTML = '<h4>School District</h4>' +  (props ? '<b>' + props.NAME : '');
+  this._div.innerHTML = '<h4>County of Tract</h4>' +  (props ? '<b>' + props.County : '');
 };
 
 info.addTo(map);
