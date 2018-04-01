@@ -12,7 +12,6 @@
 //     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 //     'Imagery copywright <a href="http://mapbox.com">Mapbox</a>',
 //   id: 'examples.map-20v6611k'});
-
 var school   = L.tileLayer(
   'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + 'pk.eyJ1Ijoic2hlZXBpbmF2IiwiYSI6ImNqZHA2bnFrMjBjYnoycm80M3BiaW1lc3EifQ.3MflXoZep5Hlr1ryAomj9A', {
     id: 'mapbox.light',
@@ -55,7 +54,7 @@ function getColor(d) {
 function style(feature) {
   return {
     // TODO: Fill by a more relevant attribute
-    fillColor: getColor(feature.properties.Violent_sum + feature.properties.Property_sum),
+    fillColor: getColor(feature.properties.Violent_sum*0.5 + feature.properties.Property_sum*0.5),
     weight: 2,
     opacity: 1,
     color: 'white',
@@ -69,7 +68,8 @@ function style(feature) {
 // TODO: TO IMPLEMENT (notes):
 // if some layer is selected, set dataset to whatever the array is called, e.g.
 // if education is selected on map, use dataset = secondary_school_district
-L.geoJson(calidata, {style: style}).addTo(map);
+var cali = L.geoJson(calidata, {style: style}).addTo(map);
+map.addLayer(cali);
 // L.geoJson(crime_data, {style: style}).addTo(map);
 var geojson;
 
@@ -92,10 +92,29 @@ function resetHighlight(e) {
   geojson.resetStyle(e.target);
   info.update_loc();
 }
+function reset() {
+  map.setView([37.278,-119.418], 5.5);
+}
+function recalculate() {
+  console.log($('#slideIncome').val(),$('#slideRent').val())
+  function newstyle(feature){
+    var weightedColor = feature.properties.Violent_sum*$('#slideIncome').val()
+    + feature.properties.Property_sum*$('#slideRent').val();
+    return {
+    fillColor: getColor(weightedColor),
+    weight: 2,
+    opacity: 1,
+    color: 'white',
+    dashArray: '3',
+    fillOpacity: 0.7
+    };
+  }
+  cali.setStyle(newstyle);
+}
 
 function zoomToFeature(e) {
   map.fitBounds(e.target.getBounds());
-
+  error();
 }
 
 function showinfo(e) {
@@ -116,26 +135,17 @@ info.onAdd = function (map) {
 // method that we will use to update the control based on feature properties passed
 // TODO: Fill this in with relevant info, make it look nice.
 info.update = function (props) {
-      deets = document.getElementById("details");
-      var temp_str = '<h4>Crime Information by County</h4>'
-      if (props) {
-        // rank_line = '<b> Rank:&emsp;&emsp; </b> ' + props.rank;
-        // type_line = '<b> Type of District:&emsp;&emsp; </b> ' + props.kind;
-        // name_line = '<b> Name:&emsp;&emsp; </b> ' + props.name;
-        // city_line = '<b> City:&emsp;&emsp; </b> ' + props.City;
-        county_line = '<b> County:&emsp;&emsp; </b> ' + props.County;
-        vio_line = '<b> Number of Violent Crimes:&emsp;&emsp; </b> ' + props.Violent_sum;
-        prop_line = '<b> Number of Property Crimes:&emsp;&emsp; </b> ' + props.Property_sum;
-        deets.innerHTML = temp_str + county_line + '<br />' + vio_line + '<br />' + prop_line + '<br />';
-      } else {
-        deets.innerHTML = temp_str + 'Click on a county to begin.'
-      }
-    };
+  if (props) {
+    for (var i = 0; i < parameters.length; i++) {
+        document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']]
+    }
+  }
+  else {}
+};
 
 info.update_loc = function (props) {
-      this._div.innerHTML = '<h4>County</h4>' +  (props ?
-        '<b>' + props.County : '');
-    };    
+  this._div.innerHTML = '<h4>School District</h4>' +  (props ? '<b>' + props.NAME : '');
+};
 
 info.addTo(map);
 
