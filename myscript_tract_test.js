@@ -21,17 +21,17 @@ var District = L.tileLayer(
     id: 'mapbox.light',
   });
 
-var map = L.map('map',{layers:[school, District]}).setView([36.778,-119.418], 5.5);
+var map = L.map('map',{layers:[District]}).setView([36.778,-119.418], 5.5);
 
 
 
 var baseMaps = {
-  "District": District,
-  "school": school
+  // "District": District,
+  // "school": school
   };
 
 var overlayMaps = {
-
+  "District": District
   };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
