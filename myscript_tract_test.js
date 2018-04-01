@@ -57,7 +57,7 @@ function style(feature) {
     //start at default values
     fillColor: getColor(feature.properties.Violent_sum*0.5 + feature.properties.Property_sum*0.5),
     weight: 2,
-    opacity: 0.1,
+    opacity: 0.2,
     color: 'white',
     dashArray: '3',
     fillOpacity: 0.7
