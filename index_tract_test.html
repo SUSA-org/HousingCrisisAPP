@@ -39,7 +39,11 @@
     var tablebody = $('#detailsbody');
     for (var i = 0; i < parameters.length; i++) {
         var th = '<tr><th scope="row" class="text-right">' + parameters[i]['text'] + '</th>'
-        var td = '<td id="' + parameters[i]['id'] + '">...</td></tr>'
+        // if (parameters[i]['id'] == "rank") {
+        //     var td = '<td id="' + parameters[i]['id'].toFixed(4) + '">...</td></tr>'
+        // } else {
+            var td = '<td id="' + parameters[i]['id'] + '">...</td></tr>'
+        // }
         tablebody.append(th+td);
     }
     });
