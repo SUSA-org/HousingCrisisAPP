@@ -25,6 +25,9 @@ var map = L.map('map',{renderer: L.canvas()},
   {layers:[ District]},
   topoLayer = new L.TopoJSON(),
   $countyName = $('.countyName'));
+const colorScale = chroma
+  .scale(['#ef8383', '#F8AB3F'])
+  .domain([0,5000]); //need to change to max value of properties later
 
 var baseMaps = {
 };
@@ -45,24 +48,11 @@ function addTopoData(topoData){
    topoLayer.eachLayer(handleLayer);
 }
 
-function getColor(d) {
-  // TODO: See style(feature) to understand what levels of color to hardcode
-  return  d > 10000 ? '#F8AB3F': //#dbdab8
-          d > 1000 ? '#E7B536':
-          d > 700 ? '#D7BD2F':
-          d > 500 ? '#C7C228':
-          d > 200 ? '#A7B621':
-          d > 100  ? '#86A61C':
-          d > 10 ? '#689616':
-          d > 5  ? '#4D8511':
-          d > 3   ? '#35750D':
-          d > 1   ? '#21650A':
-          d > 0    ? '#105407':
-          '#ef8383';}
-
 function handleLayer(layer){
+  const colorValue = layer.feature.properties.Violent_sum;
+  const fillColor = colorScale(colorValue).hex();
     layer.setStyle({
-      fillColor : getColor(layer.feature.properties.Violent_sum),
+      fillColor : fillColor,
       fillOpacity: .7,
       color:'#555',
       weight:1,
@@ -94,7 +84,7 @@ function resetHighlight(){
   this.setStyle({
     weight:1,
     opacity:.5,
-    fillColor:getColor(layer.feature.properties.Violent_sum),
+    fillColor:fillColor,
     fillOpacity:.7,
     color: '#555'
   });
