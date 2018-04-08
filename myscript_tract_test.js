@@ -51,13 +51,13 @@ function getColor(d) {
       //     d > 0    ? '#2d6808':
       //           '#ef8383';
 
-      return d > 20  ? '#7a7a7a':
-          d > 15 ? '#dbdab8': //#dbdab8
-          d > 10 ? '#fcfba1':
-          d > 8  ? '#f5f970':
-          d > 5  ? '#ccf280':
-          d > 3  ? '#95cc74':
-          d > 2   ? '#49a311':
+      return d > 12  ? '#7a7a7a':
+          d > 10 ? '#dbdab8': //#dbdab8
+          d > 7 ? '#fcfba1':
+          d > 5  ? '#f5f970':
+          d > 3  ? '#ccf280':
+          d > 2  ? '#95cc74':
+          d > 1   ? '#49a311':
           d > 0    ? '#2d6808':
                 '#ef8383';
 
@@ -193,7 +193,11 @@ info.onAdd = function (map) {
 info.update = function (props) {
   if (props) {
     for (var i = 0; i < parameters.length; i++) {
-        document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']]
+      if (i == 1) { //rounding for school district score
+        document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']].toFixed(4);
+      } else {
+        document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']];
+      }
     }
   }
   else {}
