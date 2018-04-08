@@ -253,17 +253,20 @@ function initMap() {
 
   document.getElementById('address').addEventListener('keydown', function(event) {
   if (event.which == 13) {
+    // console.log("Registered enter!!!");
     geocodeAddress(geocoder, map);
   }
   });
 
   document.getElementById("submit").addEventListener('click', function() {
+    // console.log("Registered click!!!!!!!!!!!!!!!!");
     geocodeAddress(geocoder, map);
   });
 }
 
 function geocodeAddress(geocoder, resultsMap) {
   var addr = document.getElementById('address').value;
+  // console.log(addr);
   addr = addr.concat(", CA");
   geocoder.geocode({address: addr,
             componentRestrictions: {
@@ -271,7 +274,7 @@ function geocodeAddress(geocoder, resultsMap) {
             }
            },
            function(results, status) {
-            if (status === 'OK') {
+            if (status == 'OK') {
               map.flyTo([results[0].geometry.location.lat(),
                    results[0].geometry.location.lng()], 12);
               // temp = results;
