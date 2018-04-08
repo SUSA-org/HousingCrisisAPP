@@ -240,3 +240,45 @@ geojson = L.geoJson(mergedTractData, { //calidata
   style: style,
   onEachFeature: onEachFeature
 }).addTo(map);
+
+function initMap() {
+  //var map2 = new google.maps.Map(document.getElementById('map2'), {
+  //  zoom: 8, center: {lat: 36, lng: -119}});
+
+  var geocoder = new google.maps.Geocoder();
+
+  document.getElementById('address').addEventListener('keydown', function(event) {
+  if (event.which == 13) {
+    geocodeAddress(geocoder, map);
+  }
+  });
+
+  document.getElementById("submit").addEventListener('click', function() {
+    geocodeAddress(geocoder, map);
+  });
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  var addr = document.getElementById('address').value;
+  addr = addr.concat(", CA");
+  geocoder.geocode({address: addr,
+            componentRestrictions: {
+            country: 'USA',
+            }
+           },
+           function(results, status) {
+            if (status === 'OK') {
+              map.flyTo([results[0].geometry.location.lat(),
+                   results[0].geometry.location.lng()], 12);
+              // temp = results;
+              // console.log(results);
+            } else {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+           });
+}
+
+function reset() {
+  map.setView([37.278,-119.418], 5.5);
+}
+
