@@ -39,23 +39,44 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 // adding color to the map chloropleth
 function getColor(d) {
-      // TODO: See style(feature) to understand what levels of color to hardcode
-      return  d > 350000  ? '#7a7a7a':
-          d > 300000 ? '#dbdab8': //#dbdab8
-          d > 50000 ? '#fcfba1':
-          d > 10000  ? '#f5f970':
-          d > 1000  ? '#ccf280':
-          d > 100   ? '#95cc74':
-          d > 50   ? '#49a311':
+      // higher score is better
+      // CHECK FOR NaN VALUES !!!!!!!!!!!!!!!!!!!!!!
+      // return  d > 350000  ? '#7a7a7a':
+      //     d > 300000 ? '#dbdab8': //#dbdab8
+      //     d > 50000 ? '#fcfba1':
+      //     d > 10000  ? '#f5f970':
+      //     d > 1000  ? '#ccf280':
+      //     d > 100   ? '#95cc74':
+      //     d > 50   ? '#49a311':
+      //     d > 0    ? '#2d6808':
+      //           '#ef8383';
+
+      return d > 20  ? '#7a7a7a':
+          d > 15 ? '#dbdab8': //#dbdab8
+          d > 10 ? '#fcfba1':
+          d > 8  ? '#f5f970':
+          d > 5  ? '#ccf280':
+          d > 3  ? '#95cc74':
+          d > 2   ? '#49a311':
           d > 0    ? '#2d6808':
                 '#ef8383';
+
+      // return  //d < 1  ? '#7a7a7a':
+      //     d < 1 ? '#dbdab8': //#dbdab8
+      //     d < 3 ? '#fcfba1':
+      //     d < 5  ? '#f5f970':
+      //     d < 7  ? '#ccf280':
+      //     d < 8   ? '#95cc74':
+      //     d < 9   ? '#49a311':
+      //     d < 10    ? '#2d6808':
+      //           '#7a7a7a'; //'#ef8383';
     }
 
 function style(feature) {
   return {
     // TODO: Fill by a more relevant attribute
     //start at default values
-    fillColor: getColor(feature.properties.Violent_sum*0.5 + feature.properties.Property_sum*0.5),
+    fillColor: getColor(0.25*feature.properties.cost + 0.25*feature.properties.safety + 0.25*feature.properties.travel + 0.25*feature.properties.school_system),
     weight: 2,
     opacity: 0.2,
     color: 'white',
@@ -69,7 +90,7 @@ function style(feature) {
 // TODO: TO IMPLEMENT (notes):
 // if some layer is selected, set dataset to whatever the array is called, e.g.
 // if education is selected on map, use dataset = secondary_school_district
-var cali = L.geoJson(calidata, {style: style}).addTo(map);
+var cali = L.geoJson(mergedTractData, {style: style}).addTo(map); //calidata
 map.addLayer(cali);
 // L.geoJson(crime_data, {style: style}).addTo(map);
 var geojson;
@@ -79,7 +100,7 @@ function highlightFeature(e) {
   var layer = e.target;
   layer.setStyle({
     weight: 5,
-    color: '#303030',
+    color: '#35373a', //'#666', //'#303030',
     // dashArray: '',
     fillOpacity: 0.1
   });
@@ -99,12 +120,42 @@ function reset() {
 }
 
 function recalculate() {
-  console.log($('#slideIncome').val(),$('#slideRent').val())
+  console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
   function newstyle(feature){
     //TO DO: normalize weights !!
     // come up with new formula
-    var weightedColor = feature.properties.Violent_sum*$('#slideIncome').val()
-    + feature.properties.Property_sum*$('#slideRent').val();
+    //Checking for NaN values and preparing to normalize
+    var num = sum = 0.0 //1.0 * ($('#slideCost').val() + $('#slideSafety').val(); + $('#slideTravel').val() + feature.properties.school_system);
+    // var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val(); + $('#slideTravel').val() + feature.properties.school_system);
+    var cost = safety = travel = school = 0.0;
+    if (!isNaN(feature.properties.cost)) {
+      cost = $('#slideCost').val();
+      sum += cost;
+      num += 1;
+    } 
+    if (!isNaN(feature.properties.safety)) {
+      safety = $('#slideSafety').val();
+      sum += safety;
+      num += 1;
+    }
+    if (!isNaN(feature.properties.travel)) {
+      travel = $('#slideTravel').val();
+      sum += travel;
+      num += 1;
+    }
+    if (!isNaN(feature.properties.school_system)) {
+      school = $('#slideSchool').val();
+      sum += school;
+      num += 1;
+    }
+    // Normalizing the weights to be proportional
+    cost = cost / sum;
+    safety = safety / sum;
+    travel = travel / sum;
+    school = school / sum;
+
+
+    var weightedColor = cost*feature.properties.cost + safety*feature.properties.safety + travel*feature.properties.travel + school*feature.properties.school_system;
     return {
     fillColor: getColor(weightedColor),
     weight: 2,
@@ -184,7 +235,7 @@ function onEachFeature(feature, layer) {
   });
 }
 
-geojson = L.geoJson(calidata, {
+geojson = L.geoJson(mergedTractData, { //calidata
 // geojson = L.geoJson(crime_data, {
   style: style,
   onEachFeature: onEachFeature
