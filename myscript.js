@@ -1,85 +1,105 @@
-// Choropleth Scripts
-
 var District = L.tileLayer(
   'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + 'pk.eyJ1Ijoic2hlZXBpbmF2IiwiYSI6ImNqZHA2bnFrMjBjYnoycm80M3BiaW1lc3EifQ.3MflXoZep5Hlr1ryAomj9A', {
-    id: 'mapbox.light',
-  });
+   id: 'mapbox.light',
+});
 
-var map = L.map('map', {renderer: L.canvas()},
-        {layers:[ District]}).setView([37.278,-119.418], 5.5);
+//TOPOJSON IMPLEMENTATION STARTS
+L.TopoJSON = L.GeoJSON.extend({
+   addData: function(jsonData) {
+     if (jsonData.type === "Topology") {
+       for (key in jsonData.objects) {
+         geojson = topojson.feature(jsonData, jsonData.objects[key]);
+         L.GeoJSON.prototype.addData.call(this, geojson);
+       }
+     }
+     else {
+       L.GeoJSON.prototype.addData.call(this, jsonData);
+     }
+   }
+});
+
+
+ 'use strict' //"fool-proof" mechanism to avoid bad code
+
+var map = L.map('map',{renderer: L.canvas()},
+  {layers:[ District]},
+  topoLayer = new L.TopoJSON(),
+  $countyName = $('.countyName'));
 
 var baseMaps = {
-
-  };
+};
 
 var overlayMaps = {
   "District": District
-  };
+};
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
-District.addTo(map);
 
-// adding color to the map chloropleth
+District.addTo(map);
+map.setView([37.278,-119.418], 5.5);
+$.getJSON('crimes.topo.json').done(addTopoData);
+
+function addTopoData(topoData){
+   topoLayer.addData(topoData);
+   topoLayer.addTo(map);
+   topoLayer.eachLayer(handleLayer);
+}
+
 function getColor(d) {
   // TODO: See style(feature) to understand what levels of color to hardcode
-  return  d > 10 ? '#F8AB3F': //#dbdab8
-          d > 9 ? '#E7B536':
-          d > 8 ? '#D7BD2F':
-          d > 7 ? '#C7C228':
-          d > 6 ? '#A7B621':
-          d > 5  ? '#86A61C':
-          d > 4 ? '#689616':
-          d > 3  ? '#4D8511':
-          d > 2   ? '#35750D':
+  return  d > 10000 ? '#F8AB3F': //#dbdab8
+          d > 1000 ? '#E7B536':
+          d > 700 ? '#D7BD2F':
+          d > 500 ? '#C7C228':
+          d > 200 ? '#A7B621':
+          d > 100  ? '#86A61C':
+          d > 10 ? '#689616':
+          d > 5  ? '#4D8511':
+          d > 3   ? '#35750D':
           d > 1   ? '#21650A':
           d > 0    ? '#105407':
-                '#ef8383';
-  // return  d > 5000  ? '#800026':
-  //         d > 3500  ? '#BD0026':
-  //         d > 2000  ? '#E31A1C':
-  //         d > 1000   ? '#FC4E2A':
-  //         d > 500   ? '#FD8D3C':
-  //         d > 100   ? '#FEB24C':
-  //         d > 0   ? '#FED976':
-  //                   '#FFEDA0';
-}
+          '#ef8383';}
 
-function style(feature) {
-  return {
-    // TODO: Fill by a more relevant attribute
-    fillColor: getColor(feature.properties.new_rank),
-    weight: 2,
-    opacity: 0.1,
-    color: 'white',
-    fillOpacity: 0.7
-  };
-}
+function handleLayer(layer){
+    layer.setStyle({
+      fillColor : getColor(layer.feature.properties.Violent_sum),
+      fillOpacity: .7,
+      color:'#555',
+      weight:1,
+      opacity:.7
+    });
+    layer.on({
+      mouseover: highlightFeature,
+      mouseout: resetHighlight,
+      dblclick: zoomToFeature,
+      click: showinfo
+    });
 
-// TODO: TO IMPLEMENT (notes):
-// if some layer is selected, set dataset to whatever the array is called, e.g.
-// if education is selected on map, use dataset = secondary_school_district
-var cali = L.geoJson(everything_schools, {style: style}).addTo(map);
-map.addLayer(cali);
-var geojson;
-
-// highlight/remove highlight/zoom features
-function highlightFeature(e) {
-  var layer = e.target;
-  layer.setStyle({
-    weight: 5,
+function highlightFeature(){
+  var countyName = layer.feature.properties.County;
+  console.log(countyName);
+  $countyName.text(county).show();
+  this.bringToFront();
+  this.setStyle({
+    weight:2,
+    opacity: 1,
     color: '#666',
-    fillOpacity: 0.7
+    fillOpacity: 1
   });
-  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-    layer.bringToFront();
-  }
   info.update_loc(layer.feature.properties);
 }
-
-function resetHighlight(e) {
-  geojson.resetStyle(e.target);
+function resetHighlight(){
+  $countyName.hide();
+  this.bringToBack();
+  this.setStyle({
+    weight:1,
+    opacity:.5,
+    fillColor:getColor(layer.feature.properties.Violent_sum),
+    fillOpacity:.7,
+    color: '#555'
+  });
   info.update_loc();
-}
+};
 
 function zoomToFeature(e) {
   map.fitBounds(e.target.getBounds(),{padding:[100,100]});
@@ -101,11 +121,12 @@ info.onAdd = function (map) {
   return this._div;
 };
 
+
 // method that we will use to update the control based on feature properties passed
 // TODO: Fill this in with relevant info, make it look nice.
 info.update = function (props) {
   if (props) {
-    document.getElementById("name").innerHTML = props.name;
+    document.getElementById("name").innerHTML = props.County; //proof of concept works, need to add other features
     document.getElementById("custom_index").innerHTML = props.new_rank.toFixed(4);
     document.getElementById("rank").innerHTML = props.rank;
     document.getElementById("kind").innerHTML = props.kind;
@@ -124,26 +145,14 @@ info.update = function (props) {
 };
 
 info.update_loc = function (props) {
-  this._div.innerHTML = '<h4>School District</h4>' +  (props ? '<b>' + props.name : '');
+  this._div.innerHTML = '<h4>School District</h4>' +   (props ?'<b>' + props.County : "");
+  console.log(props)
 };
 
 info.addTo(map);
+}; //end handleLayer
 
-// implements cool features
-function onEachFeature(feature, layer) {
-  layer.on({
-    mouseover: highlightFeature,
-    mouseout: resetHighlight,
-    dblclick: zoomToFeature,
-    click: showinfo
-  });
-}
-
-geojson = L.geoJson(everything_schools, {
-  style: style,
-  onEachFeature: onEachFeature
-}).addTo(map);
-
+//END TopoJSON
 
 function initMap() {
   //var map2 = new google.maps.Map(document.getElementById('map2'), {
@@ -157,7 +166,7 @@ function initMap() {
   }
   });
 
-  document.getElementById('submit').addEventListener('click', function() {
+  document.getElementById("submit").addEventListener('click', function() {
     geocodeAddress(geocoder, map);
   });
 }
@@ -185,6 +194,11 @@ function geocodeAddress(geocoder, resultsMap) {
 function reset() {
   map.setView([37.278,-119.418], 5.5);
 }
+
+
+
+
+//Easteregg
 icounter=1;
 function pat() {
   if(icounter%2==1){
