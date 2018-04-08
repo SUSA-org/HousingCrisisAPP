@@ -51,15 +51,25 @@ function getColor(d) {
       //     d > 0    ? '#2d6808':
       //           '#ef8383';
 
-      return d > 12  ? '#7a7a7a':
-          d > 10 ? '#dbdab8': //#dbdab8
-          d > 7 ? '#fcfba1':
-          d > 5  ? '#f5f970':
-          d > 3  ? '#ccf280':
-          d > 2  ? '#95cc74':
-          d > 1   ? '#49a311':
-          d > 0    ? '#2d6808':
-                '#ef8383';
+      // return d > 12  ? '#7a7a7a':
+      //     d > 10 ? '#dbdab8': //#dbdab8
+      //     d > 7 ? '#fcfba1':
+      //     d > 5  ? '#f5f970':
+      //     d > 3  ? '#ccf280':
+      //     d > 2  ? '#95cc74':
+      //     d > 1   ? '#49a311':
+      //     d > 0    ? '#2d6808':
+      //           '#ef8383';
+
+      return d < 0  ? '#7a7a7a': //gray aka nonexistent
+          d < 1 ? '#dbdab8': //lightest yellow brown
+          d < 2 ? '#fcfba1': //lightest yellow
+          d < 3  ? '#f5f970':
+          d < 5  ? '#ccf280':
+          d < 9  ? '#95cc74':
+          d < 10   ? '#49a311':
+          d < 12   ? '#2d6808': //darkest green
+                '#ef8383'; //red aka broken
 
       // return  //d < 1  ? '#7a7a7a':
       //     d < 1 ? '#dbdab8': //#dbdab8
@@ -125,35 +135,39 @@ function recalculate() {
     //TO DO: normalize weights !!
     // come up with new formula
     //Checking for NaN values and preparing to normalize
-    var num = sum = 0.0 //1.0 * ($('#slideCost').val() + $('#slideSafety').val(); + $('#slideTravel').val() + feature.properties.school_system);
-    // var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val(); + $('#slideTravel').val() + feature.properties.school_system);
+    // var num = sum = 0.0 //1.0 * ($('#slideCost').val() + $('#slideSafety').val(); + $('#slideTravel').val() + feature.properties.school_system);
+    var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
     var cost = safety = travel = school = 0.0;
-    if (!isNaN(feature.properties.cost)) {
-      cost = $('#slideCost').val();
-      sum += cost;
-      num += 1;
-    } 
-    if (!isNaN(feature.properties.safety)) {
-      safety = $('#slideSafety').val();
-      sum += safety;
-      num += 1;
-    }
-    if (!isNaN(feature.properties.travel)) {
-      travel = $('#slideTravel').val();
-      sum += travel;
-      num += 1;
-    }
-    if (!isNaN(feature.properties.school_system)) {
-      school = $('#slideSchool').val();
-      sum += school;
-      num += 1;
-    }
+    // if (!isNaN(feature.properties.cost)) {
+      // cost = $('#slideCost').val();
+      cost = $('#slideCost').val() / sum;
+      // sum += cost;
+      // num += 1;
+    // } 
+    // if (!isNaN(feature.properties.safety)) {
+      // safety = $('#slideSafety').val();
+      safety = $('#slideSafety').val() / sum;
+      // sum += safety;
+      // num += 1;
+    // }
+    // if (!isNaN(feature.properties.travel)) {
+      // travel = $('#slideTravel').val();
+      travel = $('#slideTravel').val() / sum;
+      // sum += travel;
+      // num += 1;
+    // }
+    // if (!isNaN(feature.properties.school_system)) {
+      // school = $('#slideSchool').val();
+      school = $('#slideSchool').val() / sum;
+      // sum += school;
+      // num += 1;
+    // }
     // Normalizing the weights to be proportional
-    cost = cost / sum;
-    safety = safety / sum;
-    travel = travel / sum;
-    school = school / sum;
-
+    // cost = cost / sum;
+    // safety = safety / sum;
+    // travel = travel / sum;
+    // school = school / sum;
+    console.log("cost: " + cost + "\nsafety: " + safety + "\ntravel: " + travel + "\nschool: " + school);
 
     var weightedColor = cost*feature.properties.cost + safety*feature.properties.safety + travel*feature.properties.travel + school*feature.properties.school_system;
     return {
@@ -248,6 +262,7 @@ geojson = L.geoJson(mergedTractData, { //calidata
 function initMap() {
   //var map2 = new google.maps.Map(document.getElementById('map2'), {
   //  zoom: 8, center: {lat: 36, lng: -119}});
+  reset();
 
   var geocoder = new google.maps.Geocoder();
 
