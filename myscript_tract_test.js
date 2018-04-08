@@ -62,12 +62,12 @@ function getColor(d) {
       //           '#ef8383';
 
       return d < 0  ? '#7a7a7a': //gray aka nonexistent
-          d < 1 ? '#dbdab8': //lightest yellow brown
-          d < 2 ? '#fcfba1': //lightest yellow
-          d < 3  ? '#f5f970':
-          d < 5  ? '#ccf280':
-          d < 9  ? '#95cc74':
-          d < 10   ? '#49a311':
+          d < 1 ? '#dbdab8': //lightest yellow brown gray
+          d < 2 ? '#fcfba1': //pale yellow
+          d < 3  ? '#f5f970': //baby yellow
+          d < 5  ? '#ccf280': //green yellow
+          d < 9  ? '#95cc74': //light green
+          d < 10   ? '#49a311': //bright green
           d < 12   ? '#2d6808': //darkest green
                 '#ef8383'; //red aka broken
 
@@ -131,11 +131,7 @@ function reset() {
 
 function recalculate() {
   console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
-  function newstyle(feature){
-    //TO DO: normalize weights !!
-    // come up with new formula
-    //Checking for NaN values and preparing to normalize
-    // var num = sum = 0.0 //1.0 * ($('#slideCost').val() + $('#slideSafety').val(); + $('#slideTravel').val() + feature.properties.school_system);
+  // var num = sum = 0.0 //1.0 * ($('#slideCost').val() + $('#slideSafety').val(); + $('#slideTravel').val() + feature.properties.school_system);
     var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
     var cost = safety = travel = school = 0.0;
     // if (!isNaN(feature.properties.cost)) {
@@ -167,9 +163,14 @@ function recalculate() {
     // safety = safety / sum;
     // travel = travel / sum;
     // school = school / sum;
-    console.log("cost: " + cost + "\nsafety: " + safety + "\ntravel: " + travel + "\nschool: " + school);
+    console.log("cost: " + 5000*cost + "\nsafety: " + 5000*safety + "\ntravel: " + 5000*travel + "\nschool: " + 5000*school);
+  function newstyle(feature){
+    //TO DO: normalize weights !!
+    // come up with new formula
+    //Checking for NaN values and preparing to normalize
+    
 
-    var weightedColor = cost*feature.properties.cost + safety*feature.properties.safety + travel*feature.properties.travel + school*feature.properties.school_system;
+    var weightedColor = 5000*cost*feature.properties.cost + 5000*safety*feature.properties.safety + 5000*travel*feature.properties.travel + 5000*school*feature.properties.school_system;
     return {
     fillColor: getColor(weightedColor),
     weight: 2,
