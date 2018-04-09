@@ -13,24 +13,25 @@
     <!-- <script src="hta_ca.js"></script> -->
     <!-- <script src="updated_school_districts.js"></script> -->
     <!-- <script src="updated_school_districts2.js"></script> -->
-    <script src="kana.js"></script>
+    <!-- <script src="kana.js"></script> -->
+    <script src="mergedTracts.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- <script src="ca_tract_school_district.js"></script> -->
-    <script src="leaflet.markercluster-1.3.0/dist/leaflet.markercluster.js"></script>
+    <!-- <script src="leaflet.markercluster-1.3.0/dist/leaflet.markercluster.js"></script> -->
     <script>
     var parameters = [
     // {"text": "District Name","id": "name","val":"NAME"},
     //{"text": "Custom Index","id": "custom_index","val":"rank"},
     {"text": "County","id": "county","val":"County"},
-    {"text": "School District Rank","id": "rank","val":"Rank score (2017)"},
+    {"text": "School District Rank Score","id": "rank","val":"Rank score (2017)"},
     //{"text": "City","id": "city", "val":"City"},
     // {"text": "District Type","id": "kind","val":"kind"},
     {"text": "Population","id": "population","val":"population"},
     {"text": "Households","id": "households","val":"households"},
     {"text": "Median Gross Rent (Mo)","id": "medgrossrent","val":"median_gross_rent"},
     {"text": "Avg Housing Cost (Mo)","id": "avgmonthlyhouse","val":"h_cost"},
-    {"text": "Num Violent Crimes","id": "violent","val":"Violent_sum"},
-    {"text": "Num Property Crimes","id": "property","val":"Property_sum"},
+    {"text": "Num Violent Crimes in County","id": "violent","val":"Violent_sum"},
+    {"text": "Num Property Crimes in County","id": "property","val":"Property_sum"},
     {"text": "Avg Transportation Cost","id": "transportation","val":"t_cost_80ami"},
     {"text": "Avg Transit Cost","id": "transit","val":"transit_cost_80ami"},
     {"text": "Job Access Score (1-10)","id": "access","val":"emp_ovrll_ndx"},
@@ -66,7 +67,7 @@
     This is meant to act as a reference for you to start your search for housing.
     Just click on a tract to view more information and double click to zoom in on a tract and its surrounding tracts.
     </br>Enter your location in the search bar below to view tracts near you!
-  </br>Good Luck :)</p>
+    </br>Good Luck :)</p>
   </div>
   </br>
   <div class="container">
@@ -76,10 +77,10 @@
           </text>
       </div>
       <div id="floating-panel" class="input-group">
-          <input id="address" type="textbox" class="form-control" value="Berkeley, CA">
-          <div class="input-group-append">
-              <input id="submit" class="btn btn-outline-secondary" type="button" value="Search">
-          </div>
+            <input id="address" type="textbox" class="form-control" value="Berkeley, CA">
+            <div class="input-group-append">
+                <input id="submit" class="btn btn-outline-secondary" type="button" value="Search">
+            </div>
       </div>
       <br/>
       <div>
@@ -89,15 +90,27 @@
       </div>
       <div class="input-group mb-3">
           <div class="input-group-prepend">
-              <span class="input-group-text">Income</span>
+              <span class="input-group-text">Cost</span>
           </div>
-          <input type="range" min="1" max="100" value="50" class="form-control" id="slideIncome" style="height:50px;">
+          <input type="range" min="0" max="10" value="5" class="form-control" id="slideCost" style="height:50px;">
       </div>
       <div class="input-group mb-3">
           <div class="input-group-prepend">
-              <span class="input-group-text">Rent</span>
+              <span class="input-group-text">Safety</span>
           </div>
-          <input type="range" min="1" max="100" value="50" class="form-control" id="slideRent" style="height:50px;">
+          <input type="range" min="0" max="10" value="5" class="form-control" id="slideSafety" style="height:50px;">
+      </div>
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text">Travel</span>
+          </div>
+          <input type="range" min="0" max="10" value="5" class="form-control" id="slideTravel" style="height:50px;">
+      </div>
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <span class="input-group-text">School</span>
+          </div>
+          <input type="range" min="0" max="10" value="5" class="form-control" id="slideSchool" style="height:50px;">
       </div>
       <input id="recalc_map" class="btn btn-outline-secondary" type="button" value="Recalculate Map" onclick="recalculate()">
   </div>
@@ -125,6 +138,9 @@
 
 
 <script src="myscript_tract_test.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCslizjh07L9rDkfH9vY7vL6dDqju1gnA8&callback=initMap">
+    </script>
 </body>
 
 </html>

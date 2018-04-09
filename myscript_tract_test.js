@@ -39,23 +39,54 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 // adding color to the map chloropleth
 function getColor(d) {
-      // TODO: See style(feature) to understand what levels of color to hardcode
-      return  d > 350000  ? '#7a7a7a':
-          d > 300000 ? '#dbdab8': //#dbdab8
-          d > 50000 ? '#fcfba1':
-          d > 10000  ? '#f5f970':
-          d > 1000  ? '#ccf280':
-          d > 100   ? '#95cc74':
-          d > 50   ? '#49a311':
-          d > 0    ? '#2d6808':
-                '#ef8383';
+      // higher score is better
+      // CHECK FOR NaN VALUES !!!!!!!!!!!!!!!!!!!!!!
+      // return  d > 350000  ? '#7a7a7a':
+      //     d > 300000 ? '#dbdab8': //#dbdab8
+      //     d > 50000 ? '#fcfba1':
+      //     d > 10000  ? '#f5f970':
+      //     d > 1000  ? '#ccf280':
+      //     d > 100   ? '#95cc74':
+      //     d > 50   ? '#49a311':
+      //     d > 0    ? '#2d6808':
+      //           '#ef8383';
+
+      // return d > 12  ? '#7a7a7a':
+      //     d > 10 ? '#dbdab8': //#dbdab8
+      //     d > 7 ? '#fcfba1':
+      //     d > 5  ? '#f5f970':
+      //     d > 3  ? '#ccf280':
+      //     d > 2  ? '#95cc74':
+      //     d > 1   ? '#49a311':
+      //     d > 0    ? '#2d6808':
+      //           '#ef8383';
+
+      return d < 0  ? '#7a7a7a': //gray aka nonexistent
+          d < 1 ? '#dbdab8': //lightest yellow brown gray
+          d < 2 ? '#fcfba1': //pale yellow
+          d < 3  ? '#f5f970': //baby yellow
+          d < 5  ? '#ccf280': //green yellow
+          d < 9  ? '#95cc74': //light green
+          d < 10   ? '#49a311': //bright green
+          d < 12   ? '#2d6808': //darkest green
+                '#ef8383'; //red aka broken
+
+      // return  //d < 1  ? '#7a7a7a':
+      //     d < 1 ? '#dbdab8': //#dbdab8
+      //     d < 3 ? '#fcfba1':
+      //     d < 5  ? '#f5f970':
+      //     d < 7  ? '#ccf280':
+      //     d < 8   ? '#95cc74':
+      //     d < 9   ? '#49a311':
+      //     d < 10    ? '#2d6808':
+      //           '#7a7a7a'; //'#ef8383';
     }
 
 function style(feature) {
   return {
     // TODO: Fill by a more relevant attribute
     //start at default values
-    fillColor: getColor(feature.properties.Violent_sum*0.5 + feature.properties.Property_sum*0.5),
+    fillColor: getColor(0.25*feature.properties.cost + 0.25*feature.properties.safety + 0.25*feature.properties.travel + 0.25*feature.properties.school_system),
     weight: 2,
     opacity: 0.2,
     color: 'white',
@@ -69,7 +100,7 @@ function style(feature) {
 // TODO: TO IMPLEMENT (notes):
 // if some layer is selected, set dataset to whatever the array is called, e.g.
 // if education is selected on map, use dataset = secondary_school_district
-var cali = L.geoJson(calidata, {style: style}).addTo(map);
+var cali = L.geoJson(mergedTractData, {style: style}).addTo(map); //calidata
 map.addLayer(cali);
 // L.geoJson(crime_data, {style: style}).addTo(map);
 var geojson;
@@ -79,7 +110,7 @@ function highlightFeature(e) {
   var layer = e.target;
   layer.setStyle({
     weight: 5,
-    color: '#303030',
+    color: '#35373a', //'#666', //'#303030',
     // dashArray: '',
     fillOpacity: 0.1
   });
@@ -99,12 +130,47 @@ function reset() {
 }
 
 function recalculate() {
-  console.log($('#slideIncome').val(),$('#slideRent').val())
+  console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
+  // var num = sum = 0.0 //1.0 * ($('#slideCost').val() + $('#slideSafety').val(); + $('#slideTravel').val() + feature.properties.school_system);
+    var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
+    var cost = safety = travel = school = 0.0;
+    // if (!isNaN(feature.properties.cost)) {
+      // cost = $('#slideCost').val();
+      cost = $('#slideCost').val() / sum;
+      // sum += cost;
+      // num += 1;
+    // } 
+    // if (!isNaN(feature.properties.safety)) {
+      // safety = $('#slideSafety').val();
+      safety = $('#slideSafety').val() / sum;
+      // sum += safety;
+      // num += 1;
+    // }
+    // if (!isNaN(feature.properties.travel)) {
+      // travel = $('#slideTravel').val();
+      travel = $('#slideTravel').val() / sum;
+      // sum += travel;
+      // num += 1;
+    // }
+    // if (!isNaN(feature.properties.school_system)) {
+      // school = $('#slideSchool').val();
+      school = $('#slideSchool').val() / sum;
+      // sum += school;
+      // num += 1;
+    // }
+    // Normalizing the weights to be proportional
+    // cost = cost / sum;
+    // safety = safety / sum;
+    // travel = travel / sum;
+    // school = school / sum;
+    console.log("cost: " + 5000*cost + "\nsafety: " + 5000*safety + "\ntravel: " + 5000*travel + "\nschool: " + 5000*school);
   function newstyle(feature){
     //TO DO: normalize weights !!
     // come up with new formula
-    var weightedColor = feature.properties.Violent_sum*$('#slideIncome').val()
-    + feature.properties.Property_sum*$('#slideRent').val();
+    //Checking for NaN values and preparing to normalize
+    
+
+    var weightedColor = 5000*cost*feature.properties.cost + 5000*safety*feature.properties.safety + 5000*travel*feature.properties.travel + 5000*school*feature.properties.school_system;
     return {
     fillColor: getColor(weightedColor),
     weight: 2,
@@ -142,7 +208,11 @@ info.onAdd = function (map) {
 info.update = function (props) {
   if (props) {
     for (var i = 0; i < parameters.length; i++) {
-        document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']]
+      if (i == 1) { //rounding for school district score
+        document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']].toFixed(4);
+      } else {
+        document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']];
+      }
     }
   }
   else {}
@@ -184,8 +254,54 @@ function onEachFeature(feature, layer) {
   });
 }
 
-geojson = L.geoJson(calidata, {
+geojson = L.geoJson(mergedTractData, { //calidata
 // geojson = L.geoJson(crime_data, {
   style: style,
   onEachFeature: onEachFeature
 }).addTo(map);
+
+function initMap() {
+  //var map2 = new google.maps.Map(document.getElementById('map2'), {
+  //  zoom: 8, center: {lat: 36, lng: -119}});
+  reset();
+
+  var geocoder = new google.maps.Geocoder();
+
+  document.getElementById('address').addEventListener('keydown', function(event) {
+  if (event.which == 13) {
+    // console.log("Registered enter!!!");
+    geocodeAddress(geocoder, map);
+  }
+  });
+
+  document.getElementById("submit").addEventListener('click', function() {
+    // console.log("Registered click!!!!!!!!!!!!!!!!");
+    geocodeAddress(geocoder, map);
+  });
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  var addr = document.getElementById('address').value;
+  // console.log(addr);
+  addr = addr.concat(", CA");
+  geocoder.geocode({address: addr,
+            componentRestrictions: {
+            country: 'USA',
+            }
+           },
+           function(results, status) {
+            if (status == 'OK') {
+              map.flyTo([results[0].geometry.location.lat(),
+                   results[0].geometry.location.lng()], 12);
+              // temp = results;
+              // console.log(results);
+            } else {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+           });
+}
+
+function reset() {
+  map.setView([37.278,-119.418], 5.5);
+}
+
