@@ -1,3 +1,4 @@
+
 var District = L.tileLayer(
   'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + 'pk.eyJ1Ijoic2hlZXBpbmF2IiwiYSI6ImNqZHA2bnFrMjBjYnoycm80M3BiaW1lc3EifQ.3MflXoZep5Hlr1ryAomj9A', {
    id: 'mapbox.light',
@@ -11,30 +12,29 @@ L.TopoJSON = L.GeoJSON.extend({
          geojson = topojson.feature(jsonData, jsonData.objects[key]);
          L.GeoJSON.prototype.addData.call(this, geojson);
        }
-     }
-     else {
+     } else {
        L.GeoJSON.prototype.addData.call(this, jsonData);
      }
    }
 });
 
+// Put here to avoid breaking our "bad" code in earlier lines
+'use strict' // "fool-proof" mechanism to avoid bad code
 
- 'use strict' //"fool-proof" mechanism to avoid bad code
+var map = L.map('map', {renderer: L.canvas()},
+                       {layers: [District]});
+var topoLayer = new L.TopoJSON();
 
-var map = L.map('map',{renderer: L.canvas()},
-  {layers:[ District]},
-  topoLayer = new L.TopoJSON(),
-  $countyName = $('.countyName'));
 const colorScale = chroma
   .scale(['#ef8383', '#F8AB3F'])
   .domain([0,5000]); //need to change to max value of properties later
 
 var baseMaps = {
-};
+  };
 
 var overlayMaps = {
-  "District": District
-};
+    "District": District
+  };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 
@@ -42,117 +42,119 @@ District.addTo(map);
 map.setView([37.278,-119.418], 5.5);
 $.getJSON('mergedTracts.topo.json').done(addTopoData);
 
-function addTopoData(topoData){
+function addTopoData(topoData) {
    topoLayer.addData(topoData);
    topoLayer.addTo(map);
    topoLayer.eachLayer(handleLayer);
 }
 
-function handleLayer(layer){
-  const colorValue = layer.feature.properties.Violent_sum;
+function handleLayer(layer) {
+  // TODO: Fix colors
+  const colorValue = 0.25*layer.feature.properties.cost + 0.25*layer.feature.properties.safety + 
+                     0.25*layer.feature.properties.travel + 0.25*layer.feature.properties.school_system;
   const fillColor = colorScale(colorValue).hex();
-    layer.setStyle({
-      fillColor : fillColor,
-      fillOpacity: .7,
-      color:'#555',
-      weight:1,
-      opacity:.7
-    });
-    layer.on({
-      mouseover: highlightFeature,
-      mouseout: resetHighlight,
-      dblclick: zoomToFeature,
-      click: showinfo
-    });
 
-function highlightFeature(){
-  var countyName = layer.feature.properties.County;
-  console.log(countyName);
-  $countyName.text(county).show();
-  this.bringToFront();
-  this.setStyle({
-    weight:2,
-    opacity: 1,
-    color: '#666',
-    fillOpacity: 1
-  });
-
-}
-function resetHighlight(){
-  $countyName.hide();
-  this.bringToBack();
-  this.setStyle({
+  layer.setStyle({
+    fillColor : fillColor,
+    fillOpacity: .7,
+    color:'#555',
     weight:1,
-    opacity:.5,
-    fillColor:fillColor,
-    fillOpacity:.7,
-    color: '#555'
+    opacity:.7
   });
-  info.update_loc();
-};
 
-function zoomToFeature(e) {
-  map.fitBounds(e.target.getBounds(),{padding:[100,100]});
-  error(); // Jank but necessary workaround
-}
+  layer.on({
+    mouseover: highlightFeature,
+    mouseout: resetHighlight,
+    dblclick: zoomToFeature,
+    click: showinfo
+  });
 
-function showinfo(e) {
-  info.update(e.target.feature.properties);
-}
-
-var info = L.control();
-
-// kk: I wanted to delete this function but leaflet errors without it...
-// kk: I literally have no idea what this does.
-info.onAdd = function (map) {
-  this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-  this.update();
-  return this._div;
-};
-
-
-// method that we will use to update the control based on feature properties passed
-// TODO: Fill this in with relevant info, make it look nice.
-info.update = function (props) {
-  if (props) {
-    document.getElementById("name").innerHTML = props.County; //proof of concept works, need to add other features
-    document.getElementById("custom_index").innerHTML = props.new_rank.toFixed(4);
-    document.getElementById("rank").innerHTML = props.rank;
-    document.getElementById("kind").innerHTML = props.kind;
-    document.getElementById("city").innerHTML = props.City;
-    document.getElementById("county").innerHTML = props.County;
-    document.getElementById("population").innerHTML = props.population;
-    document.getElementById("households").innerHTML = props.households;
-    document.getElementById("medgrossrent").innerHTML = props.median_gross_rent;
-    document.getElementById("avgmonthlyhouse").innerHTML = props.h_cost;
-    document.getElementById("violent").innerHTML = props.Violent_sum;
-    document.getElementById("property").innerHTML = props.Property_sum;
-    document.getElementById("transportation").innerHTML = props.t_cost_80ami;
-    document.getElementById("transit").innerHTML = props.transit_cost_80ami;
-  } else {
+  function highlightFeature(){
+    var countyName = layer.feature.properties.County;
+    // console.log(countyName);
+    this.bringToFront();
+    this.setStyle({
+      weight:2,
+      opacity: 1,
+      color: '#666',
+      fillOpacity: 1
+    });
   }
-};
 
-info.update_loc = function (props) {
-  this._div.innerHTML = '<h4>School District</h4>' +   (props ?'<b>' + props.County : "");
-  console.log(props)
-};
+  function resetHighlight(){
+    this.bringToBack();
+    this.setStyle({
+      weight:1,
+      opacity:.5,
+      fillColor:fillColor,
+      fillOpacity:.7,
+      color: '#555'
+    });
+    info.update_loc();
+  };
 
-info.addTo(map);
+  function zoomToFeature(e) {
+    map.fitBounds(e.target.getBounds(),{padding:[100,100]});
+    error(); // Jank but necessary workaround
+  }
+
+  function showinfo(e) {
+    info.update(e.target.feature.properties);
+  }
+
+  var info = L.control();
+
+  // kk: I wanted to delete this function but leaflet errors without it...
+  info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    // this.update();
+    return this._div;
+  };
+
+  info.update_loc = function (props) {
+    this._div.innerHTML = '<h4>School District</h4>' +   (props ?'<b>' + props.County : "");
+    // console.log(props)
+  };
+
+  info.addTo(map);
+  
+  function recalculate() {
+    // console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
+    var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
+    var cost = safety = travel = school = 0.0;
+    cost = $('#slideCost').val() / sum;
+    safety = $('#slideSafety').val() / sum;
+    travel = $('#slideTravel').val() / sum;
+    school = $('#slideSchool').val() / sum;
+    // console.log("cost: " + 5000*cost + "\nsafety: " + 5000*safety + "\ntravel: " + 5000*travel + "\nschool: " + 5000*school);
+
+    //TO DO: normalize weights !!
+    // come up with new formula
+    // Checking for NaN values and preparing to normalize
+    // Helper function for recalculate
+    function newstyle(feature) {
+      var weightedColor = 5000*cost*feature.properties.cost + 5000*safety*feature.properties.safety + 5000*travel*feature.properties.travel + 5000*school*feature.properties.school_system;
+      return {
+        fillColor: getColor(weightedColor),
+        weight: 2,
+        opacity: 0.1,
+        color: 'white',
+        // dashArray: '3',
+        fillOpacity: 0.7
+        };
+    }
+    cali.setStyle(newstyle);
+  }
 }; //end handleLayer
 
 //END TopoJSON
 
 function initMap() {
-  //var map2 = new google.maps.Map(document.getElementById('map2'), {
-  //  zoom: 8, center: {lat: 36, lng: -119}});
-
   var geocoder = new google.maps.Geocoder();
 
   document.getElementById('address').addEventListener('keydown', function(event) {
-  if (event.which == 13) {
-    geocodeAddress(geocoder, map);
-  }
+    if (event.which == 13)
+      geocodeAddress(geocoder, map);
   });
 
   document.getElementById("submit").addEventListener('click', function() {
@@ -183,15 +185,13 @@ function reset() {
 }
 
 
-
-
-//Easteregg
-icounter=1;
+// Easteregg
+var icounter = true;
 function pat() {
-  if(icounter%2==1){
+  if(icounter) {
     document.getElementById("pat").style = "display:visible";
-  } else{
+  } else {
     document.getElementById("pat").style = "display:none";
   }
-  icounter=icounter+1;
+  icounter = !icounter;
 }
