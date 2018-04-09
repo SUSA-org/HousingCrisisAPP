@@ -27,7 +27,7 @@ var topoLayer = new L.TopoJSON();
 
 const colorScale = chroma
   .scale(['#ef8383', '#F8AB3F'])
-  .domain([0,5000]); //need to change to max value of properties later
+  .domain([0,10]); //need to change to max value of properties later
 
 var baseMaps = {
   };
@@ -50,7 +50,7 @@ function addTopoData(topoData) {
 
 function handleLayer(layer) {
   // TODO: Fix colors
-  const colorValue = 0.25*layer.feature.properties.cost + 0.25*layer.feature.properties.safety + 
+  const colorValue = 0.25*layer.feature.properties.cost + 0.25*layer.feature.properties.safety +
                      0.25*layer.feature.properties.travel + 0.25*layer.feature.properties.school_system;
   const fillColor = colorScale(colorValue).hex();
 
@@ -68,10 +68,6 @@ function handleLayer(layer) {
     dblclick: zoomToFeature,
     click: showinfo
   });
-<<<<<<< HEAD
-};
-=======
->>>>>>> 415fae8d7004ff4b339d8e42fa1d8de30411d5ed
 
   function highlightFeature(){
     var countyName = layer.feature.properties.County;
@@ -94,7 +90,7 @@ function handleLayer(layer) {
       fillOpacity:.7,
       color: '#555'
     });
-    info.update_loc();
+    //info.update_loc();
   };
 
   function zoomToFeature(e) {
@@ -121,7 +117,7 @@ function handleLayer(layer) {
   };
 
   info.addTo(map);
-  
+
   function recalculate() {
     // console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
     var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
@@ -141,9 +137,8 @@ function handleLayer(layer) {
       return {
         fillColor: getColor(weightedColor),
         weight: 2,
-        opacity: 0.1,
-        color: 'white',
-        // dashArray: '3',
+        opacity: 1,
+        color: #666,
         fillOpacity: 0.7
         };
     }
