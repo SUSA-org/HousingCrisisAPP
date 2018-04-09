@@ -122,22 +122,22 @@ function handleLayer(layer) {
 //END TopoJSON
 
 function recalculate() {
-  // console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
-  var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
-  var cost = safety = travel = school = 0.0;
-  cost = $('#slideCost').val() / sum;
-  safety = $('#slideSafety').val() / sum;
-  travel = $('#slideTravel').val() / sum;
-  school = $('#slideSchool').val() / sum;
-  // console.log("cost: " + 5000*cost + "\nsafety: " + 5000*safety + "\ntravel: " + 5000*travel + "\nschool: " + 5000*school);
+    // console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
+    var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
+    var cost = safety = travel = school = 0.0;
+    cost = $('#slideCost').val() / sum;
+    safety = $('#slideSafety').val() / sum;
+    travel = $('#slideTravel').val() / sum;
+    school = $('#slideSchool').val() / sum;
+    // console.log("cost: " + 5000*cost + "\nsafety: " + 5000*safety + "\ntravel: " + 5000*travel + "\nschool: " + 5000*school);
 
-  //TO DO: normalize weights !!
-  // come up with new formula
-  // Checking for NaN values and preparing to normalize
-  // Helper function for recalculate
-  function newstyle(feature) {
-    var weightedColor = 5000*cost*feature.properties.cost + 5000*safety*feature.properties.safety + 5000*travel*feature.properties.travel + 5000*school*feature.properties.school_system;
-    return {
+    //TO DO: normalize weights !!
+    // come up with new formula
+    // Checking for NaN values and preparing to normalize
+    // Helper function for recalculate
+    function newstyle(feature) {
+      var weightedColor = 5000*cost*feature.properties.cost + 5000*safety*feature.properties.safety + 5000*travel*feature.properties.travel + 5000*school*feature.properties.school_system;
+      return {
         fillColor: colorScale(weightedColor).hex(),
         weight: 2,
         opacity:.5,
@@ -145,7 +145,7 @@ function recalculate() {
         // dashArray: '3',
         fillOpacity: 0.7
       };
-  }
+    }
   topoLayer.setStyle(newstyle);
 }
 
