@@ -40,7 +40,7 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 District.addTo(map);
 map.setView([37.278,-119.418], 5.5);
-$.getJSON('crimes.topo.json').done(addTopoData);
+$.getJSON('mergedTracts.topo.json').done(addTopoData);
 
 function addTopoData(topoData){
    topoLayer.addData(topoData);
@@ -76,7 +76,7 @@ function highlightFeature(){
     color: '#666',
     fillOpacity: 1
   });
-  info.update_loc(layer.feature.properties);
+
 }
 function resetHighlight(){
   $countyName.hide();
@@ -107,7 +107,6 @@ var info = L.control();
 info.onAdd = function (map) {
   this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
   this.update();
-  //console.log(this._div);
   return this._div;
 };
 
@@ -173,8 +172,6 @@ function geocodeAddress(geocoder, resultsMap) {
             if (status === 'OK') {
               map.flyTo([results[0].geometry.location.lat(),
                    results[0].geometry.location.lng()], 12);
-              // temp = results;
-              // console.log(results);
             } else {
               alert('Geocode was not successful for the following reason: ' + status);
             }
