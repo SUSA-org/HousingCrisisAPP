@@ -26,8 +26,8 @@ var map = L.map('map', {renderer: L.canvas()},
 var topoLayer = new L.TopoJSON();
 
 const colorScale = chroma
-  .scale(['#ef8383', '#F8AB3F'])
-  .domain([0,5000]); //need to change to max value of properties later
+  .scale(['#dbdab8', '#2d6808'])
+  .domain([0,12]); //need to change to max value of properties later
 
 var baseMaps = {
   };
@@ -139,8 +139,8 @@ function recalculate() {
       return {
         fillColor: colorScale(weightedColor).hex(),
         weight: 2,
-        opacity: 0.1,
-        color: 'white',
+        opacity: 1,
+        color: '#555',
         // dashArray: '3',
         fillOpacity: 0.7
         };
