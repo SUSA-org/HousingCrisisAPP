@@ -43,9 +43,9 @@ map.setView([37.278,-119.418], 5.5);
 $.getJSON('https://raw.githubusercontent.com/SUSA-org/HousingCrisisAPP/master/mergedTracts.topo.json').done(addTopoData);
 
 function addTopoData(topoData) {
-   topoLayer.addData(topoData);
-   topoLayer.addTo(map);
-   topoLayer.eachLayer(handleLayer);
+  topoLayer.addData(topoData);
+  topoLayer.addTo(map);
+  topoLayer.eachLayer(handleLayer);
 }
 
 function handleLayer(layer) {
@@ -99,7 +99,7 @@ function handleLayer(layer) {
   }
 
   function showinfo(e) {
-    info.update(e.target.feature.properties);
+    // info.update(e.target.feature.properties);
   }
 
   var info = L.control();
@@ -117,8 +117,9 @@ function handleLayer(layer) {
   };
 
   info.addTo(map);
-  
 }; //end handleLayer
+
+//END TopoJSON
 
 function recalculate() {
     // console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
@@ -139,16 +140,14 @@ function recalculate() {
       return {
         fillColor: colorScale(weightedColor).hex(),
         weight: 2,
-        opacity: 1,
+        opacity: 0.5,
         color: '#555',
         // dashArray: '3',
         fillOpacity: 0.7
-        };
+      };
     }
-    topoLayer.setStyle(newstyle);
-  }
-
-//END TopoJSON
+  topoLayer.setStyle(newstyle);
+}
 
 function initMap() {
   var geocoder = new google.maps.Geocoder();
