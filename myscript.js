@@ -40,7 +40,7 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 District.addTo(map);
 map.setView([37.278,-119.418], 5.5);
-$.getJSON('mergedTracts.topo.json').done(addTopoData);
+$.getJSON('https://raw.githubusercontent.com/SUSA-org/HousingCrisisAPP/master/mergedTracts.topo.json').done(addTopoData);
 
 function addTopoData(topoData) {
    topoLayer.addData(topoData);
@@ -118,7 +118,9 @@ function handleLayer(layer) {
 
   info.addTo(map);
   
-  function recalculate() {
+}; //end handleLayer
+
+function recalculate() {
     // console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
     var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
     var cost = safety = travel = school = 0.0;
@@ -135,7 +137,7 @@ function handleLayer(layer) {
     function newstyle(feature) {
       var weightedColor = 5000*cost*feature.properties.cost + 5000*safety*feature.properties.safety + 5000*travel*feature.properties.travel + 5000*school*feature.properties.school_system;
       return {
-        fillColor: getColor(weightedColor),
+        fillColor: colorScale(weightedColor).hex(),
         weight: 2,
         opacity: 0.1,
         color: 'white',
@@ -143,9 +145,8 @@ function handleLayer(layer) {
         fillOpacity: 0.7
         };
     }
-    cali.setStyle(newstyle);
+    topoLayer.setStyle(newstyle);
   }
-}; //end handleLayer
 
 //END TopoJSON
 
