@@ -40,12 +40,12 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 District.addTo(map);
 map.setView([37.278,-119.418], 5.5);
-$.getJSON('mergedTracts.topo.json').done(addTopoData);
+$.getJSON('https://raw.githubusercontent.com/SUSA-org/HousingCrisisAPP/master/mergedTracts.topo.json').done(addTopoData);
 
 function addTopoData(topoData) {
-   topoLayer.addData(topoData);
-   topoLayer.addTo(map);
-   topoLayer.eachLayer(handleLayer);
+  topoLayer.addData(topoData);
+  topoLayer.addTo(map);
+  topoLayer.eachLayer(handleLayer);
 }
 
 function handleLayer(layer) {
@@ -99,7 +99,7 @@ function handleLayer(layer) {
   }
 
   function showinfo(e) {
-    info.update(e.target.feature.properties);
+    // info.update(e.target.feature.properties);
   }
 
   var info = L.control();
@@ -117,37 +117,37 @@ function handleLayer(layer) {
   };
 
   info.addTo(map);
-  
-  function recalculate() {
-    // console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
-    var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
-    var cost = safety = travel = school = 0.0;
-    cost = $('#slideCost').val() / sum;
-    safety = $('#slideSafety').val() / sum;
-    travel = $('#slideTravel').val() / sum;
-    school = $('#slideSchool').val() / sum;
-    // console.log("cost: " + 5000*cost + "\nsafety: " + 5000*safety + "\ntravel: " + 5000*travel + "\nschool: " + 5000*school);
-
-    //TO DO: normalize weights !!
-    // come up with new formula
-    // Checking for NaN values and preparing to normalize
-    // Helper function for recalculate
-    function newstyle(feature) {
-      var weightedColor = 5000*cost*feature.properties.cost + 5000*safety*feature.properties.safety + 5000*travel*feature.properties.travel + 5000*school*feature.properties.school_system;
-      return {
-        fillColor: getColor(weightedColor),
-        weight: 2,
-        opacity: 0.1,
-        color: 'white',
-        // dashArray: '3',
-        fillOpacity: 0.7
-        };
-    }
-    cali.setStyle(newstyle);
-  }
 }; //end handleLayer
 
 //END TopoJSON
+
+function recalculate() {
+  // console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
+  var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
+  var cost = safety = travel = school = 0.0;
+  cost = $('#slideCost').val() / sum;
+  safety = $('#slideSafety').val() / sum;
+  travel = $('#slideTravel').val() / sum;
+  school = $('#slideSchool').val() / sum;
+  // console.log("cost: " + 5000*cost + "\nsafety: " + 5000*safety + "\ntravel: " + 5000*travel + "\nschool: " + 5000*school);
+
+  //TO DO: normalize weights !!
+  // come up with new formula
+  // Checking for NaN values and preparing to normalize
+  // Helper function for recalculate
+  function newstyle(feature) {
+    var weightedColor = 5000*cost*feature.properties.cost + 5000*safety*feature.properties.safety + 5000*travel*feature.properties.travel + 5000*school*feature.properties.school_system;
+    return {
+        fillColor: colorScale(weightedColor).hex(),
+        weight: 2,
+        opacity:.5,
+        // color: 'white',
+        // dashArray: '3',
+        fillOpacity: 0.7
+      };
+  }
+  topoLayer.setStyle(newstyle);
+}
 
 function initMap() {
   var geocoder = new google.maps.Geocoder();
