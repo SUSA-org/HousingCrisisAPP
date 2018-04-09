@@ -140,7 +140,7 @@ function recalculate() {
       return {
         fillColor: colorScale(weightedColor).hex(),
         weight: 2,
-        opacity:.5,
+        opacity: 0.5,
         // color: 'white',
         // dashArray: '3',
         fillOpacity: 0.7
