@@ -88,7 +88,6 @@ function resetHighlight(){
     fillOpacity:.7,
     color: '#555'
   });
-  info.update_loc();
 };
 
 function zoomToFeature(e) {
