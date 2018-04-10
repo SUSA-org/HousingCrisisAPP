@@ -26,8 +26,11 @@ var map = L.map('map', {renderer: L.canvas()},
 var topoLayer = new L.TopoJSON();
 
 const colorScale = chroma
-  .scale(['#ef8383', '#F8AB3F'])
-  .domain([0,10]); //need to change to max value of properties later
+  //.bezier(['yellow','green','skyblue','blue'])
+  .bezier(['yellow','yellowgreen','green','darkgreen'])
+  .scale().correctLightness()
+  .mode('lab')
+  .domain([0,7]); //need to change to max value of properties later
 
 var baseMaps = {
   };
@@ -59,7 +62,7 @@ function handleLayer(layer) {
     fillOpacity: .7,
     color:'#555',
     weight:1,
-    opacity:.7
+    opacity:.4
   });
 
   layer.on({
@@ -121,7 +124,7 @@ function handleLayer(layer) {
 
 //END TopoJSON
 
-function recalculate() {
+function recalculate(layer) {
     // console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
     var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
     var cost = safety = travel = school = 0.0;
