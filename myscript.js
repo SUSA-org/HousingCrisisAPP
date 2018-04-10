@@ -26,7 +26,7 @@ var map = L.map('map', {renderer: L.canvas()},
 var topoLayer = new L.TopoJSON();
 
 const colorScale = chroma
-  .scale(['#dbdab8', '#2d6808'])
+  .scale(['white', 'green'])
   .domain([0,12]); //need to change to max value of properties later
 
 var baseMaps = {
