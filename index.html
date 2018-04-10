@@ -72,28 +72,36 @@
         <div> <text> How important are the following characteristics to you? </text> </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text">Cost</span>
+                <span class="input-group-text" style="width:80px;">Cost</span>
             </div>
-            <input type="range" min="0" max="10" value="5" class="form-control" id="slideCost" style="height:50px;">
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideCost" style="height:40px;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="width:80px;">Safety</span>
+            </div>
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSafety" style="height:40px;">
         </div>
+        <!-- <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" >Safety</span>
+            </div>
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSafety" style="height:40px;">
+        </div> -->
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text">Safety</span>
+                <span class="input-group-text" style="width:80px;" >Travel</span>
             </div>
-            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSafety" style="height:50px;">
-        </div>
-        <div class="input-group mb-3">
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideTravel" style="height:40px;">
             <div class="input-group-prepend">
-                <span class="input-group-text">Travel</span>
+                <span class="input-group-text"  style="width:80px;">School</span>
             </div>
-            <input type="range" min="0" max="10" value="5" class="form-control" id="slideTravel" style="height:50px;">
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSchool" style="height:40px;">
         </div>
-        <div class="input-group mb-3">
+        <!-- <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text">School</span>
+                <span class="input-group-text"  >School</span>
             </div>
-            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSchool" style="height:50px;">
-        </div>
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSchool" style="height:40px;">
+        </div> -->
         <input id="recalc_map" class="btn btn-outline-secondary" type="button" value="Recalculate Map" onclick="recalculate()">
     </div>
     <br />
@@ -116,7 +124,7 @@
         </div>
 
         <br />
-        <input id="reset_map" class="btn btn-outline-secondary" type="button" value="Reset Map" onclick="reset()">  
+        <input id="reset_map" class="btn btn-outline-secondary" type="button" value="Reset Map" onclick="reset()">
     </div>
 
     <br />
