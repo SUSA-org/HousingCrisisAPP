@@ -144,7 +144,7 @@ function recalculate(layer) {
         fillColor: colorScale(weightedColor).hex(),
         weight: 2,
         opacity: 0.5,
-        // color: 'white',
+        color: '#555',
         // dashArray: '3',
         fillOpacity: 0.7
       };
