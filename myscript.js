@@ -27,10 +27,10 @@ var topoLayer = new L.TopoJSON();
 
 const colorScale = chroma
   //.bezier(['yellow','green','skyblue','blue'])
-  .bezier(['yellow','yellowgreen','green','darkgreen'])
+  .bezier(['white','skyblue','blue','darkblue'])
   .scale().correctLightness()
   .mode('lab')
-  .domain([0,7]); //need to change to max value of properties later
+  .domain([0,9]); //need to change to max value of properties later
 
 var baseMaps = {
   };
