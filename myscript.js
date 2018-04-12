@@ -202,6 +202,16 @@ function reset() {
   map.setView([37.278,-119.418], 6.4);
 }
 
+function clearmap() {
+  $('#slideCost').val(5);
+  $("#slideCost").trigger('change');
+  $('#slideTravel').val(5);
+  $("#slideTravel").trigger('change');
+  $('#slideSafety').val(5);
+  $("#slideSafety").trigger('change');
+  $('#slideSchool').val(5);
+  $("#slideSchool").trigger('change');
+}
 
 // Easteregg
 var icounter = true;
