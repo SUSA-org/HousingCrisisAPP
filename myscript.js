@@ -21,8 +21,8 @@ L.TopoJSON = L.GeoJSON.extend({
 // Put here to avoid breaking our "bad" code in earlier lines
 'use strict' // "fool-proof" mechanism to avoid bad code
 
-var map = L.map('map', {renderer: L.canvas()},
-                       {layers: [District]});
+var map = L.map('map', {zoomSnap: 0.1,renderer: L.canvas(),
+                       layers: [District]});
 var topoLayer = new L.TopoJSON();
 
 const colorScale = chroma
@@ -42,7 +42,8 @@ var overlayMaps = {
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 District.addTo(map);
-map.setView([37.278,-119.418], 5.5);
+map.setView([37.278,-119.418],6);
+map.setZoom(6.4);
 // CHANGE THIS BACK WHEN GIVING TO SUSA
 // $.getJSON('finaltracts.topo.json').done(addTopoData);
 $.getJSON('https://raw.githubusercontent.com/SUSA-org/HousingCrisisAPP/master/finalTracts.topo.json').done(addTopoData);
@@ -198,9 +199,19 @@ function geocodeAddress(geocoder, resultsMap) {
 }
 
 function reset() {
-  map.setView([37.278,-119.418], 5.5);
+  map.setView([37.278,-119.418], 6.4);
 }
 
+function clearmap() {
+  $('#slideCost').val(5);
+  $("#slideCost").trigger('change');
+  $('#slideTravel').val(5);
+  $("#slideTravel").trigger('change');
+  $('#slideSafety').val(5);
+  $("#slideSafety").trigger('change');
+  $('#slideSchool').val(5);
+  $("#slideSchool").trigger('change');
+}
 
 // Easteregg
 var icounter = true;
