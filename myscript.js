@@ -30,7 +30,7 @@ const colorScale = chroma
   .bezier(['yellow','yellowgreen','green','darkgreen'])
   .scale().correctLightness()
   .mode('lab')
-  .domain([0,7]); //need to change to max value of properties later
+  .domain([0,3.33, 6.67, 10]); //need to change to max value of properties later
 
 var baseMaps = {
   };
@@ -53,6 +53,8 @@ function addTopoData(topoData) {
 
 function handleLayer(layer) {
   // TODO: Fix colors
+  console.log("SCORES ");
+  // console.log("cost: " + layer.feature.properties.cost + "\nsafety: " + layer.feature.properties.safety + "\n travel: " + layer.feature.properties.travel + "\nschool: " + layer.properties.feature.school_system);
   const colorValue = 0.25*layer.feature.properties.cost + 0.25*layer.feature.properties.safety +
                      0.25*layer.feature.properties.travel + 0.25*layer.feature.properties.school_system;
   const fillColor = colorScale(colorValue).hex();
@@ -134,9 +136,6 @@ function recalculate(layer) {
     school = $('#slideSchool').val() / sum;
     // console.log("cost: " + 5000*cost + "\nsafety: " + 5000*safety + "\ntravel: " + 5000*travel + "\nschool: " + 5000*school);
 
-    //TO DO: normalize weights !!
-    // come up with new formula
-    // Checking for NaN values and preparing to normalize
     // Helper function for recalculate
     function newstyle(feature) {
       var weightedColor = 5000*cost*feature.properties.cost + 5000*safety*feature.properties.safety + 5000*travel*feature.properties.travel + 5000*school*feature.properties.school_system;
