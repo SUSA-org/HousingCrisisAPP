@@ -97,7 +97,7 @@ function handleLayer(layer) {
       fillOpacity:.7,
       color: '#555'
     });
-    //info.update_loc();
+    // info.update_loc();
   };
 
   function zoomToFeature(e) {
@@ -106,7 +106,7 @@ function handleLayer(layer) {
   }
 
   function showinfo(e) {
-    // info.update(e.target.feature.properties);
+    info.update(e.target.feature.properties);
   }
 
   var info = L.control();
@@ -118,9 +118,22 @@ function handleLayer(layer) {
     return this._div;
   };
 
+  info.update = function (props) {
+  if (props) {
+    for (var i = 0; i < parameters.length; i++) {
+      if (i == 1) { //rounding for school district score
+        document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']].toFixed(4);
+      } else {
+        document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']];
+      }
+    }
+  }
+  else {}
+};
+
   info.update_loc = function (props) {
-    this._div.innerHTML = '<h4>School District</h4>' +   (props ?'<b>' + props.County : "");
-    // console.log(props)
+    this._div.innerHTML = '<h4>County Name</h4>' +   (props ?'<b>' + props.County : "");
+    console.log(props.County);
   };
 
   info.addTo(map);
