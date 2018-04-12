@@ -43,7 +43,7 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 District.addTo(map);
 map.setView([37.278,-119.418], 5.5);
-$.getJSON('https://raw.githubusercontent.com/SUSA-org/HousingCrisisAPP/master/mergedTracts.topo.json').done(addTopoData);
+$.getJSON('finaltracts.topo.json').done(addTopoData);
 
 function addTopoData(topoData) {
   topoLayer.addData(topoData);
@@ -56,7 +56,7 @@ function handleLayer(layer) {
   const colorValue = 0.25*layer.feature.properties.cost + 0.25*layer.feature.properties.safety +
                      0.25*layer.feature.properties.travel + 0.25*layer.feature.properties.school_system;
   const fillColor = colorScale(colorValue).hex();
-
+  //console.log(colorValue);
   layer.setStyle({
     fillColor : fillColor,
     fillOpacity: .7,
