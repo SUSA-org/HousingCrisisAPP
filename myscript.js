@@ -202,6 +202,7 @@ function reset() {
   map.setView([37.278,-119.418], 6.4);
 }
 
+//TODO clear map colors and revert to base map
 function clearmap() {
   $('#slideCost').val(5);
   $("#slideCost").trigger('change');
