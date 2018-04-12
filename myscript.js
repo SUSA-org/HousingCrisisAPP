@@ -43,7 +43,9 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 District.addTo(map);
 map.setView([37.278,-119.418], 5.5);
-$.getJSON('finaltracts.topo.json').done(addTopoData);
+// CHANGE THIS BACK WHEN GIVING TO SUSA
+// $.getJSON('finaltracts.topo.json').done(addTopoData);
+$.getJSON('https://raw.githubusercontent.com/SUSA-org/HousingCrisisAPP/master/finalTracts.topo.json').done(addTopoData);
 
 function addTopoData(topoData) {
   topoLayer.addData(topoData);
