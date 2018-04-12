@@ -55,7 +55,7 @@ function addTopoData(topoData) {
 
 function handleLayer(layer) {
   // TODO: Fix colors
-  console.log("SCORES ");
+  //console.log("SCORES ");
   // console.log("cost: " + layer.feature.properties.cost + "\nsafety: " + layer.feature.properties.safety + "\n travel: " + layer.feature.properties.travel + "\nschool: " + layer.properties.feature.school_system);
   const colorValue = 0.25*layer.feature.properties.cost + 0.25*layer.feature.properties.safety +
                      0.25*layer.feature.properties.travel + 0.25*layer.feature.properties.school_system;
@@ -97,7 +97,8 @@ function handleLayer(layer) {
       fillOpacity:.7,
       color: '#555'
     });
-    //info.update_loc();
+
+    info.update_loc();
   };
 
   function zoomToFeature(e) {
@@ -106,7 +107,7 @@ function handleLayer(layer) {
   }
 
   function showinfo(e) {
-    // info.update(e.target.feature.properties);
+    info.update(e.target.feature.properties);
   }
 
   var info = L.control();
