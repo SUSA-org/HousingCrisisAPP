@@ -56,7 +56,7 @@ function addTopoData(topoData) {
 
 function handleLayer(layer) {
   // TODO: Fix colors
-  console.log("SCORES ");
+  //console.log("SCORES ");
   // console.log("cost: " + layer.feature.properties.cost + "\nsafety: " + layer.feature.properties.safety + "\n travel: " + layer.feature.properties.travel + "\nschool: " + layer.properties.feature.school_system);
   const colorValue = 0.25*layer.feature.properties.cost + 0.25*layer.feature.properties.safety +
                      0.25*layer.feature.properties.travel + 0.25*layer.feature.properties.school_system;
@@ -142,6 +142,21 @@ function handleLayer(layer) {
 
 //END TopoJSON
 
+var legend = L.control({ position: 'bottomright' });
+legend.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'info legend');
+
+  var labels = []
+
+  /* Add min & max*/
+  div.innerHTML = '<div><h3 style="font-weight:bolder;font-size:larger;">Preference Scale</h3></div>\
+  <div ><img src="colorscale.png" alt=""></div><div class="labels"><span class="domain-min">Low Pref</span>\
+  <span class="domain-max">High Pref</span></div>'
+
+  return div
+}
+legend.addTo(map);
+
 function recalculate(layer) {
     // console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
     var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
@@ -202,6 +217,7 @@ function reset() {
   map.setView([37.278,-119.418], 6.4);
 }
 
+//TODO clear map colors and revert to base map
 function clearmap() {
   $('#slideCost').val(5);
   $("#slideCost").trigger('change');
