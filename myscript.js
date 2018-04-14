@@ -149,7 +149,7 @@ legend.onAdd = function (map) {
   var labels = []
 
   /* Add min & max*/
-  div.innerHTML = '<div><h3 style="font-weight:bolder;font-size:larger;">Population Density</h3></div>\
+  div.innerHTML = '<div><h3 style="font-weight:bolder;font-size:larger;">Preference Scale</h3></div>\
   <div ><img src="colorscale.png" alt=""></div><div class="labels"><span class="domain-min">Low Pref</span>\
   <span class="domain-max">High Pref</span></div>'
 
