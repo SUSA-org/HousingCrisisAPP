@@ -107,7 +107,7 @@ function handleLayer(layer) {
   };
 
   function zoomToFeature(e) {
-    map.fitBounds(e.target.getBounds(),{padding:[100,100]});
+    map.flyToBounds(e.target.getBounds(),{padding:[100,100]});
     error(); // Jank but necessary workaround
   }
 
