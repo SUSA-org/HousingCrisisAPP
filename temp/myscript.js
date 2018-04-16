@@ -75,13 +75,11 @@ function handleLayer(layer) {
   });
 
   layer.on({
-    mouseover: enterLayer, //highlightFeature,
-    mouseout: leaveLayer, //resetHighlight,
+    mouseover: highlightFeature,
+    mouseout: resetHighlight,
     dblclick: zoomToFeature,
     click: showinfo
   });
-
-  var info = L.control();
 
   function highlightFeature(){
     var countyName = layer.feature.properties.County;
@@ -93,7 +91,6 @@ function handleLayer(layer) {
       color: '#666',
       fillOpacity: 1
     });
-    update_loc(layer.feature.properties);
   }
 
   function resetHighlight(){
@@ -105,11 +102,11 @@ function handleLayer(layer) {
       fillOpacity:.7,
       color: '#555'
     });
-    update_loc();
+    // info.update_loc();
   };
 
   function zoomToFeature(e) {
-    map.flyToBounds(e.target.getBounds(),{padding:[100,100]});
+    map.fitBounds(e.target.getBounds(),{padding:[100,100]});
     error(); // Jank but necessary workaround
   }
 
@@ -118,11 +115,12 @@ function handleLayer(layer) {
     showLeftSB();
   }
 
+  var info = L.control();
+
   // kk: I wanted to delete this function but leaflet errors without it...
   info.onAdd = function (map) {
     this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-    this.update();
-    // this.update_loc();
+    // this.update();
     return this._div;
   };
 
@@ -137,95 +135,14 @@ function handleLayer(layer) {
     }
   }
   else {}
-  };
-
-// Begin B: Attemped a topolayer style hover
-  // const $tooltip = $('.county-name');
-
-  // function enterLayer() {
-  //   const countyName = layer.feature.properties.County;
-  //   $tooltip.text(countyName).show();
-
-  //   this.bringToFront();
-  //   this.setStyle({
-  //     weight:2,
-  //     opacity: 1,
-  //     color: '#666',
-  //     fillOpacity: 1
-  //   });
-  // }
-
-  // function leaveLayer() {
-  //   $tooltip.hide();
-
-  //   this.bringToBack();
-  //   this.setStyle({
-  //     weight:1,
-  //     opacity:.5,
-  //     fillColor:fillColor,
-  //     fillOpacity:.7,
-  //     color: '#555'
-  //   })
-  // }
-// End B
+};
 
   info.update_loc = function (props) {
-    // this._div.innerHTML is not being recognized
-    if (props) {
-      console.log("HELLO THIS IS TRUE");
-      console.log(props.County);
-    } else {
-      console.log(":(");
-    }
-    // this._div.innerHTML = '<h4>County Name</h4>' +   (props ?'<b>' + props.County : "");
-    // console.log(props.County);
-}
+    this._div.innerHTML = '<h4>County Name</h4>' +   (props ?'<b>' + props.County : "");
+    console.log(props.County);
+  };
 
   info.addTo(map);
-
-// Begin A: This one works for displaying "County Name" with the hover box
-//   function onEachFeature(feature, layer){
-//     layer.on({
-//       mouseover: enterLayer, //highlightFeature,
-//       mouseout: leaveLayer, //resetHighlight,
-//       dblclick: zoomToFeature,
-//       click: showinfo
-//     })
-//   }
-//   var info = L.control();
-//   info.onAdd = function(map) {
-//       this._div = L.DomUtil.create('div', 'info');
-//       this.update_loc();
-//       return this._div;
-//   }
-
-//   info.update = function (props) {
-//   if (props) {
-//     for (var i = 0; i < parameters.length; i++) {
-//       if (i == 1) { //rounding for school district score
-//         document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']].toFixed(4);
-//       } else {
-//         document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']];
-//       }
-//     }
-//   }
-//   else {}
-//   };
-
-//   info.update_loc = function (props) {
-//     // if (props) {
-//     //   console.log("HELLO THIS IS TRUE");
-//     //   console.log(props.County);
-//     // } else {
-//     //   console.log(":(");
-//     // }
-//     this._div.innerHTML = '<h4>County Name</h4>' +   (props ?'<b>' + layer.feature.properties.County : "");
-//     // console.log(props.County);
-// }
-
-//   info.addTo(map);
-// End A
-
 }; //end handleLayer
 
 //END TopoJSON

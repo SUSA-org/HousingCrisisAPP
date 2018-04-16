@@ -76,7 +76,7 @@
             This is meant to act as a reference for you to start your search for housing.
             Just click on a tract to view more information and double click to zoom in on a tract and its surrounding tracts.</br>
             Enter your location in the search bar below to view tracts near you!</br>
-            Good Luck :) for definitions, click <a href ="glossary.html">here</a>
+            Good Luck :)
         </p>
     </div> 
 
@@ -104,6 +104,12 @@
             </div>
             <input type="range" min="0" max="10" value="5" class="form-control" id="slideSafety" >
         </div>
+        <!-- <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" >Safety</span>
+            </div>
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSafety" >
+        </div> -->
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text"  >Travel</span>
@@ -114,6 +120,12 @@
             </div>
             <input type="range" min="0" max="10" value="5" class="form-control" id="slideSchool" >
         </div>
+        <!-- <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"  >School</span>
+            </div>
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSchool" >
+        </div> -->
         <input id="recalc_map" class="btn btn-outline-secondary" type="button" value="Recalculate Map" onclick="recalculate()">
     </div>
 
@@ -122,16 +134,17 @@
     <input id="clear_map" class="btn btn-outline-secondary" type="button" value="Clear Map and Reset Sliders" onclick="clearmap()">
     <br />
 
-    <input type="submit" id="housingbutton" value="Housing" onclick="pat()">
+    <input type="submit" id="housingbutton"  value="Housing" onclick="pat()">
 
     <div class="container">
         <div id="pat" class="text-center">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto.php%3Ffbid%3D1062167560596407%26set%3Da.313791628767341.1073741827.100004095182897%26type%3D3&width=500" width="500" height="473"  scrolling="no" frameborder="0" allowTransparency="true" onclick="pat()"></iframe>
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto.php%3Ffbid%3D1062167560596407%26set%3Da.313791628767341.1073741827.100004095182897%26type%3D3&width=500" class= "Easteregg" width="500" height="473"  scrolling="no" frameborder="0" allowTransparency="true"></iframe>
         </div>
     </div>
-
     <script src="myscript.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCslizjh07L9rDkfH9vY7vL6dDqju1gnA8&callback=initMap"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCslizjh07L9rDkfH9vY7vL6dDqju1gnA8&callback=initMap">
+    </script>
 </body>
 
 </html>

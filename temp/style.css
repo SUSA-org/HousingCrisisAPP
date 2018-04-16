@@ -113,18 +113,7 @@ p {
 .leaflet-control-layers {
   display: none;
 }
-/*
+
 div.info.leaflet-control {
   display: none;
 }
-/*.county-name{
-    position: absolute;
-    top:2em;
-    right:1em;
-    z-index:6;
-    background:rgba(0,0,0,.75);
-    color:white;
-    padding:.5em .75em;
-    font-size:.85em;
-    display:none;
-  }*/
