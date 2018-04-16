@@ -1,21 +1,37 @@
 #details{
   display: inline;
-
   text-align: left;
 }
 #map{
   float: left;
   padding: 50px;
   margin-left: auto;
-  margin-right: 20px;
+  margin-right: 10px;
     height: 800px;
     width: 110px;
 }
 #reset_map{
-  margin: 10px;
+  margin: 0px;
 }
 #maprow{
-  width:130%
+  width:130%;
+}
+
+#housingbutton{
+  background: transparent;
+  border:none !important;
+}
+.text-center{
+  display:none !important;
+}
+.col{
+  height:800px;
+}
+.input-group-text{
+  width:80px;
+}
+.form-control{
+  height:40px;
 }
 h1{
   text-align: center;
@@ -40,7 +56,6 @@ p{
 .input-group{
   height: 40px;
   width: auto;
-
 }
 .domain-min{
   margin-right:65px;
