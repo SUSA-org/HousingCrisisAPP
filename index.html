@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css">
 
@@ -47,9 +47,14 @@
 </head>
 
 <body>
-    <h1 class="container">
-        The California Housing Crisis
-    </h1>
+    <!-- 
+    <div id="overlay" onclick="off()">
+        <div class="overlayContent">
+            <h1> Visualizing The California Housing Crisis </h1>
+            <h3> Click anywhere to continue </h3>
+        </div>
+    </div> 
+    -->
 
     <div class="container">
         <p> This web application is aimed to help the average consumer navigate the housing crisis.
@@ -105,11 +110,11 @@
         <input id="recalc_map" class="btn btn-outline-secondary" type="button" value="Recalculate Map" onclick="recalculate()">
     </div>
     <br />
-    <div class="container">
-        <div class="row" div id="maprow">
-            <div id="map" class="col"></div>
+    <div>
+        <div id="maprow">
+            <div id="map"></div>
 
-            <div class="col" style="height:800px;">
+            <div class="col" style="display:none;height:800px;">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <h4> Tract Information: </h4>
@@ -122,12 +127,11 @@
                 </div>
             </div>
         </div>
-
-        <br />
-        <input id="reset_map" class="btn btn-outline-secondary" type="button" value="Reset Map" onclick="reset()">
-        <input id="clear_map" class="btn btn-outline-secondary" type="button" value="Clear Map and Reset Sliders" onclick="clearmap()">
     </div>
 
+    <br />
+    <input id="reset_map" class="btn btn-outline-secondary" type="button" value="Reset Map" onclick="reset()">
+    <input id="clear_map" class="btn btn-outline-secondary" type="button" value="Clear Map and Reset Sliders" onclick="clearmap()">
     <br />
 
     <input type="submit" style="background: transparent; border:none !important;" value="Housing" onclick="pat()">

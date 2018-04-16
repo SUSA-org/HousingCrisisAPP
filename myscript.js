@@ -4,7 +4,7 @@ var District = L.tileLayer(
    id: 'mapbox.light',
 });
 
-//TOPOJSON IMPLEMENTATION STARTS
+// TOPOJSON IMPLEMENTATION STARTS
 L.TopoJSON = L.GeoJSON.extend({
    addData: function(jsonData) {
      if (jsonData.type === "Topology") {
@@ -228,6 +228,12 @@ function clearmap() {
   $('#slideSchool').val(5);
   $("#slideSchool").trigger('change');
 }
+
+// Initial Overlay Code:
+function off() {
+    document.getElementById("overlay").style.display = "none";
+} 
+
 
 // Easteregg
 var icounter = true;
