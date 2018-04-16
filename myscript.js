@@ -87,6 +87,7 @@ function handleLayer(layer) {
       color: '#666',
       fillOpacity: 1
     });
+    //info.update_loc();
   }
 
   function resetHighlight(){
@@ -98,7 +99,7 @@ function handleLayer(layer) {
       fillOpacity:.7,
       color: '#555'
     });
-    // info.update_loc();
+     //info.update_loc();
   };
 
   function zoomToFeature(e) {
