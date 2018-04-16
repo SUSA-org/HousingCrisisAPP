@@ -47,15 +47,30 @@
 </head>
 
 <body>
-    <!-- 
     <div id="overlay" onclick="off()">
         <div class="overlayContent">
             <h1> Visualizing The California Housing Crisis </h1>
             <h3> Click anywhere to continue </h3>
         </div>
-    </div> 
-    -->
+    </div>
 
+    <div id="map"></div>
+
+    <div id="leftsidebar">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4> Tract Information: </h4>
+                <table class="table" id="details">
+                    <tbody id="detailsbody">
+                        <tr></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <button onclick="hideLeftSB()"> Hide sidebar </button>
+    </div>
+
+    <!--
     <div class="container">
         <p> This web application is aimed to help the average consumer navigate the housing crisis.
             This is meant to act as a reference for you to start your search for housing.
@@ -63,9 +78,13 @@
             Enter your location in the search bar below to view tracts near you!</br>
             Good Luck :)
         </p>
-    </div>
+    </div> 
+
+    BELOW THIS IS UNINCORPORATED STUFF
+    -->
+
     <br />
-    <div class="container">
+    <div class="container" style="display:none">
         <div> <text> Enter a Location to find out more: </text> </div>
         <div id="floating-panel" class="input-group">
             <input id="address" type="textbox" class="form-control" value="Berkeley, CA">
@@ -108,25 +127,6 @@
             <input type="range" min="0" max="10" value="5" class="form-control" id="slideSchool" >
         </div> -->
         <input id="recalc_map" class="btn btn-outline-secondary" type="button" value="Recalculate Map" onclick="recalculate()">
-    </div>
-    <br />
-    <div>
-        <div id="maprow">
-            <div id="map"></div>
-
-            <div class="col" style="display:none;height:800px;">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <h4> Tract Information: </h4>
-                        <table class="table" id="details">
-                            <tbody id="detailsbody">
-                                <tr></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <br />

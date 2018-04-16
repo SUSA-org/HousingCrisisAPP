@@ -21,8 +21,12 @@ L.TopoJSON = L.GeoJSON.extend({
 // Put here to avoid breaking our "bad" code in earlier lines
 'use strict' // "fool-proof" mechanism to avoid bad code
 
-var map = L.map('map', {zoomSnap: 0.1,renderer: L.canvas(),
+var map = L.map('map', {zoomSnap: 0.1, 
+                        zoomControl: true,
+                        renderer: L.canvas(),
                        layers: [District]});
+map.zoomControl.setPosition('topright');
+
 var topoLayer = new L.TopoJSON();
 
 const colorScale = chroma
@@ -108,6 +112,7 @@ function handleLayer(layer) {
 
   function showinfo(e) {
     info.update(e.target.feature.properties);
+    showLeftSB();
   }
 
   var info = L.control();
@@ -231,9 +236,16 @@ function clearmap() {
 
 // Initial Overlay Code:
 function off() {
-    document.getElementById("overlay").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
 } 
 
+function hideLeftSB() {
+  document.getElementById("leftsidebar").style.left = "-20%";
+}
+
+function showLeftSB() {
+  document.getElementById("leftsidebar").style.left = "0%";
+}
 
 // Easteregg
 var icounter = true;

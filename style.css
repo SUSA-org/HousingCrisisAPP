@@ -35,6 +35,17 @@
   z-index: 1;
 }
 
+#leftsidebar {
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);
+  left: -20%;
+  height: 100%;
+  top: 0%;
+  width: 20%;
+  min-height: 640px;
+  z-index: 2;
+}
+
 #reset_map {
   margin: 10px;
 }
@@ -94,4 +105,15 @@ p {
 
 .domain_max{
   margin-left: 65px;
+}
+
+
+/* KILLING LEAFLET STUFF, MAY BREAK FUTURE SHIT */
+
+.leaflet-control-layers {
+  display: none;
+}
+
+div.info.leaflet-control {
+  display: none;
 }
