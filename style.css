@@ -1,4 +1,4 @@
-#details{
+#details {
   display: inline;
   text-align: left;
 }
@@ -39,11 +39,25 @@
   margin: 10px;
 }
 
-/*
-#maprow {
-  width: 130%
+#housingbutton {
+  background: transparent;
+  border: none !important;
 }
-*/
+
+.text-center {
+  display: none !important;
+}
+
+.col {
+  height: 800px;
+}
+
+.input-group-text {
+  width: 80px;
+}
+.form-control {
+  height: 40px;
+}
 
 h1 {
   text-align: center;
@@ -72,7 +86,6 @@ p {
 .input-group{
   height: 40px;
   width: auto;
-
 }
 
 .domain-min{
