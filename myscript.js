@@ -51,7 +51,10 @@ map.setZoom(6.4);
 // CHANGE THIS BACK WHEN GIVING TO SUSA
 // $.getJSON('finaltracts.topo.json').done(addTopoData);
 $.getJSON('https://raw.githubusercontent.com/SUSA-org/HousingCrisisAPP/master/finalTracts.topo.json').done(addTopoData);
-
+var costWeight = 0.25;
+var safetyWeight = 0.25;
+var travelWeight = 0.25;
+var schoolWeight = 0.25;
 function addTopoData(topoData) {
   topoLayer.addData(topoData);
   topoLayer.addTo(map);
@@ -62,8 +65,8 @@ function handleLayer(layer) {
   // TODO: Fix colors
   //console.log("SCORES ");
   // console.log("cost: " + layer.feature.properties.cost + "\nsafety: " + layer.feature.properties.safety + "\n travel: " + layer.feature.properties.travel + "\nschool: " + layer.properties.feature.school_system);
-  const colorValue = 0.25*layer.feature.properties.cost + 0.25*layer.feature.properties.safety +
-                     0.25*layer.feature.properties.travel + 0.25*layer.feature.properties.school_system;
+  const colorValue = costWeight*layer.feature.properties.cost + safetyWeight*layer.feature.properties.safety +
+                     travelWeight*layer.feature.properties.travel + schoolWeight*layer.feature.properties.school_system;
   const fillColor = colorScale(colorValue).hex();
   //console.log(colorValue);
   layer.setStyle({
@@ -176,29 +179,13 @@ legend.onAdd = function (map) {
 }
 legend.addTo(map);
 
-function recalculate(layer) {
-    // console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
-    var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
-    var cost = safety = travel = school = 0.0;
-    cost = $('#slideCost').val() / sum;
-    safety = $('#slideSafety').val() / sum;
-    travel = $('#slideTravel').val() / sum;
-    school = $('#slideSchool').val() / sum;
-    // console.log("cost: " + 5000*cost + "\nsafety: " + 5000*safety + "\ntravel: " + 5000*travel + "\nschool: " + 5000*school);
-
-    // Helper function for recalculate
-    function newstyle(feature) {
-      var weightedColor = 5000*cost*feature.properties.cost + 5000*safety*feature.properties.safety + 5000*travel*feature.properties.travel + 5000*school*feature.properties.school_system;
-      return {
-        fillColor: colorScale(weightedColor).hex(),
-        weight: 2,
-        opacity: 0.5,
-        color: '#555',
-        // dashArray: '3',
-        fillOpacity: 0.7
-      };
-    }
-  topoLayer.setStyle(newstyle);
+function recalculate() {
+   var sum = parseInt($('#slideCost').val()) + parseInt($('#slideSafety').val()) + parseInt($('#slideTravel').val()) + parseInt($('#slideSchool').val());
+   costWeight = $('#slideCost').val() / sum;
+   safetyWeight = $('#slideSafety').val() / sum;
+   travelWeight = $('#slideTravel').val() / sum;
+   schoolWeight = $('#slideSchool').val() / sum;
+   topoLayer.eachLayer(handleLayer);
 }
 
 // MIGHT GET WORKING LATER
