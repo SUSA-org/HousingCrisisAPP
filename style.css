@@ -38,7 +38,7 @@
 #leftsidebar {
   position: absolute;
   background-color: rgba(0,0,0,0.5);
-  left: -20%;
+  left: 0%;
   height: 100%;
   top: 0%;
   width: 20%;
@@ -46,6 +46,35 @@
   z-index: 2;
 }
 
+#dropdownWindow {
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);
+  left: 25%;
+  height: 30%;
+  bottom: 0%;
+  width: 80%;
+  min-height: 100px;
+  z-index: 2;
+}
+
+#hideSidebar {
+  position: absolute;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAUCAQAAAAXDMSnAAAAi0lEQVR4AX3JQcqBURQG4O/+9WNG30D3vOfSDTuQsgcZyBakZANSzMVMBme3zsBI5/VMn4ZKLP5ki1E4tYejWpilxVUtzOEUD68odYmXR5BJNp/4zllXD2phllYvamHmirsayUkfJ5ruHzueTldC08kcT5YOY9xYujqQM03XKXuaLmEtNF1e1Nz89gbL+0do6OEwRwAAAABJRU5ErkJggg==');
+  height: 20px;
+  width: 14px;
+  z-index: 2;
+  left: 20%;
+}
+#hideDropdown {
+  position: absolute;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAUCAQAAAAXDMSnAAAAi0lEQVR4AX3JQcqBURQG4O/+9WNG30D3vOfSDTuQsgcZyBakZANSzMVMBme3zsBI5/VMn4ZKLP5ki1E4tYejWpilxVUtzOEUD68odYmXR5BJNp/4zllXD2phllYvamHmirsayUkfJ5ruHzueTldC08kcT5YOY9xYujqQM03XKXuaLmEtNF1e1Nz89gbL+0do6OEwRwAAAABJRU5ErkJggg==');
+  height: 20px;
+  width: 14px;
+  z-index: 3;
+  left: 50%;
+  bottom: 0%;
+  transform: rotate(90deg);
+}
 #reset_map {
   margin: 10px;
 }
@@ -82,6 +111,17 @@
 }
 .form-control {
   height: 40px;
+}
+
+#hov {
+  position:static;
+  top: 10%;
+  right: 20%;
+  height: 5%;
+  font-size: 18px;
+  font-weight:bolder;
+  font-size:larger;
+  z-index: 4;
 }
 
 h1 {
@@ -131,4 +171,20 @@ p {
 div.info.leaflet-control {
   display: none;
 }
+<<<<<<< HEAD
 */
+=======
+
+/*.county-name{
+    position: absolute;
+    top:2em;
+    right:1em;
+    z-index:6;
+    background:rgba(0,0,0,.75);
+    color:white;
+    padding:.5em .75em;
+    font-size:.85em;
+    display:none;
+  }*/
+
+>>>>>>> 06eca3178bd492dfe2573b01290d3ecdc34d4924

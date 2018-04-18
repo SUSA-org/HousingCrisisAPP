@@ -21,7 +21,7 @@ L.TopoJSON = L.GeoJSON.extend({
 // Put here to avoid breaking our "bad" code in earlier lines
 'use strict' // "fool-proof" mechanism to avoid bad code
 
-var map = L.map('map', {zoomSnap: 0.1, 
+var map = L.map('map', {zoomSnap: 0.1,
                         zoomControl: true,
                         renderer: L.canvas(),
                        layers: [District]});
@@ -51,7 +51,10 @@ map.setZoom(6.4);
 // CHANGE THIS BACK WHEN GIVING TO SUSA
 // $.getJSON('finaltracts.topo.json').done(addTopoData);
 $.getJSON('https://raw.githubusercontent.com/SUSA-org/HousingCrisisAPP/master/finalTracts.topo.json').done(addTopoData);
-
+var costWeight = 0.25;
+var safetyWeight = 0.25;
+var travelWeight = 0.25;
+var schoolWeight = 0.25;
 function addTopoData(topoData) {
   topoLayer.addData(topoData);
   topoLayer.addTo(map);
@@ -62,8 +65,8 @@ function handleLayer(layer) {
   // TODO: Fix colors
   //console.log("SCORES ");
   // console.log("cost: " + layer.feature.properties.cost + "\nsafety: " + layer.feature.properties.safety + "\n travel: " + layer.feature.properties.travel + "\nschool: " + layer.properties.feature.school_system);
-  const colorValue = 0.25*layer.feature.properties.cost + 0.25*layer.feature.properties.safety +
-                     0.25*layer.feature.properties.travel + 0.25*layer.feature.properties.school_system;
+  const colorValue = costWeight*layer.feature.properties.cost + safetyWeight*layer.feature.properties.safety +
+                     travelWeight*layer.feature.properties.travel + schoolWeight*layer.feature.properties.school_system;
   const fillColor = colorScale(colorValue).hex();
   //console.log(colorValue);
   layer.setStyle({
@@ -83,7 +86,10 @@ function handleLayer(layer) {
 
   function highlightFeature(){
     var countyName = layer.feature.properties.County;
-    // console.log(countyName);
+    console.log(countyName);
+    document.getElementById("hov").innerHTML = '<div><h5 style="font-weight:bolder;font-size:larger;">County Name </h5><p>' + countyName + '</p></div>';
+    // $("#hov").innerHTML = '<div><h3 style="font-weight:bolder;font-size:larger;">Test Hover</h3><p>' + countyName + '</p></div>';
+    // hover_info.innerHTML = '<h4>County Name</h4>' + countyName;
     this.bringToFront();
     this.setStyle({
       weight:2,
@@ -138,15 +144,26 @@ function handleLayer(layer) {
   else {}
 };
 
-  info.update_loc = function (props) {
-    this._div.innerHTML = '<h4>County Name</h4>' +   (props ?'<b>' + props.County : "");
-    console.log(props.County);
-  };
+  // info.update_loc = function (props) {
+  //   this.div.innerHTML = '<h4>County Name</h4>' +   (props ?'<b>' + props.County : "");
+  //   console.log(props.County);
+  // };
 
   info.addTo(map);
 }; //end handleLayer
 
 //END TopoJSON
+
+// HOW TO ADD THIS IN HTML D:
+var hover_info = L.control({position: 'topright'});
+// var info = L.control();
+hover_info.onAdd = function(map) {
+  var div = L.DomUtil.create('div', 'info hover');
+  // div.innerHTML = '<div><h5 style="font-weight:bolder;font-size:larger;">County Name </h5><p>' + name + '</p></div>';
+  div.innerHTML = '<div><h3 style="font-weight:bolder;font-size:larger;">County Name</h3></div>';
+  return div;
+}
+hover_info.addTo(map);
 
 var legend = L.control({ position: 'bottomright' });
 legend.onAdd = function (map) {
@@ -163,30 +180,20 @@ legend.onAdd = function (map) {
 }
 legend.addTo(map);
 
-function recalculate(layer) {
-    // console.log($('#slideCost').val(),$('#slideSafety').val(),$('#slideTravel').val(),$('#slideSchool').val());
-    var sum = 1.0 * ($('#slideCost').val() + $('#slideSafety').val() + $('#slideTravel').val() + $('#slideSchool').val());
-    var cost = safety = travel = school = 0.0;
-    cost = $('#slideCost').val() / sum;
-    safety = $('#slideSafety').val() / sum;
-    travel = $('#slideTravel').val() / sum;
-    school = $('#slideSchool').val() / sum;
-    // console.log("cost: " + 5000*cost + "\nsafety: " + 5000*safety + "\ntravel: " + 5000*travel + "\nschool: " + 5000*school);
-
-    // Helper function for recalculate
-    function newstyle(feature) {
-      var weightedColor = 5000*cost*feature.properties.cost + 5000*safety*feature.properties.safety + 5000*travel*feature.properties.travel + 5000*school*feature.properties.school_system;
-      return {
-        fillColor: colorScale(weightedColor).hex(),
-        weight: 2,
-        opacity: 0.5,
-        color: '#555',
-        // dashArray: '3',
-        fillOpacity: 0.7
-      };
-    }
-  topoLayer.setStyle(newstyle);
+function recalculate() {
+   var sum = parseInt($('#slideCost').val()) + parseInt($('#slideSafety').val()) + parseInt($('#slideTravel').val()) + parseInt($('#slideSchool').val());
+   costWeight = $('#slideCost').val() / sum;
+   safetyWeight = $('#slideSafety').val() / sum;
+   travelWeight = $('#slideTravel').val() / sum;
+   schoolWeight = $('#slideSchool').val() / sum;
+   topoLayer.eachLayer(handleLayer);
 }
+
+// MIGHT GET WORKING LATER
+// function hover(e) {
+//   var layer = e.target;
+//   document.getElementById("hov").text = layer.feature.properties.County;
+// }
 
 function initMap() {
   var geocoder = new google.maps.Geocoder();
@@ -233,19 +240,41 @@ function clearmap() {
   $("#slideSafety").trigger('change');
   $('#slideSchool').val(5);
   $("#slideSchool").trigger('change');
+  recalculate();
 }
 
 // Initial Overlay Code:
 function off() {
   document.getElementById("overlay").style.display = "none";
-} 
-
-function hideLeftSB() {
-  document.getElementById("leftsidebar").style.left = "-20%";
 }
 
-function showLeftSB() {
-  document.getElementById("leftsidebar").style.left = "0%";
+function toggleSidebar() {
+  var sidebar = document.getElementById("leftsidebar");
+  var button = document.getElementById('hideSidebar');
+  if (sidebar.style.left == '0%') {
+    sidebar.style.left = '-20%';
+    button.style.transform = 'rotate(180deg)';
+    button.style.left = '0%';
+  }
+  else{
+    sidebar.style.left = '0%';
+    button.style.transform = '';
+    button.style.left = "20%";
+  }
+}
+function toggleDropdown() {
+  var dropdown = document.getElementById("dropdownWindow");
+  var button = document.getElementById('hideDropdown');
+  if (dropdown.style.display == '') {
+    dropdown.style.display = 'none';
+    button.style.transform = 'rotate(90deg)';
+    button.style.bottom = '0%';
+  }
+  else{
+    dropdown.style.display = '';
+    button.style.transform = 'rotate(270deg)';
+    button.style.bottom = "30%";
+  }
 }
 
 // Easteregg

@@ -70,11 +70,18 @@
                         <tr></tr>
                     </tbody>
                 </table>
+                <div id="hov">
+                    <h4> County Name </h4>
+                </div>
             </div>
         </div>
         <button onclick="hideLeftSB()"> Hide sidebar </button>
     </div>
+    <button id="hideSidebar"onclick="toggleSidebar()"></button>
+    <button id="hideDropdown"onclick="toggleDropdown()"></button>
+    <div>
 
+    </div>
     <!--
     <div class="container">
         <p> This web application is aimed to help the average consumer navigate the housing crisis.
@@ -89,7 +96,7 @@
     -->
 
     <br />
-    <div class="container" style="display:none">
+    <div id="dropdownWindow" class="container" style="display:none;">
         <div> <text> Enter a Location to find out more: </text> </div>
         <div id="floating-panel" class="input-group">
             <input id="address" type="textbox" class="form-control" value="Berkeley, CA">
@@ -101,24 +108,36 @@
         <div> <text> How important are the following characteristics to you? </text> </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" >Cost</span>
+                <span class="input-group-text" style="width:80px;">Cost</span>
             </div>
-            <input type="range" min="0" max="10" value="5" class="form-control" id="slideCost" >
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideCost" style="height:40px;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="width:80px;">Safety</span>
+            </div>
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSafety" style="height:40px;">
+        </div>
+        <!-- <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" >Safety</span>
             </div>
-            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSafety" >
-        </div>
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSafety" style="height:40px;">
+        </div> -->
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text"  >Travel</span>
+                <span class="input-group-text" style="width:80px;" >Travel</span>
             </div>
-            <input type="range" min="0" max="10" value="5" class="form-control" id="slideTravel" >
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideTravel" style="height:40px;">
+            <div class="input-group-prepend">
+                <span class="input-group-text"  style="width:80px;">School</span>
+            </div>
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSchool" style="height:40px;">
+        </div>
+        <!-- <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text"  >School</span>
             </div>
-            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSchool" >
-        </div>
+            <input type="range" min="0" max="10" value="5" class="form-control" id="slideSchool" style="height:40px;">
+        </div> -->
         <input id="recalc_map" class="btn btn-outline-secondary" type="button" value="Recalculate Map" onclick="recalculate()">
     </div>
 
@@ -137,6 +156,5 @@
 
     <script src="myscript.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCslizjh07L9rDkfH9vY7vL6dDqju1gnA8&callback=initMap"></script>
-</body>
 
 </html>
