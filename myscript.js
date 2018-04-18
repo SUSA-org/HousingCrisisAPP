@@ -21,7 +21,7 @@ L.TopoJSON = L.GeoJSON.extend({
 // Put here to avoid breaking our "bad" code in earlier lines
 'use strict' // "fool-proof" mechanism to avoid bad code
 
-var map = L.map('map', {zoomSnap: 0.1, 
+var map = L.map('map', {zoomSnap: 0.1,
                         zoomControl: true,
                         renderer: L.canvas(),
                        layers: [District]});
@@ -257,14 +257,35 @@ function clearmap() {
 // Initial Overlay Code:
 function off() {
   document.getElementById("overlay").style.display = "none";
-} 
-
-function hideLeftSB() {
-  document.getElementById("leftsidebar").style.left = "-20%";
 }
 
-function showLeftSB() {
-  document.getElementById("leftsidebar").style.left = "0%";
+function toggleSidebar() {
+  var sidebar = document.getElementById("leftsidebar");
+  var button = document.getElementById('hideSidebar');
+  if (sidebar.style.left == '0%') {
+    sidebar.style.left = '-20%';
+    button.style.transform = 'rotate(180deg)';
+    button.style.left = '0%';
+  }
+  else{
+    sidebar.style.left = '0%';
+    button.style.transform = '';
+    button.style.left = "20%";
+  }
+}
+function toggleDropdown() {
+  var dropdown = document.getElementById("dropdownWindow");
+  var button = document.getElementById('hideDropdown');
+  if (dropdown.style.display == '') {
+    dropdown.style.display = 'none';
+    button.style.transform = 'rotate(90deg)';
+    button.style.bottom = '0%';
+  }
+  else{
+    dropdown.style.display = '';
+    button.style.transform = 'rotate(270deg)';
+    button.style.bottom = "30%";
+  }
 }
 
 // Easteregg
