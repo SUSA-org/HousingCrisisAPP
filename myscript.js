@@ -239,6 +239,7 @@ function clearmap() {
   $("#slideSafety").trigger('change');
   $('#slideSchool').val(5);
   $("#slideSchool").trigger('change');
+  recalculate();
 }
 
 // Initial Overlay Code:
