@@ -53,10 +53,15 @@
             <h3> Click anywhere to continue </h3>
         </div>
     </div>
-
+<div id="map-wrapper">
     <div id="map"></div>
-
-    <div id="leftsidebar">
+    <div id="button-wrapper">
+      <input id="reset_map" class="btn btn-outline-secondary" type="button" value="Reset Map" onclick="reset()">
+    </br>
+      <input id="clear_map" class="btn btn-outline-secondary" type="button" value="Clear Map and Reset Sliders" onclick="clearmap()">
+    </div>
+</div>
+    <div id="leftsidebar" >
         <div class="panel panel-default">
             <div class="panel-body">
                 <h4> Tract Information: </h4>
@@ -78,7 +83,7 @@
             Enter your location in the search bar below to view tracts near you!</br>
             Good Luck :) for definitions, click <a href ="glossary.html">here</a>
         </p>
-    </div> 
+    </div>
 
     BELOW THIS IS UNINCORPORATED STUFF
     -->
