@@ -87,7 +87,7 @@ function handleLayer(layer) {
   function highlightFeature(){
     var countyName = layer.feature.properties.County;
     console.log(countyName);
-    document.getElementById("hov").innerHTML = '<div><h5 style="font-weight:bolder;font-size:larger;">County Name </h5><p>' + countyName + '</p></div>';
+    document.getElementById("hov").innerHTML = '<div><h4>County Name </h4><p style="background-color: lightblue;">' + countyName + '</p></div>';
     // $("#hov").innerHTML = '<div><h3 style="font-weight:bolder;font-size:larger;">Test Hover</h3><p>' + countyName + '</p></div>';
     // hover_info.innerHTML = '<h4>County Name</h4>' + countyName;
     this.bringToFront();
@@ -154,15 +154,15 @@ function handleLayer(layer) {
 //END TopoJSON
 
 // HOW TO ADD THIS IN HTML D:
-var hover_info = L.control({position: 'topright'});
-// var info = L.control();
-hover_info.onAdd = function(map) {
-  var div = L.DomUtil.create('div', 'info hover');
-  // div.innerHTML = '<div><h5 style="font-weight:bolder;font-size:larger;">County Name </h5><p>' + name + '</p></div>';
-  div.innerHTML = '<div><h3 style="font-weight:bolder;font-size:larger;">County Name</h3></div>';
-  return div;
-}
-hover_info.addTo(map);
+// var hover_info = L.control({position: 'topright'});
+// // var info = L.control();
+// hover_info.onAdd = function(map) {
+//   var div = L.DomUtil.create('div', 'info hover');
+//   // div.innerHTML = '<div><h5 style="font-weight:bolder;font-size:larger;">County Name </h5><p>' + name + '</p></div>';
+//   div.innerHTML = '<div><h3 style="font-weight:bolder;font-size:larger;">County Name</h3></div>';
+//   return div;
+// }
+// hover_info.addTo(map);
 
 var legend = L.control({ position: 'bottomright' });
 legend.onAdd = function (map) {

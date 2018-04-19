@@ -102,12 +102,13 @@
 #hov {
   position:absolute;
   top: 10%;
-  right: 20%;
+  right: 3%;
   height: 5%;
   font-size: 18px;
   font-weight:bolder;
   font-size:larger;
-  z-index: 4;
+  background-color: lightblue;
+  z-index: 2;
 }
 
 h1 {
