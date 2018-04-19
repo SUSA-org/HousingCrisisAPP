@@ -229,7 +229,6 @@ function toggleSidebar() {
 	var button2 = document.getElementById("toggleDropdown");
 	if (leftVisible) {
 		sidebar.style.left = "-20%";
-		sidebar.style.display = "none";
 		button.style.left = "0%";
 		button.style.transform = "rotate(0deg)";
 		
@@ -239,7 +238,6 @@ function toggleSidebar() {
 		button2.style.left = "10px";
 	} else {
 		sidebar.style.left = "0%";
-		sidebar.style.display = "block";
 		button.style.left = "20%";
 		button.style.transform = "rotate(180deg)";
 
@@ -256,12 +254,10 @@ function toggleDropdown() {
 	var dropdown = document.getElementById("dropdownWindow");
 	var button = document.getElementById("toggleDropdown");
 	if (botVisible) {
-		dropdown.style.display = "none";
 		dropdown.style.bottom = "-25%";
 		button.style.bottom = "0%";
 		button.style.transform = "rotate(0deg)";
 	} else {
-		dropdown.style.display = "block";
 		dropdown.style.bottom = "0%";
 		button.style.bottom = "25%";
 		button.style.transform = "rotate(180deg)";
