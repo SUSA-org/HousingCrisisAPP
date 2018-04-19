@@ -38,43 +38,75 @@
 #leftsidebar {
   position: absolute;
   background-color: rgba(0,0,0,0.5);
-  left: 0%;
+  left: -20%;
   height: 100%;
   top: 0%;
   width: 20%;
-  min-height: 640px;
   z-index: 2;
+  display: none;
+  transition-property: left;
+  transition-duration: 1s;
+}
+
+#toggleSidebar {
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);
+  height: 100%;
+  width: 10px;
+  z-index: 2;
+  left: 0%;
+  transition-property: left display transform;
+  transition-duration: 1s;
+}
+
+.arrow-left {
+  position: absolute;
+  width: 0; 
+  height: 0;
+  top: 50%;
+  transform: rotate(180deg);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  
+  border-right: 10px solid blue; 
 }
 
 #dropdownWindow {
   position: absolute;
   background-color: rgba(0,0,0,0.5);
-  left: 25%;
-  height: 30%;
+  left: 10px;
+  height: 25%;
   bottom: 0%;
-  width: 80%;
+  width: calc(100% - 10px);
   min-height: 100px;
   z-index: 2;
+  transition-property: bottom left width;
+  transition-duration: 1s;
 }
 
-#hideSidebar {
+#toggleDropdown {
   position: absolute;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAUCAQAAAAXDMSnAAAAi0lEQVR4AX3JQcqBURQG4O/+9WNG30D3vOfSDTuQsgcZyBakZANSzMVMBme3zsBI5/VMn4ZKLP5ki1E4tYejWpilxVUtzOEUD68odYmXR5BJNp/4zllXD2phllYvamHmirsayUkfJ5ruHzueTldC08kcT5YOY9xYujqQM03XKXuaLmEtNF1e1Nz89gbL+0do6OEwRwAAAABJRU5ErkJggg==');
-  height: 20px;
-  width: 14px;
+  background-color: rgba(0,0,0,0.5);
+  left: 10px;
+  height: 10px;
+  width: calc(100% - 10px);
   z-index: 2;
-  left: 20%;
+  bottom: 25%;
+  transition-property: bottom width left transform display;
+  transition-duration: 1s;
 }
-#hideDropdown {
+
+.arrow-top {
   position: absolute;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAUCAQAAAAXDMSnAAAAi0lEQVR4AX3JQcqBURQG4O/+9WNG30D3vOfSDTuQsgcZyBakZANSzMVMBme3zsBI5/VMn4ZKLP5ki1E4tYejWpilxVUtzOEUD68odYmXR5BJNp/4zllXD2phllYvamHmirsayUkfJ5ruHzueTldC08kcT5YOY9xYujqQM03XKXuaLmEtNF1e1Nz89gbL+0do6OEwRwAAAABJRU5ErkJggg==');
-  height: 20px;
-  width: 14px;
-  z-index: 2;
+  width: 0; 
+  height: 0;
   left: 50%;
-  bottom: 0%;
-  transform: rotate(90deg);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  
+  border-bottom: 10px solid black; 
 }
+
 #reset_map {
   margin: 10px;
 }
@@ -102,25 +134,14 @@
   display: none !important;
 }
 
-.col {
-  height: 800px;
-}
-
-.input-group-text {
-  width: 80px;
-}
-.form-control {
-  height: 40px;
-}
-
-#hov {
-  position:absolute;
+#countyOverlay {
+  position: absolute;
+  display: block;
   top: 12%;
   right: 1%;
-  height: 5%;
   font-size: 18px;
-  font-weight:bolder;
-  font-size:larger;
+  font-weight: bolder;
+  font-size: larger;
   background-color: lightblue;
   z-index: 2;
 }
@@ -135,30 +156,30 @@ p {
 }
 
 .info {
-    padding: 3px 4px;
-    font: 12px/14px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
+  padding: 3px 4px;
+  font: 12px/14px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
 }
 
 .info h4 {
-    margin: 0 0 5px;
-    color: #4286f4;
-    font: 12px/14px Arial, Helvetica, sans-serif;
+  margin: 0 0 5px;
+  color: #4286f4;
+  font: 12px/14px Arial, Helvetica, sans-serif;
 }
 
-.input-group{
+.input-group {
   height: 40px;
   width: auto;
 }
 
-.domain-min{
+.domain-min {
   margin-right: 65px;
 }
 
-.domain_max{
+.domain_max {
   margin-left: 65px;
 }
 
@@ -176,16 +197,18 @@ div.info.leaflet-control {
 */
 =======
 
-/*.county-name{
-    position: absolute;
-    top:2em;
-    right:1em;
-    z-index:6;
-    background:rgba(0,0,0,.75);
-    color:white;
-    padding:.5em .75em;
-    font-size:.85em;
-    display:none;
-  }*/
+/*
+.county-name{
+  position: absolute;
+  top:2em;
+  right:1em;
+  z-index:6;
+  background:rgba(0,0,0,.75);
+  color:white;
+  padding:.5em .75em;
+  font-size:.85em;
+  display:none;
+}
+*/
 
 >>>>>>> 06eca3178bd492dfe2573b01290d3ecdc34d4924
