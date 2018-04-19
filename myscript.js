@@ -89,7 +89,7 @@ function handleLayer(layer) {
 
 	function highlightFeature(){
 		var countyName = layer.feature.properties.County;
-		console.log(countyName);
+		// console.log(countyName);
 		document.getElementById("countyContent").innerHTML = countyName;
 		this.bringToFront();
 		this.setStyle({
@@ -251,7 +251,7 @@ function toggleSidebar() {
 	leftVisible = !leftVisible;
 }
 
-var botVisible = true;
+var botVisible = false;
 function toggleDropdown() {
 	var dropdown = document.getElementById("dropdownWindow");
 	var button = document.getElementById("toggleDropdown");
@@ -259,12 +259,12 @@ function toggleDropdown() {
 		dropdown.style.display = "none";
 		dropdown.style.bottom = "-25%";
 		button.style.bottom = "0%";
-		button.style.transform = "rotate(180deg)";
+		button.style.transform = "rotate(0deg)";
 	} else {
 		dropdown.style.display = "block";
 		dropdown.style.bottom = "0%";
 		button.style.bottom = "25%";
-		button.style.transform = "rotate(0deg)";
+		button.style.transform = "rotate(180deg)";
 	}
 	botVisible = !botVisible;
 }
