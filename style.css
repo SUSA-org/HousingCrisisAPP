@@ -70,7 +70,7 @@
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAUCAQAAAAXDMSnAAAAi0lEQVR4AX3JQcqBURQG4O/+9WNG30D3vOfSDTuQsgcZyBakZANSzMVMBme3zsBI5/VMn4ZKLP5ki1E4tYejWpilxVUtzOEUD68odYmXR5BJNp/4zllXD2phllYvamHmirsayUkfJ5ruHzueTldC08kcT5YOY9xYujqQM03XKXuaLmEtNF1e1Nz89gbL+0do6OEwRwAAAABJRU5ErkJggg==');
   height: 20px;
   width: 14px;
-  z-index: 3;
+  z-index: 2;
   left: 50%;
   bottom: 0%;
   transform: rotate(90deg);
@@ -114,14 +114,15 @@
 }
 
 #hov {
-  position:static;
-  top: 10%;
-  right: 20%;
+  position:absolute;
+  top: 12%;
+  right: 1%;
   height: 5%;
   font-size: 18px;
   font-weight:bolder;
   font-size:larger;
-  z-index: 4;
+  background-color: lightblue;
+  z-index: 2;
 }
 
 h1 {
