@@ -19,11 +19,11 @@
 
 .overlayContent {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 25%;
+  left: 25%;
   color: white;
-  transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
+  /*transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);*/
 }
 
 #map {
@@ -44,8 +44,8 @@
   width: 20%;
   z-index: 2;
   display: none;
-  transition-property: left;
-  transition-duration: 1s;
+  /*transition-property: left;
+  transition-duration: 1s;*/
 }
 
 #toggleSidebar {
@@ -55,8 +55,8 @@
   width: 10px;
   z-index: 2;
   left: 0%;
-  transition-property: left display transform;
-  transition-duration: 1s;
+  /*transition-property: left display transform;
+  transition-duration: 1s;*/
 }
 
 .arrow-left {
@@ -68,7 +68,7 @@
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent; 
   
-  border-right: 10px solid blue; 
+  border-right: 10px solid black; 
 }
 
 #dropdownWindow {
@@ -76,12 +76,12 @@
   background-color: rgba(0,0,0,0.5);
   left: 10px;
   height: 25%;
-  bottom: 0%;
+  bottom: -25%;
   width: calc(100% - 10px);
   min-height: 100px;
   z-index: 2;
-  transition-property: bottom left width;
-  transition-duration: 1s;
+  /*transition-property: bottom left width;
+  transition-duration: 1s;*/
 }
 
 #toggleDropdown {
@@ -91,9 +91,9 @@
   height: 10px;
   width: calc(100% - 10px);
   z-index: 2;
-  bottom: 25%;
-  transition-property: bottom width left transform display;
-  transition-duration: 1s;
+  bottom: 0%;
+  /*transition-property: bottom width left transform display;
+  transition-duration: 1s;*/
 }
 
 .arrow-top {
@@ -123,6 +123,8 @@
 #countyOverlay {
   position: absolute;
   display: block;
+  padding:5px;
+  border-radius: 25px;
   top: 12%;
   right: 1%;
   font-size: 18px;
