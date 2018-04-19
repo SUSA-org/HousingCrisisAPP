@@ -37,7 +37,7 @@ const colorScale = chroma
 	.domain([0,9]); //need to change to max value of properties later
 
 var baseMaps = {
-	
+
 	};
 
 var overlayMaps = {
@@ -63,100 +63,12 @@ function addTopoData(topoData) {
 }
 
 function handleLayer(layer) {
-<<<<<<< HEAD
-  // TODO: Fix colors
-  //console.log("SCORES ");
-  // console.log("cost: " + layer.feature.properties.cost + "\nsafety: " + layer.feature.properties.safety + "\n travel: " + layer.feature.properties.travel + "\nschool: " + layer.properties.feature.school_system);
-  const colorValue = costWeight*layer.feature.properties.cost + safetyWeight*layer.feature.properties.safety +
-                     travelWeight*layer.feature.properties.travel + schoolWeight*layer.feature.properties.school_system;
-  const fillColor = colorScale(colorValue).hex();
-  //console.log(colorValue);
-  layer.setStyle({
-    fillColor : fillColor,
-    fillOpacity: .7,
-    color:'#555',
-    weight:1,
-    opacity:.4
-  });
-
-  layer.on({
-    mouseover: highlightFeature,
-    mouseout: resetHighlight,
-    dblclick: zoomToFeature,
-    click: showinfo
-  });
-
-  function highlightFeature(){
-    var countyName = layer.feature.properties.County;
-    console.log(countyName);
-    document.getElementById("hov").innerHTML = '<div><h4>County Name </h4><p style="background-color: lightblue;">' + countyName + '</p></div>';
-    // $("#hov").innerHTML = '<div><h3 style="font-weight:bolder;font-size:larger;">Test Hover</h3><p>' + countyName + '</p></div>';
-    // hover_info.innerHTML = '<h4>County Name</h4>' + countyName;
-    this.bringToFront();
-    this.setStyle({
-      weight:2,
-      opacity: 1,
-      color: '#666',
-      fillOpacity: 1
-    });
-    //info.update_loc();
-  }
-
-  function resetHighlight(){
-    this.bringToBack();
-    this.setStyle({
-      weight:1,
-      opacity:.5,
-      fillColor:fillColor,
-      fillOpacity:.7,
-      color: '#555'
-    });
-     //info.update_loc();
-  };
-
-  function zoomToFeature(e) {
-    map.flyToBounds(e.target.getBounds(),{padding:[100,100]});
-    error(); // Jank but necessary workaround
-  }
-
-  function showinfo(e) {
-    info.update(e.target.feature.properties);
-    showLeftSB();
-  }
-
-  var info = L.control();
-
-  // kk: I wanted to delete this function but leaflet errors without it...
-  info.onAdd = function (map) {
-    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-    // this.update();
-    return this._div;
-  };
-
-  info.update = function (props) {
-  if (props) {
-    for (var i = 0; i < parameters.length; i++) {
-      if (i == 1) { //rounding for school district score
-        document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']].toFixed(4);
-      } else {
-        document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']];
-      }
-    }
-  }
-  else {}
-};
-
-  // info.update_loc = function (props) {
-  //   this.div.innerHTML = '<h4>County Name</h4>' +   (props ?'<b>' + props.County : "");
-  //   console.log(props.County);
-  // };
-=======
 	// TODO: Fix colors
 	//console.log("SCORES ");
 	// console.log("cost: " + layer.feature.properties.cost + "\nsafety: " + layer.feature.properties.safety + "\n travel: " + layer.feature.properties.travel + "\nschool: " + 	layer.properties.feature.school_system);
-	const colorValue = 	costWeight*layer.feature.properties.cost + 
+	const colorValue = 	costWeight*layer.feature.properties.cost +
 						safetyWeight*layer.feature.properties.safety +
-						travelWeight*layer.feature.properties.travel + 
+						travelWeight*layer.feature.properties.travel +
 						schoolWeight*layer.feature.properties.school_system;
 	const fillColor = colorScale(colorValue).hex();
 	//console.log(colorValue);
@@ -230,7 +142,6 @@ function handleLayer(layer) {
 			}
 		}
 	};
->>>>>>> 16486dc55468db8cf0c14ed5d9cb2fc7857f9a18
 
   info.addTo(map);
 }; //end handleLayer
@@ -321,7 +232,7 @@ function toggleSidebar() {
 		sidebar.style.display = "none";
 		button.style.left = "0%";
 		button.style.transform = "rotate(0deg)";
-		
+
 		dropdown.style.width = "calc(100% - 10px)";
 		button2.style.width = "calc(100% - 10px)";
 		dropdown.style.left = "10px";
