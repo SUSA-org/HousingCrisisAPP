@@ -1,3 +1,19 @@
+@keyframes bounce {
+  0% {
+    transform: translateY(0); }
+  20% {
+    transform: translateY(0); }
+  40% {
+    transform: translateY(-20px); }
+  50% {
+    transform: translateY(0); }
+  60% {
+    transform: translateY(-10px); }
+  80% {
+    transform: translateY(0); }
+  100% {
+    transform: translateY(0); } }
+
 html, body {
   overflow: hidden;
 }
@@ -29,7 +45,15 @@ html, body {
   /*transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);*/
 }
-
+.input-group {
+  color: white;
+}
+.recalc-btn {
+  color: black;
+}
+.bounce {
+  animation: bounce 3s 1.5s infinite;
+}
 #map {
   position: fixed;
   height: 100%;

@@ -21,19 +21,19 @@
             // {"text": "District Name","id": "name","val":"NAME"},
             // {"text": "Custom Index","id": "custom_index","val":"rank"},
             {"text": "County","id": "county","val":"County"},
-            {"text": "School District Rank Score","id": "rank","val":"Rank score (2017)"},
+            {"text": "Schools Score","id": "rank","val":"Rank score (2017)"},
             // {"text": "City","id": "city", "val":"City"},
             // {"text": "District Type","id": "kind","val":"kind"},
             {"text": "Population","id": "population","val":"population"},
             {"text": "Households","id": "households","val":"households"},
-            {"text": "Median Gross Rent (Mo)","id": "medgrossrent","val":"median_gross_rent"},
-            {"text": "Avg Housing Cost (Mo)","id": "avgmonthlyhouse","val":"h_cost"},
-            {"text": "Num Violent Crimes in County","id": "violent","val":"Violent_sum"},
-            {"text": "Num Property Crimes in County","id": "property","val":"Property_sum"},
-            {"text": "Avg Transportation Cost","id": "transportation","val":"t_cost_80ami"},
-            {"text": "Avg Transit Cost","id": "transit","val":"transit_cost_80ami"},
-            {"text": "Job Access Score (1-10)","id": "access","val":"emp_ovrll_ndx"},
-            {"text": "Avg Annual Miles Traveled","id": "vmt","val":"vmt_per_hh_80ami"}];
+            {"text": "Rent","id": "medgrossrent","val":"median_gross_rent"},
+            {"text": "Housing Cost","id": "avgmonthlyhouse","val":"h_cost"},
+            {"text": "Violent Crimes","id": "violent","val":"Violent_sum"},
+            {"text": "Property Crimes","id": "property","val":"Property_sum"},
+            {"text": "Transportation Cost","id": "transportation","val":"t_cost_80ami"},
+            {"text": "Transit Cost","id": "transit","val":"transit_cost_80ami"},
+            {"text": "Job Access Score","id": "access","val":"emp_ovrll_ndx"},
+            {"text": "Annual Miles Traveled","id": "vmt","val":"vmt_per_hh_80ami"}];
         $(document).ready(function () {
             var tablebody = $('#detailsbody');
             for (var i = 0; i < parameters.length; i++) {
@@ -117,8 +117,12 @@
 			</div>
 			<div class="col col-sm-4">
 				<div class="input-group mb-3">
+<<<<<<< HEAD
 					<input id="recalc_map" class="btn btn-outline-secondary" type="button" value="Recalculate Map" onclick="recalculate()">
           <input id="reset_map" class="btn btn-outline-secondary" type="button" value="Reset Map" onclick="reset()">
+=======
+					<input id="recalc_map" class="btn btn-outline-secondary recalc-btn" type="button" value="Recalculate Map" onclick="recalculate()">
+>>>>>>> edbe503e9dda4a0ae9148e84ebbdfe985f19a905
 				</div>
 			</div>
 		</div>
@@ -126,7 +130,7 @@
     </div>
 
 	<div id="toggleDropdown" onclick="toggleDropdown()">
-		<div class="arrow-top" ></div>
+		<div class="arrow-top bounce" ></div>
 	</div>
 
     <br />
