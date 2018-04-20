@@ -60,7 +60,7 @@
 		<p id="countyContent"></p>
 	</div>
 
-    <div id="leftsidebar">
+    <div id="leftsidebar" class="slider">
         <div class="panel panel-default">
             <div class="panel-body">
                 <h4> Tract Information: </h4>
@@ -73,11 +73,12 @@
         </div>
     </div>
 
-	<div id="toggleSidebar" onclick="toggleSidebar()">
-		<div class="arrow-left bounce_out" ></div>
+	<div id="toggleSidebar" class="slider" onclick="toggleSidebar()">
+		<!-- <div class="arrow-left bounce_out" ></div> -->
+		<div class="arrow-left" ></div>
 	</div>
 
-    <div id="dropdownWindow" class="container">
+    <div id="dropdownWindow" class="slider container">
 		<div class="row">
 			<div class="col col-sm-3">
 				<input id="address" type="textbox" class="form-control" value="Berkeley, CA">
@@ -115,18 +116,21 @@
 				<div class="input-group mb-3">
 					<input id="recalc_map" class="btn btn-outline-secondary recalc-btn" type="button" value="Recalculate Map" onclick="recalculate()">
 				</div>
+				<div class="input-group mb-3">
+					<input id="reset_map" class="btn btn-outline-secondary" type="button" value="Reset Map" onclick="reset()">
+					<input id="clear_map" class="btn btn-outline-secondary" type="button" value="Clear Map and Reset Sliders" onclick="clearmap()">
+				</div>
 			</div>
 		</div>
 
     </div>
 
-	<div id="toggleDropdown" onclick="toggleDropdown()">
-		<div class="arrow-top bounce" ></div>
+	<div id="toggleDropdown" class="slider" onclick="toggleDropdown()">
+		<!-- <div class="arrow-top bounce" ></div> -->
+		<div class="arrow-bottom" ></div>
 	</div>
 
     <br />
-    <input id="reset_map" class="btn btn-outline-secondary" type="button" value="Reset Map" onclick="reset()">
-    <input id="clear_map" class="btn btn-outline-secondary" type="button" value="Clear Map and Reset Sliders" onclick="clearmap()">
     <br />
 
     <input type="submit" id="housingbutton" value="Housing" onclick="pat()">

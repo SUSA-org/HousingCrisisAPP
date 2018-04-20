@@ -159,7 +159,7 @@ legend.onAdd = function (map) {
 	var div = L.DomUtil.create('div', 'info legend');
 	var labels = []
 	/* Add min & max*/
-	div.innerHTML = '<div><h3 style="font-weight:bolder;font-size:larger;">Preference Scale</h3></div>\
+	div.innerHTML = '<div id="abhinav"><h3 style="font-weight:bolder;font-size:larger;">Preference Scale</h3></div>\
 		<div ><img src="colorscale.png" alt=""></div><div class="labels"><span class="domain-min">Low Pref</span>\
 		<span class="domain-max">High Pref</span></div>'
 	return div
@@ -235,21 +235,21 @@ function toggleSidebar() {
 	if (leftVisible) {
 		sidebar.style.left = "-20%";
 		button.style.left = "0%";
-		button.style.transform = "rotate(180deg)";
+		button.style.transform = "scale(1, 1)";
 		
-		dropdown.style.width = "calc(100% - 10px)";
-		button2.style.width = "calc(100% - 10px)";
-		dropdown.style.left = "10px";
-		button2.style.left = "10px";
+		dropdown.style.width = "calc(100% - 20px)";
+		button2.style.width = "calc(100% - 20px)";
+		dropdown.style.left = "20px";
+		button2.style.left = "20px";
 	} else {
 		sidebar.style.left = "0%";
 		button.style.left = "20%";
-		button.style.transform = "rotate(0deg)";
+		button.style.transform = "scale(-1,1)";
 
 		dropdown.style.width = "80%";
 		button2.style.width = "80%";
-		dropdown.style.left = "calc(20% + 10px)";
-		button2.style.left = "calc(20% + 10px)";
+		dropdown.style.left = "calc(20% + 20px)";
+		button2.style.left = "calc(20% + 20px)";
 	}
 	leftVisible = !leftVisible;
 }
@@ -261,11 +261,11 @@ function toggleDropdown() {
 	if (botVisible) {
 		dropdown.style.bottom = "-25%";
 		button.style.bottom = "0%";
-		button.style.transform = "rotate(0deg)";
+		button.style.transform = "scale(1, 1)";
 	} else {
 		dropdown.style.bottom = "0%";
 		button.style.bottom = "25%";
-		button.style.transform = "rotate(180deg)";
+		button.style.transform = "scale(1,-1)";
 	}
 	botVisible = !botVisible;
 }
