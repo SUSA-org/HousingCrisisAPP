@@ -134,9 +134,12 @@ function handleLayer(layer) {
 	info.update = function (props) {
 		if (props) {
 			for (var i = 0; i < parameters.length; i++) {
+        // console.log(document.getElementById(parameters[i]['id']));
 				if (i == 1) { //rounding for school district score
 					document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']].toFixed(4);
-				} else {
+				} else if (i == 4 || i == 5) {
+          document.getElementById(parameters[i]['id']).innerHTML = "$" + props[parameters[i]['val']];
+        } else {
 					document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']];
 				}
 			}
@@ -229,7 +232,6 @@ function toggleSidebar() {
 	var button2 = document.getElementById("toggleDropdown");
 	if (leftVisible) {
 		sidebar.style.left = "-20%";
-		sidebar.style.display = "none";
 		button.style.left = "0%";
 		button.style.transform = "rotate(0deg)";
 		
@@ -239,7 +241,6 @@ function toggleSidebar() {
 		button2.style.left = "10px";
 	} else {
 		sidebar.style.left = "0%";
-		sidebar.style.display = "block";
 		button.style.left = "20%";
 		button.style.transform = "rotate(180deg)";
 
@@ -256,12 +257,10 @@ function toggleDropdown() {
 	var dropdown = document.getElementById("dropdownWindow");
 	var button = document.getElementById("toggleDropdown");
 	if (botVisible) {
-		dropdown.style.display = "none";
 		dropdown.style.bottom = "-25%";
 		button.style.bottom = "0%";
 		button.style.transform = "rotate(0deg)";
 	} else {
-		dropdown.style.display = "block";
 		dropdown.style.bottom = "0%";
 		button.style.bottom = "25%";
 		button.style.transform = "rotate(180deg)";

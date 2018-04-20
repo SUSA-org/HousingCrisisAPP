@@ -1,3 +1,7 @@
+html, body {
+  overflow: hidden;
+}
+
 #details {
   display: inline;
   text-align: left;
@@ -43,7 +47,6 @@
   top: 0%;
   width: 20%;
   z-index: 2;
-  display: none;
   transition-property: left;
   transition-duration: 1s;
 }
@@ -55,7 +58,7 @@
   width: 10px;
   z-index: 2;
   left: 0%;
-  transition-property: left /*display transform*/;
+  transition-property: left;
   transition-duration: 1s;
 }
 
@@ -80,7 +83,7 @@
   width: calc(100% - 10px);
   min-height: 100px;
   z-index: 2;
-  transition-property: bottom /*left width*/;
+  transition-property: bottom, left, width;
   transition-duration: 1s;
 }
 
@@ -92,7 +95,7 @@
   width: calc(100% - 10px);
   z-index: 2;
   bottom: 0%;
-  transition-property: bottom /*width left transform display*/;
+  transition-property: bottom, width, left;
   transition-duration: 1s;
 }
 
