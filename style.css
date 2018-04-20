@@ -14,6 +14,22 @@
   100% {
     transform: translateY(0); } }
 
+@keyframes bounce_out {
+  0% {
+    transform: translateX(0); }
+  20% {
+    transform: translateX(0); }
+  40% {
+    transform: translateX(20px); }
+  50% {
+    transform: translateX(0); }
+  60% {
+    transform: translateX(10px); }
+  80% {
+    transform: translateX(0); }
+  100% {
+    transform: translateX(0); } }
+
 html, body {
   overflow: hidden;
 }
@@ -53,6 +69,9 @@ html, body {
 }
 .bounce {
   animation: bounce 3s 1.5s infinite;
+}
+.bounce_out {
+  animation: bounce_out 3s 1.5s infinite;
 }
 #map {
   position: fixed;

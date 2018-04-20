@@ -235,7 +235,7 @@ function toggleSidebar() {
 	if (leftVisible) {
 		sidebar.style.left = "-20%";
 		button.style.left = "0%";
-		button.style.transform = "rotate(0deg)";
+		button.style.transform = "rotate(180deg)";
 		
 		dropdown.style.width = "calc(100% - 10px)";
 		button2.style.width = "calc(100% - 10px)";
@@ -244,7 +244,7 @@ function toggleSidebar() {
 	} else {
 		sidebar.style.left = "0%";
 		button.style.left = "20%";
-		button.style.transform = "rotate(180deg)";
+		button.style.transform = "rotate(0deg)";
 
 		dropdown.style.width = "80%";
 		button2.style.width = "80%";
