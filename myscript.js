@@ -148,6 +148,10 @@ function handleLayer(layer) {
 
 //END TopoJSON
 
+L.easyButton('fa-globe', function(){
+    map.setView([37.278,-119.418], 6.4);
+}).addTo(map);
+
 var legend = L.control({ position: 'bottomright' });
 legend.onAdd = function (map) {
 	// KK: We can make this much simpler by portin this to the HTML
