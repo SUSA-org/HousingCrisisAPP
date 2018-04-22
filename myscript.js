@@ -190,7 +190,7 @@ function initMap() {
 function titleOverlay() {
   var geocoder = new google.maps.Geocoder();
   document.getElementById('addressTitle').addEventListener('keydown', function(event) {
-    if (event.which == 13){
+    if (event.which == 13) {
       geocodeTitleOverlayAddress(geocoder, map);
 			document.getElementById("overlay").style.display = "none";
 		}
