@@ -17,8 +17,9 @@
         var parameters = [
             // {"text": "District Name","id": "name","val":"NAME"},
             // {"text": "Custom Index","id": "custom_index","val":"rank"},
-            {"text": "Custom Index", "id": "custom_index", "val":"rank"},
             {"text": "County","id": "county","val":"County"},
+            {"text": "Custom Index (0-10)", "id": "custom_index", "val":"rank"},
+            
             {"text": "Housing Cost","id": "avgmonthlyhouse","val":"h_cost"},
             {"text": "Transportation Cost","id": "transportation","val":"t_cost_80ami"},
             {"text": "Schools Score (0-10)","id": "rank","val":"Rank score (2017)"},
@@ -117,8 +118,8 @@
 					<input id="recalc_map" class="btn btn-outline-secondary recalc-btn" type="button" value="Recalculate Map" onclick="recalculate()">
 				</div>
 				<div class="input-group mb-3">
-					<input id="reset_map" class="btn btn-outline-secondary" type="button" value="Reset Map" onclick="reset()">
-					<input id="clear_map" class="btn btn-outline-secondary" type="button" value="Clear Map and Reset Sliders" onclick="clearmap()">
+					<input id="reset_map" style="color: black;" class="btn btn-outline-secondary" type="button" value="Reset Map" onclick="reset()">
+					<input id="clear_map" style="color: black;" class="btn btn-outline-secondary" type="button" value="Clear Map and Reset Sliders" onclick="clearmap()">
 				</div>
 			</div>
 		</div>
