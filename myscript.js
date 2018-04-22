@@ -227,13 +227,13 @@ function clearmap() {
 
 // Initial Overlay Code:
 function overlayOff() {
-  document.getElementById('addressTitle').addEventListener('keydown', function(event) {
-    geocodeAddress(geocoder, map);
+  document.getElementById('address').addEventListener('keydown', function(event) {
+    //geocodeAddress(geocoder, map);
 			document.getElementById("overlay").style.display = "none";
 		});
 
-	document.getElementById("submitTitle").addEventListener('click', function() {
-    geocodeAddress(geocoder, map);
+	document.getElementById("submit").addEventListener('click', function() {
+    //geocodeAddress(geocoder, map);
 			document.getElementById("overlay").style.display = "none";
 
 		});
