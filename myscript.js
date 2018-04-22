@@ -225,8 +225,18 @@ function clearmap() {
 
 // Initial Overlay Code:
 function overlayOff() {
-	document.getElementById("overlay").style.display = "none";
+  document.getElementById('addressTitle').addEventListener('keydown', function(event) {
+    geocodeAddress(geocoder, map);
+			document.getElementById("overlay").style.display = "none";
+		});
+
+	document.getElementById("submitTitle").addEventListener('click', function() {
+    geocodeAddress(geocoder, map);
+			document.getElementById("overlay").style.display = "none";
+
+		});
 }
+overlayOff();
 
 var leftVisible = false;
 function toggleSidebar() {
