@@ -37,7 +37,7 @@ const colorScale = chroma
 	.domain([0,9]); //need to change to max value of properties later
 
 var baseMaps = {
-	
+
 	};
 
 var overlayMaps = {
@@ -66,9 +66,9 @@ function handleLayer(layer) {
 	// TODO: Fix colors
 	//console.log("SCORES ");
 	// console.log("cost: " + layer.feature.properties.cost + "\nsafety: " + layer.feature.properties.safety + "\n travel: " + layer.feature.properties.travel + "\nschool: " + 	layer.properties.feature.school_system);
-	const colorValue = 	costWeight*layer.feature.properties.cost + 
+	const colorValue = 	costWeight*layer.feature.properties.cost +
 						safetyWeight*layer.feature.properties.safety +
-						travelWeight*layer.feature.properties.travel + 
+						travelWeight*layer.feature.properties.travel +
 						schoolWeight*layer.feature.properties.school_system;
 	const fillColor = colorScale(colorValue).hex();
 	//console.log(colorValue);
@@ -153,6 +153,10 @@ function handleLayer(layer) {
 
 //END TopoJSON
 
+L.easyButton('fa-globe', function(){
+    map.setView([37.278,-119.418], 6.4);
+}).addTo(map);
+
 var legend = L.control({ position: 'bottomright' });
 legend.onAdd = function (map) {
 	// KK: We can make this much simpler by portin this to the HTML
@@ -186,6 +190,22 @@ function initMap() {
 			geocodeAddress(geocoder, map);
 		});
 }
+// Initial Overlay Code:
+function titleOverlay() {
+  var geocoder = new google.maps.Geocoder();
+  document.getElementById('addressTitle').addEventListener('keydown', function(event) {
+    if (event.which == 13){
+      geocodeTitleOverlayAddress(geocoder, map);
+			document.getElementById("overlay").style.display = "none";
+		}
+  });
+
+	document.getElementById("submitTitle").addEventListener('click', function() {
+    geocodeTitleOverlayAddress(geocoder, map);
+			document.getElementById("overlay").style.display = "none";
+
+		});
+}
 
 function geocodeAddress(geocoder, resultsMap) {
 	var addr = document.getElementById('address').value;
@@ -204,8 +224,25 @@ function geocodeAddress(geocoder, resultsMap) {
 					});
 }
 
+function geocodeTitleOverlayAddress(geocoder, resultsMap) {
+	var addr = document.getElementById('addressTitle').value;
+	addr = addr.concat(", CA");
+	geocoder.geocode({address: addr,
+					  componentRestrictions: {
+						country: 'USA',
+					  }
+					 }, function(results, status) {
+						if (status === 'OK') {
+							map.flyTo([results[0].geometry.location.lat(),
+							results[0].geometry.location.lng()], 12);
+						} else {
+							alert('Geocode was not successful for the following reason: ' + status);
+						}
+					});
+}
+
 function reset() {
-	map.setView([37.278,-119.418], 6.4);
+	map.flyTo([37.278,-119.418], 6.4);
 }
 
 //TODO clear map colors and revert to base map
@@ -221,10 +258,7 @@ function clearmap() {
 	recalculate();
 }
 
-// Initial Overlay Code:
-function overlayOff() {
-	document.getElementById("overlay").style.display = "none";
-}
+
 
 var leftVisible = false;
 function toggleSidebar() {
@@ -236,7 +270,7 @@ function toggleSidebar() {
 		sidebar.style.left = "-20%";
 		button.style.left = "0%";
 		button.style.transform = "scale(1, 1)";
-		
+
 		dropdown.style.width = "calc(100% - 20px)";
 		button2.style.width = "calc(100% - 20px)";
 		dropdown.style.left = "20px";
