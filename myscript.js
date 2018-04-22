@@ -153,10 +153,6 @@ function handleLayer(layer) {
 
 //END TopoJSON
 
-L.easyButton('fa-globe', function(){
-    map.setView([37.278,-119.418], 6.4);
-}).addTo(map);
-
 var legend = L.control({ position: 'bottomright' });
 legend.onAdd = function (map) {
 	// KK: We can make this much simpler by portin this to the HTML
@@ -240,6 +236,17 @@ function geocodeTitleOverlayAddress(geocoder, resultsMap) {
 						}
 					});
 }
+//adding reset button
+ResetButton = L.easyButton( {
+  position:'topright',
+  states:[{
+    icon: '<strong>Reset Map</strong>',
+    onClick: function(){
+      reset();
+    }
+  }]
+}).addTo(map);
+ResetButton.button.style.width = '100px';
 
 function reset() {
 	map.flyTo([37.278,-119.418], 6.4);
