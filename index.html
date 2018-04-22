@@ -22,7 +22,7 @@
             // {"text": "Custom Index","id": "custom_index","val":"rank"},
             {"text": "County","id": "county","val":"County"},
             {"text": "Custom Index (0-10)", "id": "custom_index", "val":"rank"},
-            
+
             {"text": "Housing Cost","id": "avgmonthlyhouse","val":"h_cost"},
             {"text": "Transportation Cost","id": "transportation","val":"t_cost_80ami"},
             {"text": "Schools Score (0-10)","id": "rank","val":"Rank score (2017)"},
@@ -50,12 +50,12 @@
 </head>
 
 <body>
-    <div id="overlay" onclick="overlayOff()">
+    <div id="overlay" onclick="titleOverlay()">
         <div class="overlayContent">
             <h1> Visualizing The California Housing Crisis </h1>
             <p>enter a location to start!</p>
-            <h3> <input id="address" type="textbox" class="form-control" value="Berkeley, CA"> </h3>
-            <input id="submit" class="btn btn-outline-secondary" type="button" value="Search" style="color:black">
+            <h3> <input id="addressTitle" type="textbox" class="form-control" value="Berkeley, CA"> </h3>
+            <input id="submitTitle" class="btn btn-outline-secondary" type="button" value="Search" style="color:black">
         </div>
     </div>
 
@@ -79,14 +79,10 @@
         </div>
     </div>
 
-<<<<<<< HEAD
-	<div id="toggleSidebar" onclick="toggleSidebar()">
-		<div class="arrow-left bounce" ></div>
-=======
 	<div id="toggleSidebar" class="slider" onclick="toggleSidebar()">
 		<!-- <div class="arrow-left bounce_out" ></div> -->
 		<div class="arrow-left" ></div>
->>>>>>> c92aaa0ea7453e57050cd54a85c512dbe3f8b298
+
 	</div>
 
     <div id="dropdownWindow" class="slider container">

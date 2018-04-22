@@ -190,6 +190,22 @@ function initMap() {
 			geocodeAddress(geocoder, map);
 		});
 }
+// Initial Overlay Code:
+function titleOverlay() {
+  var geocoder = new google.maps.Geocoder();
+  document.getElementById('addressTitle').addEventListener('keydown', function(event) {
+    if (event.which == 13){
+      geocodeTitleOverlayAddress(geocoder, map);
+			document.getElementById("overlay").style.display = "none";
+		}
+  });
+
+	document.getElementById("submitTitle").addEventListener('click', function() {
+    geocodeTitleOverlayAddress(geocoder, map);
+			document.getElementById("overlay").style.display = "none";
+
+		});
+}
 
 function geocodeAddress(geocoder, resultsMap) {
 	var addr = document.getElementById('address').value;
@@ -208,8 +224,25 @@ function geocodeAddress(geocoder, resultsMap) {
 					});
 }
 
+function geocodeTitleOverlayAddress(geocoder, resultsMap) {
+	var addr = document.getElementById('addressTitle').value;
+	addr = addr.concat(", CA");
+	geocoder.geocode({address: addr,
+					  componentRestrictions: {
+						country: 'USA',
+					  }
+					 }, function(results, status) {
+						if (status === 'OK') {
+							map.flyTo([results[0].geometry.location.lat(),
+							results[0].geometry.location.lng()], 12);
+						} else {
+							alert('Geocode was not successful for the following reason: ' + status);
+						}
+					});
+}
+
 function reset() {
-	map.setView([37.278,-119.418], 6.4);
+	map.flyTo([37.278,-119.418], 6.4);
 }
 
 //TODO clear map colors and revert to base map
@@ -225,20 +258,7 @@ function clearmap() {
 	recalculate();
 }
 
-// Initial Overlay Code:
-function overlayOff() {
-  document.getElementById('address').addEventListener('keydown', function(event) {
-    //geocodeAddress(geocoder, map);
-			document.getElementById("overlay").style.display = "none";
-		});
 
-	document.getElementById("submit").addEventListener('click', function() {
-    //geocodeAddress(geocoder, map);
-			document.getElementById("overlay").style.display = "none";
-
-		});
-}
-overlayOff();
 
 var leftVisible = false;
 function toggleSidebar() {
