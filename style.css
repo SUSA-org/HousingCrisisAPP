@@ -71,11 +71,11 @@ html, body {
 }
 
 .bounce {
-  animation: bounce 3s 1.5s infinite;
+  animation: bounce 3s 1.5s 6s;
 }
 
 .bounce_out {
-  animation: bounce_out 3s 1.5s infinite;
+  animation: bounce_out 3s 1.5s 6s;
 }
 
 #map {

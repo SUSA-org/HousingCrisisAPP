@@ -139,7 +139,7 @@ function handleLayer(layer) {
 					document.getElementById(parameters[i]['id']).innerHTML = (props[parameters[i]['val']]* 10).toFixed(2) ;
 				} else if (i == 2 || i == 3) {
           document.getElementById(parameters[i]['id']).innerHTML = "$" + props[parameters[i]['val']];
-        } else if (i == 0) {
+        } else if (i == 1) {
           document.getElementById(parameters[i]['id']).innerHTML = colorValue.toFixed(2);
         } else {
 					document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']];
