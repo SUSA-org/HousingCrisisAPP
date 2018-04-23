@@ -54,7 +54,7 @@ html, body {
 }
 
 .search-bar {
-  width: 75%;
+  width: 50%;
 }
 
 .user-slider {
@@ -62,10 +62,6 @@ html, body {
   width: 300px;
   background-color: rgba(0,0,0,0);
   border: none;
-  outline:none;
-}
-range:focus {
-  outline: none;
 }
 
 .overlayContent {
@@ -257,11 +253,11 @@ div.info.legend.leaflet-control {
   display: block;
 }
 
-.image {
+.tooltip2 {
   position: relative;
   display: inline-block;
 }
-.image .tooltiptext2 {
+.tooltip2 .tooltiptext2 {
     visibility: hidden;
     width: 200px;
     height: auto;
@@ -281,9 +277,14 @@ div.info.legend.leaflet-control {
     transition: opacity 1s;
 }
 
-.image:hover .tooltiptext2 {
+.tooltip2:hover .tooltiptext2 {
     visibility: visible;
     opacity: 1;
+}
+
+.padding-0{
+    padding-right:0;
+    padding-left:0;
 }
 /*
 .county-name{
