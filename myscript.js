@@ -201,9 +201,9 @@ function titleOverlay() {
     if (event.which == 13) {
       geocodeTitleOverlayAddress(geocoder, map);
 			document.getElementById("overlay").style.display = "none";
+      toggleSidebar();
+      toggleDropdown();
 		}
-    toggleSidebar();
-    toggleDropdown();
   });
 }
 
