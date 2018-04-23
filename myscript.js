@@ -196,15 +196,17 @@ function titleOverlay() {
       geocodeTitleOverlayAddress(geocoder, map);
 			document.getElementById("overlay").style.display = "none";
 		}
+    toggleSidebar();
+    toggleDropdown();
   });
 
 	document.getElementById("submitTitle").addEventListener('click', function() {
     geocodeTitleOverlayAddress(geocoder, map);
 			document.getElementById("overlay").style.display = "none";
 
-		});
-  toggleSidebar();
-  toggleDropdown();
+		toggleSidebar();
+    toggleDropdown();
+    });
 }
 
 function geocodeAddress(geocoder, resultsMap) {
