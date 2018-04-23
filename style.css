@@ -114,13 +114,18 @@ range:focus {
 }
 
 #leftsidebar {
-  left: -400px;
+  left: -420px;
   height: 100%;
   top: 0%;
-  width: 400px;
+  width: 420px;
   transition-property: left;
   background-color: rgba(0,0,0,0.4);
 
+}
+#helpButton {
+  right: -5px;
+  bottom: -5px;
+  z-index: 9;
 }
 .parameter {
   font-size: 20px;
