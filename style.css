@@ -122,10 +122,25 @@ range:focus {
   background-color: rgba(0,0,0,0.4);
 
 }
+#helpOverlay {
+  position: absolute;
+  display: block;
+  /*border: 2px solid white;*/
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 5%;
+  right: 1%;
+  font-size: 18px;
+  font-weight: bolder;
+  font-size: larger;
+  color: black;
+  background: rgba(255,255,255,0);
+  opacity: 0.9;
+  z-index: 5;
+}
 #helpButton {
-  right: -5px;
-  bottom: -5px;
-  z-index: 9;
+  height: 50px;
+  width: 50px;
 }
 .parameter {
   font-size: 20px;
@@ -262,11 +277,11 @@ div.info.legend.leaflet-control {
   display: block;
 }
 
-.image {
+.tooltip2 {
   position: relative;
   display: inline-block;
 }
-.image .tooltiptext2 {
+.tooltip2 .tooltiptext2 {
     visibility: hidden;
     width: 200px;
     height: auto;
@@ -285,8 +300,11 @@ div.info.legend.leaflet-control {
     opacity: 0;
     transition: opacity 1s;
 }
-
-.image:hover .tooltiptext2 {
+.tooltip2 .tooltiptext-left {
+  position: absolute;
+  right: 105%;
+}
+.tooltip2:hover .tooltiptext2 {
     visibility: visible;
     opacity: 1;
 }
