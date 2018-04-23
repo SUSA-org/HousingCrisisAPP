@@ -110,13 +110,33 @@ html, body {
 }
 
 #leftsidebar {
-  left: -400px;
+  left: -420px;
   height: 100%;
   top: 0%;
-  width: 400px;
+  width: 420px;
   transition-property: left;
   background-color: rgba(0,0,0,0.4);
 
+}
+#helpOverlay {
+  position: absolute;
+  display: block;
+  /*border: 2px solid white;*/
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 5%;
+  right: 1%;
+  font-size: 18px;
+  font-weight: bolder;
+  font-size: larger;
+  color: black;
+  background: rgba(255,255,255,0);
+  opacity: 0.9;
+  z-index: 5;
+}
+#helpButton {
+  height: 50px;
+  width: 50px;
 }
 .parameter {
   font-size: 20px;
@@ -275,6 +295,11 @@ div.info.legend.leaflet-control {
     /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
     opacity: 0;
     transition: opacity 1s;
+}
+
+.tooltip2 .tooltiptext-left {
+  position: absolute;
+  right: 105%;
 }
 
 .tooltip2:hover .tooltiptext2 {
