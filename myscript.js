@@ -252,6 +252,15 @@ function reset() {
 	map.flyTo([37.278,-119.418], 6.4);
 }
 
+SearchButton = L.easyButton( {
+  position:'topright',
+  states:[{
+    icon: '<strong>Search Map</strong>',
+    mouseover: function(){this.button.style.width ='200px';}
+  }]
+}).addTo(map);
+SearchButton.button.style.width = '100px';
+
 //TODO clear map colors and revert to base map
 function clearmap() {
 	$('#slideCost').val(5);
