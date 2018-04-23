@@ -55,15 +55,15 @@
         <div class="overlayContent">
             <h1> Visualizing The California Housing Crisis </h1>
             <p>enter a location to start!</p>
-            <h3> <input id="addressTitle" type="textbox" class="form-control" value="Berkeley, CA"> </h3>
-            <input id="submitTitle" class="btn btn-outline-secondary" type="button" value="Search" style="color:black">
+            <h3> <input id="addressTitle" type="textbox" class="form-control search-bar" value="Berkeley, CA"> </h3>
+            <input id="submitTitle" class="btn btn-outline-secondary recalc-btn" type="button" value="Search">
         </div>
     </div>
 
     <div id="map"></div>
 
     <div id="countyOverlay">
-		<h4 > County Name </h4>
+		<h4> County Name </h4>
 		<p id="countyContent"></p>
 	</div>
 
@@ -101,11 +101,11 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" style="width:80px;">Cost of Living</span>
 					</div>
-					<input type="range" min="0" max="10" value="5" class="form-control" id="slideCost" style="height:40px;">
+					<input type="range" min="0" max="10" value="5" class="form-control slider" id="slideCost" style="width: 300px;">
 					<div class="input-group-prepend">
 						<span class="input-group-text" style="width:80px;">Safety</span>
 					</div>
-					<input type="range" min="0" max="10" value="5" class="form-control" id="slideSafety" style="height:40px;">
+					<input type="range" min="0" max="10" value="5" class="form-control slider" id="slideSafety" style="width: 300px;">
 				</div>
 			</div>
 			<div class="col col-sm-4">
@@ -113,11 +113,11 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" style="width:80px;" >Transportation Time</span>
 					</div>
-					<input type="range" min="0" max="10" value="5" class="form-control" id="slideTravel" style="height:40px;">
+					<input type="range" min="0" max="10" value="5" class="form-control slider" id="slideTravel" style="width: 300px;">
 					<div class="input-group-prepend">
 						<span class="input-group-text"  style="width:80px;">School</span>
 					</div>
-					<input type="range" min="0" max="10" value="5" class="form-control" id="slideSchool" style="height:40px;">
+					<input type="range" min="0" max="10" value="5" class="form-control slider" id="slideSchool" style="width: 300px;">
 				</div>
 			</div>
 			<div class="col col-sm-4">

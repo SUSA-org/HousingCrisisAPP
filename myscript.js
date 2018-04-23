@@ -191,6 +191,12 @@ function initMap() {
 // Initial Overlay Code:
 function titleOverlay() {
   var geocoder = new google.maps.Geocoder();
+  document.getElementById("submitTitle").addEventListener('click', function() {
+    geocodeTitleOverlayAddress(geocoder, map);
+    document.getElementById("overlay").style.display = "none";
+    toggleSidebar();
+    toggleDropdown();
+    });
   document.getElementById('addressTitle').addEventListener('keydown', function(event) {
     if (event.which == 13) {
       geocodeTitleOverlayAddress(geocoder, map);
@@ -199,14 +205,6 @@ function titleOverlay() {
     toggleSidebar();
     toggleDropdown();
   });
-
-	document.getElementById("submitTitle").addEventListener('click', function() {
-    geocodeTitleOverlayAddress(geocoder, map);
-			document.getElementById("overlay").style.display = "none";
-
-		toggleSidebar();
-    toggleDropdown();
-    });
 }
 
 function geocodeAddress(geocoder, resultsMap) {

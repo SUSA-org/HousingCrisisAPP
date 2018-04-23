@@ -53,6 +53,15 @@ html, body {
   z-index: 3;
 }
 
+.search-bar {
+  width: 50%;
+}
+
+.slider {
+  height:40px; 
+  width: 300px;
+}
+
 .overlayContent {
   position: absolute;
   top: 25%;
