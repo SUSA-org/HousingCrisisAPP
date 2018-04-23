@@ -35,11 +35,26 @@
             // {"text": "Transit Cost","id": "transit","val":"transit_cost_80ami"},
             // {"text": "Job Access Score (0-10)","id": "access","val":"emp_ovrll_ndx"},
             // {"text": "Annual Miles Traveled","id": "vmt","val":"vmt_per_hh_80ami"}];
+        var dataDict = [
+          'Weights cost, safety, travel, and school categories based on importance from sliders',
+          'Average of median monthly rent costs for both owners and renters, weighted by the ratio of housing units occupied by each group',
+          'Average household transportation cost, based on automobile ownership and use costs as well as public transit use costs',
+          'Average ranking of the schools (elementary through unified) in the county based on California Standardized Testing scores',
+          'Number of homicides, rapes, robberies, aggravated assaults, burglaries, larceny-thefts, and motor vehicle thefts in the county of the tract normalized as a ranking among other counties'
+        ]
         $(document).ready(function () {
             var tablebody = $('#detailsbody');
             for (var i = 0; i < parameters.length; i++) {
-                var th = '<tr><th scope="row" class="text-right">' + parameters[i]['text'] + '</th>'
-                var td = '<td id="' + parameters[i]['id'] + '">...</td></tr>'
+                var th = '<tr><th scope="row" class="text-right parameter">' + parameters[i]['text']
+                if ((0 < i) && (i < 6)){
+                  console.log(parameters[i]['text']);
+                  th = th + ' <div class="image"><img src="imgTooltip.png" height=15 width=15></img>'
+                  th = th + '<span class="tooltiptext2">' + dataDict[i-1] + '</span></div>'
+                }
+                else {
+                  th = th + '</th>'
+                }
+                var td = '<td id="' + parameters[i]['id'] + '" class="parameter">...</td></tr>'
                 tablebody.append(th+td);
             }
         });
@@ -70,7 +85,7 @@
     <div id="leftsidebar" class="slider">
         <div class="panel panel-default">
             <div class="panel-body">
-                <h4> Tract Information: </h4>
+                <h4 class="parameter"> Tract Information: </h4>
                 <table class="table" id="details">
                     <tbody id="detailsbody">
                         <tr></tr>
@@ -101,11 +116,11 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" style="width:80px;">Cost of Living</span>
 					</div>
-					<input type="range" min="0" max="10" value="5" class="form-control slider" id="slideCost" style="width: 300px;">
+					<input type="range" min="0" max="10" value="5" class="form-control slider" id="slideCost" style="width: 300px;" onchange="recalculate()">
 					<div class="input-group-prepend">
 						<span class="input-group-text" style="width:80px;">Safety</span>
 					</div>
-					<input type="range" min="0" max="10" value="5" class="form-control slider" id="slideSafety" style="width: 300px;">
+					<input type="range" min="0" max="10" value="5" class="form-control slider" id="slideSafety" style="width: 300px;" onchange="recalculate()">
 				</div>
 			</div>
 			<div class="col col-sm-4">
@@ -113,19 +128,14 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" style="width:80px;" >Transportation Time</span>
 					</div>
-					<input type="range" min="0" max="10" value="5" class="form-control slider" id="slideTravel" style="width: 300px;">
+					<input type="range" min="0" max="10" value="5" class="form-control slider" id="slideTravel" style="width: 300px;" onchange="recalculate()">
 					<div class="input-group-prepend">
 						<span class="input-group-text"  style="width:80px;">School</span>
 					</div>
-					<input type="range" min="0" max="10" value="5" class="form-control slider" id="slideSchool" style="width: 300px;">
+					<input type="range" min="0" max="10" value="5" class="form-control slider" id="slideSchool" style="width: 300px;" onchange="recalculate()">
 				</div>
 			</div>
 			<div class="col col-sm-4">
-				<div class="input-group mb-3">
-
-					<input id="recalc_map" class="btn btn-outline-secondary recalc-btn" type="button" value="Recalculate Map" onclick="recalculate()">
-
-				</div>
 				<div class="input-group mb-3">
 <!-- 					<input id="reset_map" style="color: black;" class="btn btn-outline-secondary" type="button" value="Reset Map" onclick="reset()"> -->
 					<input id="clear_map" class="btn btn-outline-secondary recalc-btn" type="button" value="Clear Map and Reset Sliders" onclick="clearmap()">

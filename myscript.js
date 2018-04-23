@@ -278,23 +278,23 @@ function toggleSidebar() {
 	var dropdown = document.getElementById("dropdownWindow");
 	var button2 = document.getElementById("toggleDropdown");
 	if (leftVisible) {
-		sidebar.style.left = "-20%";
+		sidebar.style.left = "-400px";
 		button.style.left = "0%";
 		button.style.transform = "scale(1, 1)";
 
 		dropdown.style.width = "calc(100% - 20px)";
 		button2.style.width = "calc(100% - 20px)";
-		dropdown.style.left = "20px";
-		button2.style.left = "20px";
+		dropdown.style.left = "400px";
+		button2.style.left = "400px";
 	} else {
 		sidebar.style.left = "0%";
-		button.style.left = "20%";
+		button.style.left = "400px";
 		button.style.transform = "scale(-1,1)";
 
 		dropdown.style.width = "80%";
 		button2.style.width = "80%";
-		dropdown.style.left = "calc(20% + 20px)";
-		button2.style.left = "calc(20% + 20px)";
+		dropdown.style.left = "calc(400px + 20px)";
+		button2.style.left = "calc(400px + 20px)";
 	}
 	leftVisible = !leftVisible;
 }
