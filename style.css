@@ -57,9 +57,11 @@ html, body {
   width: 75%;
 }
 
-.slider {
+.user-slider {
   height:40px;
   width: 300px;
+  background-color: rgba(0,0,0,0);
+  border: none;
 }
 
 .overlayContent {
@@ -185,7 +187,7 @@ html, body {
 #countyOverlay {
   position: absolute;
   display: block;
-  border: 2px solid #B8B8B8;
+  /*border: 2px solid white;*/
   padding: 5px;
   border-radius: 5px;
   top: 18%;
@@ -193,7 +195,9 @@ html, body {
   font-size: 18px;
   font-weight: bolder;
   font-size: larger;
+  color: black;
   background-color: white;
+  opacity: 0.9;
   z-index: 2;
 }
 
