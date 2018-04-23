@@ -135,12 +135,14 @@ function handleLayer(layer) {
 		if (props) {
 			for (var i = 0; i < parameters.length; i++) {
         // console.log(document.getElementById(parameters[i]['id']));
-				if (i == 4) { //rounding for school district score
-					document.getElementById(parameters[i]['id']).innerHTML = (props[parameters[i]['val']]* 10).toFixed(2) ;
+        if (i == 5) {
+          document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']].toFixed(1);
+        } else if (i == 4) { //rounding for school district score
+					document.getElementById(parameters[i]['id']).innerHTML = (props[parameters[i]['val']]* 10).toFixed(1);
 				} else if (i == 2 || i == 3) {
           document.getElementById(parameters[i]['id']).innerHTML = "$" + props[parameters[i]['val']];
         } else if (i == 1) {
-          document.getElementById(parameters[i]['id']).innerHTML = colorValue.toFixed(2);
+          document.getElementById(parameters[i]['id']).innerHTML = colorValue.toFixed(1);
         } else {
 					document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']];
 				}

@@ -111,7 +111,7 @@ html, body {
 #dropdownWindow {
   left: 20px;
   height: 25%;
-  bottom: -25%;
+  bottom: -25%; 
   width: calc(100% - 20px);
   min-height: 100px;
   transition-property: bottom, left, width;
@@ -174,14 +174,15 @@ html, body {
 #countyOverlay {
   position: absolute;
   display: block;
-  padding:5px;
-  border-radius: 25px;
+  border: 2px solid #B8B8B8;
+  padding: 5px;
+  border-radius: 5px;
   top: 18%;
   right: 1%;
   font-size: 18px;
   font-weight: bolder;
   font-size: larger;
-  background-color: lightblue;
+  background-color: white;
   z-index: 2;
 }
 
