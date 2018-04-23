@@ -203,6 +203,8 @@ function titleOverlay() {
 			document.getElementById("overlay").style.display = "none";
 
 		});
+  toggleSidebar();
+  toggleDropdown();
 }
 
 function geocodeAddress(geocoder, resultsMap) {
