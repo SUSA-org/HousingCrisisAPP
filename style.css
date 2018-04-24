@@ -152,7 +152,7 @@ html, body {
 }
 
 #toggleSidebar {
-  height: calc(75% - 20px);
+  height: calc(100% - 20px);
   width: 20px;
   left: 0%;
   transition-property: top, height, left;
