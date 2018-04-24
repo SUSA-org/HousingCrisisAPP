@@ -53,6 +53,17 @@ html, body {
   z-index: 3;
 }
 
+.search-bar {
+  width: 50%;
+}
+
+.user-slider {
+  height:40px;
+  width: 300px;
+  background-color: rgba(0,0,0,0);
+  border: none;
+}
+
 .overlayContent {
   position: absolute;
   top: 25%;
@@ -99,15 +110,37 @@ html, body {
 }
 
 #leftsidebar {
-  left: -20%;
+  left: -420px;
   height: 100%;
   top: 0%;
-  width: 20%;
+  width: 420px;
   transition-property: left;
   background-color: rgba(0,0,0,0.4);
 
 }
-
+#helpOverlay {
+  position: absolute;
+  display: block;
+  /*border: 2px solid white;*/
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 5%;
+  right: 1%;
+  font-size: 18px;
+  font-weight: bolder;
+  font-size: larger;
+  color: black;
+  background: rgba(255,255,255,0);
+  opacity: 0.9;
+  z-index: 5;
+}
+#helpButton {
+  height: 50px;
+  width: 50px;
+}
+.parameter {
+  font-size: 20px;
+}
 #dropdownWindow {
   left: 20px;
   height: 25%;
@@ -174,14 +207,17 @@ html, body {
 #countyOverlay {
   position: absolute;
   display: block;
-  padding:5px;
-  border-radius: 25px;
+  /*border: 2px solid white;*/
+  padding: 5px;
+  border-radius: 5px;
   top: 18%;
   right: 1%;
   font-size: 18px;
   font-weight: bolder;
   font-size: larger;
-  background-color: lightblue;
+  color: black;
+  background-color: white;
+  opacity: 0.9;
   z-index: 2;
 }
 
@@ -237,6 +273,44 @@ div.info.legend.leaflet-control {
   display: block;
 }
 
+.tooltip2 {
+  position: relative;
+  display: inline-block;
+}
+.tooltip2 .tooltiptext2 {
+    visibility: hidden;
+    width: 200px;
+    height: auto;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 0px 0;
+    position: absolute;
+    z-index: 6;
+    top: -5px;
+    left: 105%;
+    font-size: 15px;
+
+    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip2 .tooltiptext-left {
+  position: absolute;
+  right: 105%;
+}
+
+.tooltip2:hover .tooltiptext2 {
+    visibility: visible;
+    opacity: 1;
+}
+
+.padding-0{
+    padding-right:0;
+    padding-left:0;
+}
 /*
 .county-name{
   position: absolute;

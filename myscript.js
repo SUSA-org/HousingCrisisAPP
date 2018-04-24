@@ -134,13 +134,16 @@ function handleLayer(layer) {
 	info.update = function (props) {
 		if (props) {
 			for (var i = 0; i < parameters.length; i++) {
-        // console.log(document.getElementById(parameters[i]['id']));
-				if (i == 4) { //rounding for school district score
-					document.getElementById(parameters[i]['id']).innerHTML = (props[parameters[i]['val']]* 10).toFixed(2) ;
+        if (i != 1 && !props[parameters[i]['val']]) {
+          document.getElementById(parameters[i]['id']).innerHTML = "N/A";
+        } else if (i == 5) {
+          document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']].toFixed(1);
+        } else if (i == 4) { //rounding for school district score
+					document.getElementById(parameters[i]['id']).innerHTML = (props[parameters[i]['val']]* 10).toFixed(1);
 				} else if (i == 2 || i == 3) {
           document.getElementById(parameters[i]['id']).innerHTML = "$" + props[parameters[i]['val']];
         } else if (i == 1) {
-          document.getElementById(parameters[i]['id']).innerHTML = colorValue.toFixed(2);
+          document.getElementById(parameters[i]['id']).innerHTML = colorValue.toFixed(1);
         } else {
 					document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']];
 				}
@@ -191,15 +194,18 @@ function titleOverlay() {
   var geocoder = new google.maps.Geocoder();
   document.getElementById("submitTitle").addEventListener('click', function() {
     geocodeTitleOverlayAddress(geocoder, map);
-      document.getElementById("overlay").style.display = "none";
-
+    document.getElementById("overlay").style.display = "none";
+    toggleSidebar();
+    toggleDropdown();
+    });
   document.getElementById('addressTitle').addEventListener('keydown', function(event) {
     if (event.which == 13) {
       geocodeTitleOverlayAddress(geocoder, map);
 			document.getElementById("overlay").style.display = "none";
+      toggleSidebar();
+      toggleDropdown();
 		}
   });
-		});
 }
 titleOverlay();
 function geocodeAddress(geocoder, resultsMap) {
@@ -282,23 +288,23 @@ function toggleSidebar() {
 	var dropdown = document.getElementById("dropdownWindow");
 	var button2 = document.getElementById("toggleDropdown");
 	if (leftVisible) {
-		sidebar.style.left = "-20%";
+		sidebar.style.left = "-420px";
 		button.style.left = "0%";
 		button.style.transform = "scale(1, 1)";
 
 		dropdown.style.width = "calc(100% - 20px)";
 		button2.style.width = "calc(100% - 20px)";
-		dropdown.style.left = "20px";
-		button2.style.left = "20px";
+		dropdown.style.left = "420px";
+		button2.style.left = "420px";
 	} else {
 		sidebar.style.left = "0%";
-		button.style.left = "20%";
+		button.style.left = "420px";
 		button.style.transform = "scale(-1,1)";
 
 		dropdown.style.width = "80%";
 		button2.style.width = "80%";
-		dropdown.style.left = "calc(20% + 20px)";
-		button2.style.left = "calc(20% + 20px)";
+		dropdown.style.left = "calc(420px + 20px)";
+		button2.style.left = "calc(420px + 20px)";
 	}
 	leftVisible = !leftVisible;
 }
