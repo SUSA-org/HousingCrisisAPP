@@ -189,20 +189,19 @@ function initMap() {
 // Initial Overlay Code:
 function titleOverlay() {
   var geocoder = new google.maps.Geocoder();
+  document.getElementById("submitTitle").addEventListener('click', function() {
+    geocodeTitleOverlayAddress(geocoder, map);
+      document.getElementById("overlay").style.display = "none";
+
   document.getElementById('addressTitle').addEventListener('keydown', function(event) {
     if (event.which == 13) {
       geocodeTitleOverlayAddress(geocoder, map);
 			document.getElementById("overlay").style.display = "none";
 		}
   });
-
-	document.getElementById("submitTitle").addEventListener('click', function() {
-    geocodeTitleOverlayAddress(geocoder, map);
-			document.getElementById("overlay").style.display = "none";
-
 		});
 }
-
+titleOverlay();
 function geocodeAddress(geocoder, resultsMap) {
 	var addr = document.getElementById('address').value;
 	addr = addr.concat(", CA");
