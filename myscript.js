@@ -283,19 +283,19 @@ function toggleSidebar() {
 		button.style.left = "0%";
 		button.style.transform = "scale(1, 1)";
 
-		dropdown.style.width = "calc(100% - 20px)";
-		button2.style.width = "calc(100% - 20px)";
-		dropdown.style.left = "420px";
-		button2.style.left = "420px";
+		// dropdown.style.width = "calc(100% - 20px)";
+		// button2.style.width = "calc(100% - 20px)";
+		// dropdown.style.left = "420px";
+		// button2.style.left = "420px";
 	} else {
 		sidebar.style.left = "0%";
 		button.style.left = "420px";
 		button.style.transform = "scale(-1,1)";
 
-		dropdown.style.width = "80%";
-		button2.style.width = "80%";
-		dropdown.style.left = "calc(420px + 20px)";
-		button2.style.left = "calc(420px + 20px)";
+		// dropdown.style.width = "80%";
+		// button2.style.width = "80%";
+		// dropdown.style.left = "calc(420px + 20px)";
+		// button2.style.left = "calc(420px + 20px)";
 	}
 	leftVisible = !leftVisible;
 }
@@ -304,14 +304,34 @@ var botVisible = false;
 function toggleDropdown() {
 	var dropdown = document.getElementById("dropdownWindow");
 	var button = document.getElementById("toggleDropdown");
+  var sidebar = document.getElementById("leftsidebar");
+  var button2 = document.getElementById("toggleSidebar");
 	if (botVisible) {
 		dropdown.style.bottom = "-25%";
+    dropdown.style.left = "0px";
+    dropdown.style.width = "100%";
 		button.style.bottom = "0%";
+    button.style.left = "0px";
+    button.style.width = "100%";
 		button.style.transform = "scale(1, 1)";
+
+    sidebar.style.height = "calc(100% - 20px)";
+    button2.style.height = "calc(100% - 20px)";
+    // sidebar.style.transform = "scale(1, 1)";
+    button2.style.transform = "scale(1, 1)";
 	} else {
 		dropdown.style.bottom = "0%";
+    dropdown.style.left = "0px";
+    dropdown.style.width = "100%";
 		button.style.bottom = "25%";
+    button.style.left = "0px";
+    button.style.width = "100%";
 		button.style.transform = "scale(1,-1)";
+
+    sidebar.style.height = "calc(75% - 20px)";
+    button2.style.height = "calc(75% - 20px)";
+    // sidebar.style.transform = "scale(-1, 1)";
+    button2.style.transform = "scale(1, -1)";
 	}
 	botVisible = !botVisible;
 }
