@@ -318,7 +318,7 @@ function toggleDropdown() {
     sidebar.style.height = "calc(100% - 20px)";
     button2.style.height = "calc(100% - 20px)";
     // sidebar.style.transform = "scale(1, 1)";
-    button2.style.transform = "scale(1, -1)";
+    //button2.style.transform = "scale(1, 1)";
 	} else {
 		dropdown.style.bottom = "0%";
     dropdown.style.left = "0px";
@@ -331,7 +331,7 @@ function toggleDropdown() {
     sidebar.style.height = "calc(75% - 20px)";
     button2.style.height = "calc(75% - 20px)";
     // sidebar.style.transform = "scale(-1, 1)";
-    button2.style.transform = "scale(1, 1)";
+    //button2.style.transform = "scale(1, -1)";
 	}
 	botVisible = !botVisible;
 }
