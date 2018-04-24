@@ -282,20 +282,10 @@ function toggleSidebar() {
 		sidebar.style.left = "-420px";
 		button.style.left = "0%";
 		button.style.transform = "scale(1, 1)";
-
-		dropdown.style.width = "calc(100% - 20px)";
-		button2.style.width = "calc(100% - 20px)";
-		dropdown.style.left = "420px";
-		button2.style.left = "420px";
 	} else {
 		sidebar.style.left = "0%";
 		button.style.left = "420px";
 		button.style.transform = "scale(-1,1)";
-
-		dropdown.style.width = "80%";
-		button2.style.width = "80%";
-		dropdown.style.left = "calc(420px + 20px)";
-		button2.style.left = "calc(420px + 20px)";
 	}
 	leftVisible = !leftVisible;
 }
