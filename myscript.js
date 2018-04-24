@@ -178,7 +178,7 @@ function recalculate() {
    topoLayer.eachLayer(handleLayer);
 }
 
-function initMap() {
+function initMap(x,y) {
 	var geocoder = new google.maps.Geocoder();
 	document.getElementById('address').addEventListener('keydown', function(event) {
 			if (event.which == 13)
@@ -207,7 +207,7 @@ function titleOverlay() {
 		}
   });
 }
-titleOverlay();
+
 function geocodeAddress(geocoder, resultsMap) {
 	var addr = document.getElementById('address').value;
 	addr = addr.concat(", CA");

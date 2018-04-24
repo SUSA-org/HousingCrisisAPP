@@ -66,7 +66,7 @@
 </head>
 
 <body>
-    <div id="overlay" onclick="titleOverlay()">
+    <div id="overlay" onmouseover="titleOverlay()">
         <div class="overlayContent">
             <h1> Visualizing The California Housing Crisis </h1>
             <p>Enter a location to start!</p>
@@ -74,7 +74,7 @@
             <!-- <div class="row"> -->
             <span>
                 <!-- col-sm-9  -->
-                <div class="padding-0"><input id="addressTitle" type="textbox" class="form-control search-bar" value="Berkeley, CA"></div>
+                <div class="padding-0"><input id="addressTitle" type="textbox" class="form-control search-bar" value="Berkeley, CA" onclick="titleOverlay"></div>
                 <!-- col-sm-3  -->
                 <div class="padding-0"><input id="submitTitle" class="btn btn-outline-secondary recalc-btn" type="button" value="Search"></div>
             </span>
