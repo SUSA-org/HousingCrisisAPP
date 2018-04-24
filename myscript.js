@@ -134,8 +134,9 @@ function handleLayer(layer) {
 	info.update = function (props) {
 		if (props) {
 			for (var i = 0; i < parameters.length; i++) {
-        // console.log(document.getElementById(parameters[i]['id']));
-        if (i == 5) {
+        if (i != 1 && !props[parameters[i]['val']]) {
+          document.getElementById(parameters[i]['id']).innerHTML = "N/A";
+        } else if (i == 5) {
           document.getElementById(parameters[i]['id']).innerHTML = props[parameters[i]['val']].toFixed(1);
         } else if (i == 4) { //rounding for school district score
 					document.getElementById(parameters[i]['id']).innerHTML = (props[parameters[i]['val']]* 10).toFixed(1);
