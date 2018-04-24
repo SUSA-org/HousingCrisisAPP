@@ -162,7 +162,7 @@ legend.onAdd = function (map) {
 	var div = L.DomUtil.create('div', 'info legend');
 	var labels = []
 	/* Add min & max*/
-	div.innerHTML = '<div id="abhinav"><h3 style="font-weight:bolder;font-size:larger;">Preference Scale</h3></div>\
+	div.innerHTML = '<div id="abhinav"><h3 style="font-weight:bolder;font-size:larger; text-align:center;">Preference Scale</h3></div>\
 		<div ><img src="colorscale.png" alt=""></div><div class="labels"><span class="domain-min">Low Pref</span>\
 		<span class="domain-max">High Pref</span></div>'
 	return div
@@ -318,7 +318,7 @@ function toggleDropdown() {
     sidebar.style.height = "calc(100% - 20px)";
     button2.style.height = "calc(100% - 20px)";
     // sidebar.style.transform = "scale(1, 1)";
-    button2.style.transform = "scale(1, 1)";
+    button2.style.transform = "scale(1, -1)";
 	} else {
 		dropdown.style.bottom = "0%";
     dropdown.style.left = "0px";
@@ -331,7 +331,7 @@ function toggleDropdown() {
     sidebar.style.height = "calc(75% - 20px)";
     button2.style.height = "calc(75% - 20px)";
     // sidebar.style.transform = "scale(-1, 1)";
-    button2.style.transform = "scale(1, -1)";
+    button2.style.transform = "scale(1, 1)";
 	}
 	botVisible = !botVisible;
 }
