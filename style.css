@@ -111,10 +111,10 @@ html, body {
 
 #leftsidebar {
   left: -420px;
-  height: 100%;
+  height: calc(100% - 20px);
   top: 0%;
   width: 420px;
-  transition-property: left;
+  transition-property: top,left,height;
   background-color: rgba(0,0,0,0.4);
 
 }
@@ -142,28 +142,28 @@ html, body {
   font-size: 20px;
 }
 #dropdownWindow {
-  left: 20px;
+  left: 0px/*20px*/;
   height: 25%;
   bottom: -25%;
-  width: calc(100% - 20px);
+  width: 100%/*calc(100% - 20px)*/;
   min-height: 100px;
-  transition-property: bottom, left, width;
+  transition-property: bottom;
   background-color: rgba(0,0,0,0.4);
 }
 
 #toggleSidebar {
-  height: 100%;
+  height: calc(100% - 20px);
   width: 20px;
   left: 0%;
-  transition-property: left;
+  transition-property: top, height, left;
 }
 
 #toggleDropdown {
-  left: 20px;
+  left: 0px/*20px*/;
   height: 20px;
-  width: calc(100% - 20px);
+  width: 100%/*calc(100% - 20px)*/;
   bottom: 0%;
-  transition-property: bottom, width, left;
+  transition-property: bottom;
 }
 
 .arrow-left {
@@ -289,16 +289,16 @@ div.info.legend.leaflet-control {
     position: absolute;
     z-index: 6;
     top: -5px;
-    left: 105%;
     font-size: 15px;
 
     /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
     opacity: 0;
     transition: opacity 1s;
 }
-
-.tooltip2 .tooltiptext-left {
-  position: absolute;
+.tooltiptext-right {
+  left: 105%
+}
+.tooltiptext-left {
   right: 105%;
 }
 
