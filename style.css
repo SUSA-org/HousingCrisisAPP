@@ -206,12 +206,20 @@ html, body {
 .legend{
   width:250px;
 }
-
 #countyOverlay {
-  /*border: 2px solid white;*/
+  /*position: absolute;
+  display: block;
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 5px;
+  top: 18%;
+  right: 1%;*/
+  font-size: 18px;
   font-weight: bolder;
   font-size: larger;
   color: black;
+  /*background-color: white;
+  opacity: 0.9;*/
   z-index: 2;
 }
 

@@ -183,7 +183,7 @@ legend.onAdd = function (map) {
   </br>\
     <div id="countyOverlay">\
     </br>\
-    <h4 style="text-align:center; font-weight:bolder;font-size:larger;"> County Name </h4>\
+    <h4 style="text-align:center; font-weight:bolder;font-size:larger; padding:10px;"> County Name </h4>\
     <p id="countyContent" style="font-size:27px;"></p></div></div>'
 	return div
 }
