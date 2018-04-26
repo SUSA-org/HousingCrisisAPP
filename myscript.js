@@ -156,19 +156,39 @@ function handleLayer(layer) {
 
 //END TopoJSON
 
-var legend = L.control({ position: 'bottomright' });
+//adding reset button
+ResetButton = L.easyButton( {
+  position:'topright',
+  states:[{
+    icon: '<strong>Reset Map</strong>',
+    onClick: function(){
+      reset();
+    }
+  }]
+}).addTo(map);
+ResetButton.button.style.width = '100px';
+
+function reset() {
+	map.flyTo([37.278,-119.418], 6.4);
+}
+var legend = L.control({ position: 'topright' });
 legend.onAdd = function (map) {
 	// KK: We can make this much simpler by portin this to the HTML
 	var div = L.DomUtil.create('div', 'info legend');
 	var labels = []
 	/* Add min & max*/
-	div.innerHTML = '<div id="abhinav"><h3 style="font-weight:bolder;font-size:larger; text-align:center;">Preference Scale</h3></div>\
+	div.innerHTML = '<div id="legend"><h3 style="font-weight:bolder;font-size:larger; text-align:center;">Preference Scale</h3></div>\
 		<div ><img src="colorscale.png" alt=""></div><div class="labels"><span class="domain-min">Low Pref</span>\
-		<span class="domain-max">High Pref</span></div>'
+		<span class="domain-max">High Pref</span>\
+  </br>\
+    <div id="countyOverlay">\
+    </br>\
+    <h4 style="text-align:center; font-weight:bolder;font-size:larger; padding:10px;"> County Name </h4>\
+    <p id="countyContent" style="font-size:27px;"></p></div></div>'
 	return div
 }
 legend.addTo(map);
-
+// legend.style.width = '400px';
 function recalculate() {
    var sum = parseInt($('#slideCost').val()) + parseInt($('#slideSafety').val()) + parseInt($('#slideTravel').val()) + parseInt($('#slideSchool').val());
    costWeight = $('#slideCost').val() / sum;
@@ -178,7 +198,7 @@ function recalculate() {
    topoLayer.eachLayer(handleLayer);
 }
 
-function initMap() {
+function initMap(x,y) {
 	var geocoder = new google.maps.Geocoder();
 	document.getElementById('address').addEventListener('keydown', function(event) {
 			if (event.which == 13)
@@ -241,21 +261,7 @@ function geocodeTitleOverlayAddress(geocoder, resultsMap) {
 						}
 					});
 }
-//adding reset button
-ResetButton = L.easyButton( {
-  position:'topright',
-  states:[{
-    icon: '<strong>Reset Map</strong>',
-    onClick: function(){
-      reset();
-    }
-  }]
-}).addTo(map);
-ResetButton.button.style.width = '100px';
 
-function reset() {
-	map.flyTo([37.278,-119.418], 6.4);
-}
 
 //TODO clear map colors and revert to base map
 function clearmap() {
