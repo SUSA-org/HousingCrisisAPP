@@ -171,7 +171,7 @@ ResetButton.button.style.width = '100px';
 function reset() {
 	map.flyTo([37.278,-119.418], 6.4);
 }
-var legend = L.control({ position: 'topright' });
+var legend = L.control({ position: 'bottomright' });
 legend.onAdd = function (map) {
 	// KK: We can make this much simpler by portin this to the HTML
 	var div = L.DomUtil.create('div', 'info legend');
@@ -180,11 +180,7 @@ legend.onAdd = function (map) {
 	div.innerHTML = '<div id="legend"><h3 style="font-weight:bolder;font-size:larger; text-align:center;">Preference Scale</h3></div>\
 		<div ><img src="colorscale.png" alt=""></div><div class="labels"><span class="domain-min">Low Pref</span>\
 		<span class="domain-max">High Pref</span>\
-  </br>\
-    <div id="countyOverlay">\
-    </br>\
-    <h4 style="text-align:center; font-weight:bolder;font-size:larger; padding:10px;"> County Name </h4>\
-    <p id="countyContent" style="font-size:27px;"></p></div></div>'
+    </div>'
 	return div
 }
 legend.addTo(map);
