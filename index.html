@@ -66,7 +66,7 @@
 </head>
 
 <body>
-    <div id="overlay" onmouseover="titleOverlay()">
+    <div id="overlay" onmouseover="titleOverlay()" onmouseout="removeTitleOverlay">
         <div class="overlayContent">
             <h1> Visualizing The California Housing Crisis </h1>
             <p>Enter a location to start!</p>
@@ -90,7 +90,7 @@
     </div>
 
     <div id="map"></div>
-    
+
     <div id="countyOverlay">
       <h4 style="text-align:center;"> County Name </h4>
       <p id="countyContent" style="font-size:27px;"></p>
