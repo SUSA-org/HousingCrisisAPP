@@ -37,7 +37,6 @@ html, body {
 #details {
   display: inline;
   text-align: left;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #overlay {
@@ -217,7 +216,6 @@ html, body {
   width:250px;
 }
 .table{
-  background-color: rgba(0, 0, 0, 0.5);
 }
 #countyOverlay {
   position: absolute;

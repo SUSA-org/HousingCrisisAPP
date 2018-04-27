@@ -207,8 +207,9 @@ function initMap(x,y) {
 }
 //Initial Overlay Code:
 function titleOverlay() {
-  var geocoder = new google.maps.Geocoder();
+    var geocoder = new google.maps.Geocoder();
   document.getElementById("submitTitle").addEventListener('click', function() {
+    console.log(geocoder);
     geocodeTitleOverlayAddress(geocoder, map);
     document.getElementById("overlay").style.display = "none";
     toggleSidebar();
@@ -222,6 +223,11 @@ function titleOverlay() {
       toggleDropdown();
 		}
   });
+}
+function removeTitleOverlay(){
+    document.getElementById('addressTitle').removeEventListener()
+    document.getElementById('submitTitle').removeEventListener()
+    delete google.maps.Geocoder();
 }
 
 function geocodeAddress(geocoder, resultsMap) {
