@@ -209,7 +209,7 @@ function initMap(x,y) {
 			geocodeAddress(geocoder, map);
 		});
 }
-// Initial Overlay Code:
+//Initial Overlay Code:
 function titleOverlay() {
   var geocoder = new google.maps.Geocoder();
   document.getElementById("submitTitle").addEventListener('click', function() {

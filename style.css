@@ -206,6 +206,7 @@ html, body {
 .legend{
   width:250px;
 }
+
 #countyOverlay {
   /*position: absolute;
   display: block;
@@ -253,11 +254,11 @@ p {
 }
 
 .domain-min {
-  margin-right: 65px;
+  margin-right: 138px;
 }
 
 .domain_max {
-  margin-left: 65px;
+  margin-left: 138px;
 }
 
 
