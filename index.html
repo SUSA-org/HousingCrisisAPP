@@ -57,6 +57,8 @@
                 var td = '<td id="' + parameters[i]['id'] + '" class="parameter">...</td></tr>'
                 tablebody.append(th+td);
             }
+            $('.leaflet-control-zoom').css("margin-right" , "10px");
+            $('.leaflet-control-zoom').css("margin-top" , "60px");
         });
     </script>
 
@@ -120,16 +122,12 @@
 		<div class="arrow-left" ></div>
 
 	</div>
+  <div id="searchbar">
+    <input id="address" type="textbox" class="form-control" value="Berkeley, CA">
+    <input id="submit" class="btn btn-outline-secondary" type="button" value="Search">
+  </div>
 
     <div id="dropdownWindow" class="slider container">
-		<div class="row">
-			<div class="col col-sm-3">
-				<input id="address" type="textbox" class="form-control" value="Berkeley, CA">
-			</div>
-			<div class="col col-sm-1">
-				<input id="submit" class="btn btn-outline-secondary" type="button" value="Search">
-			</div>
-		</div>
         <p style="color:white;">How important is each category to you?</p>
         <!-- </br> -->
 		<div class="row">

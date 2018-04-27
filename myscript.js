@@ -26,7 +26,7 @@ var map = L.map('map', {zoomSnap: 0.1,
                         renderer: L.canvas(),
 						layers: [District]});
 map.zoomControl.setPosition('topright');
-
+//map.zoomControl.style.width = '50px';
 var topoLayer = new L.TopoJSON();
 
 const colorScale = chroma
@@ -167,7 +167,8 @@ ResetButton = L.easyButton( {
   }]
 }).addTo(map);
 ResetButton.button.style.width = '100px';
-
+//ResetButton.button.style.position = 'element(#searchbar)';
+//ResetButton.button.style.transform = 'translateY(-20%)';
 function reset() {
 	map.flyTo([37.278,-119.418], 6.4);
 }
@@ -177,7 +178,7 @@ legend.onAdd = function (map) {
 	var div = L.DomUtil.create('div', 'info legend');
 	var labels = []
 	/* Add min & max*/
-	div.innerHTML = '<div id="legend"><h3 style="font-weight:bolder;font-size:larger; text-align:center;">Preference Scale</h3></div>\
+	div.innerHTML = '<div id="legend" style="z-index:20;"><h3 style="font-weight:bolder;font-size:larger; text-align:center;">Preference Scale</h3></div>\
 		<div ><img src="colorscale.png" alt=""></div><div class="labels"><span class="domain-min">Low Pref</span>\
 		<span class="domain-max">High Pref</span>\
     </div>'

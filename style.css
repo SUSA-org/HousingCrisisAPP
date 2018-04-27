@@ -117,7 +117,35 @@ html, body {
   transition-property: top,left,height;
   background-color: rgba(0,0,0,0.4);
 }
-
+#searchbar {
+  position: absolute;
+  display: block;
+  top: 1%;
+  right: 1%;
+  padding: 5px;
+  width: 300px;
+  border-radius: 5 px;
+  z-index: 2;
+  background-color: white;
+  opacity: 0.9;
+}
+/*
+.leaflet-control-zoom {
+  position: element(#searchbar);
+  transform: translateY(-20%);
+}
+.easy-button-container {
+  position: element(#searchbar);
+  transform: translateY(-25%);
+}*/
+#address {
+  width: 180px;
+  float: left;
+}
+#submit {
+  width: 90px;
+  float: right;
+}
 #helpOverlay {
   display: block;
   /*border: 2px solid white;*/
@@ -131,7 +159,7 @@ html, body {
   font-weight: bolder;
   font-size: larger;
   color: black;
-  background: rgba(255,255,255,0);
+  background-color: white;
   opacity: 0.9;
   z-index: 5;
   float: right;
@@ -214,15 +242,15 @@ html, body {
 }
 .legend{
   width:250px;
+  z-index: 10000;
 }
-
 #countyOverlay {
   position: absolute;
   display: block;
   /*border: 2px solid white;*/
   padding: 5px;
   border-radius: 5px;
-  top: 18%;
+  top: 180px;
   right: 1%;
   font-size: 18px;
   font-weight: bolder;
