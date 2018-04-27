@@ -1,0 +1,268 @@
+html, body {
+  overflow: hidden;
+}
+
+.white {
+  color: white;
+}
+
+#map {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+/* Overlay Stuff */
+#overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  display: block;
+  z-index: 3;
+}
+
+.overlayContent {
+  position: relative;
+  top: 40%;
+  left: 50%;
+  color: white;
+  text-align: center;
+  transform: translate(-50%, -40%);
+}
+
+#submitTitle {
+  color: black;
+}
+
+/* Slider stuff */
+.slider {
+  position: absolute;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 2;
+  transition-duration: 500ms;
+}
+
+.slider:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+#toggleSidebar {
+  height: calc(100% - 20px);
+  width: 20px;
+  left: 0%;
+  transition-property: top, height, left;
+}
+
+#toggleDropdown {
+  left: 0px;
+  height: 20px;
+  width: 100%;
+  bottom: 0%;
+  transition-property: bottom;
+}
+
+/* Left Sidebar */
+#leftsidebar {
+  left: -420px;
+  height: calc(100% - 20px);
+  top: 0%;
+  width: 420px;
+  font-size: 20px;
+  transition-property: top, left, height;
+  background-color: rgba(0,0,0,0.4);
+}
+
+div.panel.panel-default {
+  color: white;
+  border: none;
+  background-color: rgba(0,0,0,0);
+}
+
+#helpOverlay {
+  font-weight: bolder;
+  color: black;
+  opacity: 0.9;
+}
+
+#details {
+  display: inline;
+}
+
+.input-group-text {
+  color: white;
+}
+
+/* Bottom sidebar */
+#dropdownWindow {
+  left: 0px;
+  height: 25%;
+  bottom: -25%;
+  width: 100%;
+  min-height: 100px;
+  transition-property: bottom;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.user-slider {
+  height:40px;
+  width: 300px;
+  background-color: rgba(0,0,0,0);
+  border: none;
+}
+
+/* Other stuff */
+.legend{
+  width: 250px;
+  z-index: 10000;
+}
+
+#countyOverlay {
+  position: absolute;
+  display: block;
+  padding: 5px;
+  border-radius: 5px;
+  top: 180px;
+  right: 1%;
+  font-size: 18px;
+  font-weight: bolder;
+  font-size: larger;
+  color: black;
+  background-color: white;
+  opacity: 0.9;
+  z-index: 2;
+}
+
+.info {
+  padding: 3px 4px;
+  font: 12px/14px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+.info h4 {
+  margin: 0 0 5px;
+  font: 10px/14px Arial, Helvetica, sans-serif;
+}
+
+.input-group {
+  height: 40px;
+  width: auto;
+}
+
+.domain-min {
+  margin-right: 138px;
+}
+
+.domain_max {
+  margin-left: 138px;
+}
+
+/* KILLING LEAFLET STUFF, MAY BREAK FUTURE SHIT */
+
+.leaflet-control-layers {
+  display: none;
+}
+
+div.info.leaflet-control {
+  display: none;
+}
+
+div.info.legend.leaflet-control {
+  display: block;
+}
+
+.tooltip2 {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip2 .tooltiptext2 {
+    visibility: hidden;
+    width: 150px;
+    height: auto;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 0px 0;
+    position: absolute;
+    z-index: 6;
+    top: -5px;
+    font-size: 15px;
+
+    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltiptext-right {
+  left: 105%
+}
+
+.tooltiptext-left {
+  right: 105%;
+}
+
+.tooltip2:hover .tooltiptext2 {
+    visibility: visible;
+    opacity: 1;
+}
+
+#searchbar {
+  position: absolute;
+  display: block;
+  top: 1%;
+  right: 1%;
+  padding: 5px;
+  width: 300px;
+  border-radius: 5 px;
+  z-index: 2;
+  background-color: white;
+  opacity: 0.9;
+}
+
+#address {
+  width: 180px;
+  float: left;
+}
+
+#submit {
+  width: 90px;
+  float: right;
+}
+
+/* CSS Triangles */
+.arrow-left {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  transform: scale(-1, 1);
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+
+  border-right: 20px solid white;
+}
+
+.arrow-bottom {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  transform: scale(1, -1);
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+
+  border-top: 20px solid white;
+}
