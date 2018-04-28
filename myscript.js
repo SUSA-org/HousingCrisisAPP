@@ -195,8 +195,15 @@ function recalculate() {
    topoLayer.eachLayer(handleLayer);
 }
 
-function initMap(x,y) {
-	var geocoder = new google.maps.Geocoder();
+window.onload = function() {
+  x= document.getElementById('address');
+  x.value="Berkeley, CA";
+  x= document.getElementById('addressTitle');
+  x.value="Berkeley, CA";
+};
+
+function initMap() {
+  var geocoder = new google.maps.Geocoder();
 	document.getElementById('address').addEventListener('keydown', function(event) {
 			if (event.which == 13)
 				geocodeAddress(geocoder, map);
@@ -204,24 +211,21 @@ function initMap(x,y) {
 
 	document.getElementById("submit").addEventListener('click', function() {
 			geocodeAddress(geocoder, map);
-		});
-}
-//Initial Overlay Code:
-function titleOverlay() {
-  var geocoder = new google.maps.Geocoder();
-  document.getElementById("submitTitle").addEventListener('click', function() {
-    geocodeTitleOverlayAddress(geocoder, map);
-    document.getElementById("overlay").style.display = "none";
-    toggleSidebar();
-    toggleDropdown();
     });
-  document.getElementById('addressTitle').addEventListener('keydown', function(event) {
-    if (event.which == 13) {
+
+    document.getElementById("submitTitle").addEventListener('click', function() {
       geocodeTitleOverlayAddress(geocoder, map);
-			document.getElementById("overlay").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
       toggleSidebar();
       toggleDropdown();
-		}
+      });
+    document.getElementById('addressTitle').addEventListener('keydown', function(event) {
+      if (event.which == 13) {
+        geocodeTitleOverlayAddress(geocoder, map);
+  			document.getElementById("overlay").style.display = "none";
+        toggleSidebar();
+        toggleDropdown();
+  		}
   });
 }
 
